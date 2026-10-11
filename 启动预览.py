@@ -13,7 +13,7 @@ import http.server, os, socketserver, sys, mimetypes
 
 mimetypes.add_type('application/manifest+json', '.webmanifest')
 mimetypes.add_type('image/webp', '.webp')
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app')
+ROOT = os.path.dirname(os.path.abspath(__file__))
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8080
 
 
