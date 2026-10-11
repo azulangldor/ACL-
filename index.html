@@ -2,6 +2,12 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function () {
+        var b = location.pathname.startsWith("/ACL-") ? "/ACL-/" : "/";
+        document.write('<base href="' + b + '">');
+      })();
+    </script>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
@@ -10,7 +16,6 @@
     <meta name="description" content="RehabGuide（占位描述，待医学内容源替换）" />
     <title>RehabGuide v0.1.0-beta.1</title>
     <style>
-      /* R8-10：首屏骨架屏 shimmer（应用挂载后由 Vue 替换，白屏加载 → 浅蓝扫光） */
       .boot-skeleton { max-width: 430px; margin: 0 auto; padding: 12px 16px; }
       .sk { border-radius: 12px; background: linear-gradient(90deg, #e2e8f0 25%, #f0f9ff 50%, #e2e8f0 75%);
         background-size: 200% 100%; animation: rk-shimmer 1.4s linear infinite; margin-bottom: 12px; }
@@ -20,9 +25,10 @@
       @keyframes rk-shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
       @media (prefers-reduced-motion: reduce) { .sk { animation: none; } }
     </style>
-    <script type="module" crossorigin src="/assets/index-mTmcZTFy.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Bm0yK5RA.css">
-  <link rel="manifest" href="/manifest.webmanifest"></head>
+    <script type="module" crossorigin src="assets/index-mTmcZTFy.js"></script>
+    <link rel="stylesheet" crossorigin href="assets/index-Bm0yK5RA.css">
+    <link rel="manifest" href="manifest.webmanifest">
+  </head>
   <body>
     <div id="app">
       <div class="boot-skeleton" aria-hidden="true">

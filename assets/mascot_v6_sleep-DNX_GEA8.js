@@ -1,1 +1,1 @@
-const s="/assets/mascot_v6_sleep.webp";export{s as _};
+const s=new URL("./mascot_v6_sleep.webp",import.meta.url).href;export{s as _};

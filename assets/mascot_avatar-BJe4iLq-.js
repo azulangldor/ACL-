@@ -1,1 +1,1 @@
-const s="/assets/mascot_avatar.webp";export{s as _};
+const s=new URL("./mascot_avatar.webp",import.meta.url).href;export{s as _};
