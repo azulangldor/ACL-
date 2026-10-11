@@ -1,0 +1,1 @@
+const n={1:{name:"温和活动",sub:"随时可做",tone:"green"},2:{name:"基础训练",sub:"按阶段进行",tone:"lime"},3:{name:"进阶负荷",sub:"建议有指导",tone:"yellow"},4:{name:"高需求",sub:"评估后再做",tone:"orange"},5:{name:"重返运动",sub:"需监督通过",tone:"red"}};function o(e){return n[e]??{name:`GSL ${e}`,sub:"",tone:"green"}}export{o as g};

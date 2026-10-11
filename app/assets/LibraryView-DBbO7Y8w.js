@@ -1,0 +1,1 @@
+import{d as r,ah as i,c as a,i as e,s as n,m as c,ai as m,h as t,W as u,aj as _}from"./index-mTmcZTFy.js";const h=r({__name:"LibraryView",setup(l){const{transitionName:s}=i();return(p,d)=>(a(),e(t(_),null,{default:n(({Component:o})=>[c(u,{name:t(s),mode:"out-in"},{default:n(()=>[(a(),e(m(o)))]),_:2},1032,["name"])]),_:1}))}});export{h as default};

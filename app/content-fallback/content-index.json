@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "version": "2026.10.11.20",
+  "min_app_version": "0.1.0",
+  "updated_at": "2026-10-11",
+  "packages": [
+    {
+      "name": "courses",
+      "version": "2026.10.11.20",
+      "size": 800555,
+      "url": "packages/courses/package.json",
+      "checksum": "sha256:af002ebf7406eb2f88658403e22c01e62b3030379e8aa83bfe7089ec0ab02a4d",
+      "safety_critical": false
+    },
+    {
+      "name": "sek_cards",
+      "version": "2026.10.11.20",
+      "size": 501822,
+      "url": "packages/sek_cards/package.json",
+      "checksum": "sha256:eb7b1a576d20b93d62d819e750b976289db6fe96abe0b6244e84f863456298c7",
+      "safety_critical": false
+    },
+    {
+      "name": "misc_config",
+      "version": "2026.10.11.20",
+      "size": 130719,
+      "url": "packages/misc_config/package.json",
+      "checksum": "sha256:d3f7c0aa70a48e9fa177435921f0984ea6d40236b92a4c41d8fbbc4c1dbed3cc",
+      "safety_critical": false
+    },
+    {
+      "name": "assessments",
+      "version": "2026.10.11.20",
+      "size": 37080,
+      "url": "packages/assessments/package.json",
+      "checksum": "sha256:34764533a57903d1f0171661b07f62dc3a10bebeadb2306570626c5eb41d9467",
+      "safety_critical": false
+    },
+    {
+      "name": "guide",
+      "version": "2026.10.11.20",
+      "size": 15008,
+      "url": "packages/guide/package.json",
+      "checksum": "sha256:9ccc872e8172530ac876503ff6d4d00d80614ef7e1d7008d6f3ba342c9645f14",
+      "safety_critical": false
+    }
+  ],
+  "status": "active",
+  "signature": "OloZZI/JJz7e0JLs7GR0dtIuOPdO0Z/yAQ72d8Fi+UBhzpwmnt+Jtg1K5AYCiVqHbypfnecIx8u8EOYeJGbABw==",
+  "signed_at": "2026-10-11T00:00:00.000Z"
+}

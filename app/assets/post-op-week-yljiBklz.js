@@ -1,0 +1,1 @@
+function o(e,r=new Date){if(!e)return null;const t=new Date(`${e}T00:00:00`);if(Number.isNaN(t.getTime()))return null;const n=Math.floor((r.getTime()-t.getTime())/864e5);return n<0?null:Math.floor(n/7)+1}export{o as p};

@@ -1,0 +1,4 @@
+function f(o){const u=o.split(new RegExp("(?<=[。；！？])","u")).map(n=>n.trim()).filter(Boolean),e=[];let t="";for(const n of u)t&&(t+n).length>110?(e.push(t),t=n):t+=n;return t&&e.push(t),e.length>0?e:[o]}const l=/([。！？])[ \t]+(?=[\u4e00-\u9fff（「《【])/gu,p=/([，、；：）】」』])[ \t]+(?=[\u4e00-\u9fff])/gu;function h(o){return o.replace(l,`$1
+
+`).replace(p,"$1")}const a=/^([①-⑩]|\d+[.、]|[-•])\s*/u,g=/^(?:-{3,}|\*{3,}|_{3,})\s*$/u;function R(o){const u=h(o).split(`
+`).map(s=>s.trim()),e=[];let t=[],n=[];const i=()=>{if(t.length){const s=t.join("");for(const r of f(s))e.push({kind:"para",text:r});t=[]}},c=()=>{n.length&&(e.push({kind:"list",text:"",items:[...n]}),n=[])};for(const s of u){if(!s){i(),c();continue}if(g.test(s)){i(),c();continue}const r=s.match(/^\*\*([^*]+)\*\*$/u);if(r){i(),c(),e.push({kind:"heading",text:r[1].trim()});continue}if(a.test(s)){i(),n.push(s.replace(a,""));continue}c(),t.push(s)}return i(),c(),e}export{h as n,R as p};

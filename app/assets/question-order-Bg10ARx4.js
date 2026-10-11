@@ -1,0 +1,1 @@
+const s=["单选","多选","判断","填空"];function f(t){const o=[...t];for(let n=o.length-1;n>0;n-=1){const r=Math.floor(Math.random()*(n+1));[o[n],o[r]]=[o[r],o[n]]}return o}function u(t,o){const n=[];for(const e of s)n.push(...f(t.filter(c=>o(c)===e)));const r=new Set(s);return n.push(...t.filter(e=>!r.has(o(e)))),n}export{u as o};
