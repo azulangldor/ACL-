@@ -1,1 +1,1 @@
-const s=new URL("./assets_run_sketch.webp",import.meta.url).href;export{s as _};
+assets_run_sketch-CT5p6QFD.js

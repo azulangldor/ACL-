@@ -1,1 +1,0 @@
-import{A as t,z as i,G as o}from"./index-mTmcZTFy.js";function y(a,e,f){const u=t(),r=i();let s=!1;o(a,l=>{l?u.query.modal!==e&&(s=!0,r.push({query:{...u.query,modal:e}})):s&&u.query.modal===e&&(s=!1,r.back())}),o(()=>u.query.modal,l=>{!a.value||l===e||(s=!1,f.closable?a.value=!1:(s=!0,r.push({query:{...u.query,modal:e}})))})}export{y as u};

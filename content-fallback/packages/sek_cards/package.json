@@ -1,31 +1,9 @@
 {
   "schema_version": 1,
   "pack_name": "sek_cards",
-  "version": "2026.10.11.20",
-  "generated_at": "2026-10-11T00:00:00.000Z",
+  "version": "2026.10.13.21",
+  "generated_at": "2026-10-13T00:00:00.000Z",
   "data": {
-    "_doc": "sek_cards 内容包源（M2 入库）。全部内容逐字搬运自锁定文档（附录_动作卡片库.md / 卷五 附录A-4 / 卷九 样板卡 / 卷七 深化池），由 scripts/extract + scripts/build-sek-package.mjs 生成；零创作零改写。主卡片零剂量（DR-01 机检）；reference_practice.dosage/breathing 为全产品唯一允许剂量字段。",
-    "path_limits_schema": {
-      "_doc": "R34-i：路径差异化筛选可选字段结构（本批空表入库——受限卡清单由开发侧从 116 卡 path_notes 提取候选 + 设计侧整理 + 医学审定后随内容批填入，凭据 diff=0 同轨另行下发）。卡片可选字段 path_limits: { “B1”|“B2”|“B3”: { locked_until_phase: “Pn”(P1-P6), note: “…” } }；仅 B1/B2/B3 三键；locked_until_phase 合法阶段键；note 走既有文案机检域（PL-01）。",
-      "allowed_keys": [
-        "B1",
-        "B2",
-        "B3"
-      ],
-      "phase_keys": [
-        "Prehab",
-        "P1",
-        "P2",
-        "P3",
-        "P4",
-        "P5",
-        "P6"
-      ],
-      "field": {
-        "locked_until_phase": "Pn",
-        "note": "string"
-      }
-    },
     "cards": [
       {
         "card_id": "AC-P1-001",
@@ -1511,15 +1489,18 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P3",
-            "note": "需治疗师确认后解锁 · 到 P3 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P3 阶段自动解锁",
+            "locked_until_week": 8
           },
           "B2": {
             "locked_until_phase": "P3",
-            "note": "需治疗师确认后解锁 · 到 P3 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P3 阶段自动解锁",
+            "locked_until_week": 9
           },
           "B3": {
             "locked_until_phase": "P3",
-            "note": "需治疗师确认后解锁 · 到 P3 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P3 阶段自动解锁",
+            "locked_until_week": 10
           }
         },
         "dose_short": "轻负荷 12 次 × 3 组"
@@ -1819,11 +1800,13 @@
         "path_limits": {
           "B2": {
             "locked_until_phase": "P3",
-            "note": "需治疗师确认后解锁 · 到 P3 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P3 阶段自动解锁",
+            "locked_until_week": 9
           },
           "B3": {
             "locked_until_phase": "P3",
-            "note": "需治疗师确认后解锁 · 到 P3 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P3 阶段自动解锁",
+            "locked_until_week": 10
           }
         },
         "dose_short": "每侧 5-10 秒 × 3-5 次 · 1-2 组/天"
@@ -1946,6 +1929,18 @@
           "state": "pending",
           "note": ""
         },
+        "path_limits": {
+          "B2": {
+            "locked_until_phase": "P3",
+            "note": "需治疗师确认后解锁 · 到 P3 阶段自动解锁",
+            "locked_until_week": 9
+          },
+          "B3": {
+            "locked_until_phase": "P3",
+            "note": "需治疗师确认后解锁 · 到 P3 阶段自动解锁",
+            "locked_until_week": 10
+          }
+        },
         "dose_short": "30 秒 × 3 组"
       },
       {
@@ -2007,6 +2002,18 @@
           "state": "pending",
           "note": ""
         },
+        "path_limits": {
+          "B2": {
+            "locked_until_phase": "P3",
+            "note": "需治疗师确认后解锁 · 到 P3 阶段自动解锁",
+            "locked_until_week": 9
+          },
+          "B3": {
+            "locked_until_phase": "P3",
+            "note": "需治疗师确认后解锁 · 到 P3 阶段自动解锁",
+            "locked_until_week": 10
+          }
+        },
         "dose_short": "20 米 × 3 组"
       },
       {
@@ -2067,6 +2074,18 @@
         "video_links": {
           "state": "pending",
           "note": ""
+        },
+        "path_limits": {
+          "B2": {
+            "locked_until_phase": "P3",
+            "note": "需治疗师确认后解锁 · 到 P3 阶段自动解锁",
+            "locked_until_week": 9
+          },
+          "B3": {
+            "locked_until_phase": "P3",
+            "note": "需治疗师确认后解锁 · 到 P3 阶段自动解锁",
+            "locked_until_week": 10
+          }
         },
         "dose_short": "20 米 × 3 组"
       },
@@ -2424,7 +2443,18 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P4",
-            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁",
+            "locked_until_week": 14
+          },
+          "B2": {
+            "locked_until_phase": "P4",
+            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁",
+            "locked_until_week": 15
+          },
+          "B3": {
+            "locked_until_phase": "P4",
+            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁",
+            "locked_until_week": 16
           }
         },
         "dose_short": "引入期 8-10 次 × 4 组"
@@ -3132,7 +3162,18 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P4",
-            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁",
+            "locked_until_week": 14
+          },
+          "B2": {
+            "locked_until_phase": "P4",
+            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁",
+            "locked_until_week": 15
+          },
+          "B3": {
+            "locked_until_phase": "P4",
+            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁",
+            "locked_until_week": 16
           }
         },
         "dose_short": "辅助/自重 8-10 次 × 3 组"
@@ -3711,7 +3752,18 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P4",
-            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁",
+            "locked_until_week": 14
+          },
+          "B2": {
+            "locked_until_phase": "P4",
+            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁",
+            "locked_until_week": 15
+          },
+          "B3": {
+            "locked_until_phase": "P4",
+            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁",
+            "locked_until_week": 16
           }
         },
         "dose_short": "每侧 6-8 次 × 2-3 组"
@@ -3748,7 +3800,7 @@
           "contraindications": "准入评估（增强式准入）未通过不做；任何膝部疼痛、不稳感出现即停并告知治疗师。"
         },
         "path_notes": {},
-        "alt": "跳绳（AC-P3-029），节奏连续的进阶版本。",
+        "alt": "台阶上步进阶（AC-P3-005）作为本族受限期入口档；跳绳（AC-P3-029），节奏连续的进阶版本。",
         "extended_reading": "关联课程 P4-01（想跑步，先了解这些）、P4-02（跑步进阶与增强式训练基础）。",
         "related_courses": [
           "P4-01",
@@ -3775,7 +3827,18 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P4",
-            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁",
+            "locked_until_week": 14
+          },
+          "B2": {
+            "locked_until_phase": "P4",
+            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁",
+            "locked_until_week": 15
+          },
+          "B3": {
+            "locked_until_phase": "P4",
+            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁",
+            "locked_until_week": 16
           }
         },
         "dose_short": "10-15 次 × 2-3 组"
@@ -3842,7 +3905,18 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P4",
-            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁",
+            "locked_until_week": 14
+          },
+          "B2": {
+            "locked_until_phase": "P5",
+            "note": "需治疗师确认后解锁 · 到 P5 阶段自动解锁",
+            "locked_until_week": 29
+          },
+          "B3": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 43
           }
         },
         "dose_short": "低台阶约 10cm · 6 次 × 3 组"
@@ -3884,7 +3958,7 @@
           "B2": "医嘱。",
           "B3": "医嘱；本阶段通常禁止。"
         },
-        "alt": "原地小弹跳准备（AC-P3-026）。",
+        "alt": "台阶上步进阶（AC-P3-005）作为本族受限期入口档；原地小弹跳准备（AC-P3-026）。",
         "extended_reading": "关联课程 P4-03（落地技术）。",
         "related_courses": [],
         "reference_practice": {
@@ -3909,7 +3983,18 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P4",
-            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁",
+            "locked_until_week": 14
+          },
+          "B2": {
+            "locked_until_phase": "P5",
+            "note": "需治疗师确认后解锁 · 到 P5 阶段自动解锁",
+            "locked_until_week": 29
+          },
+          "B3": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 43
           }
         },
         "dose_short": "低箱约 10-15cm · 6 次 × 3 组"
@@ -3951,7 +4036,7 @@
           "B2": "医嘱。",
           "B3": "医嘱；本阶段通常禁止。"
         },
-        "alt": "原地小弹跳准备（AC-P3-026）。",
+        "alt": "台阶上步进阶（AC-P3-005）作为本族受限期入口档；原地小弹跳准备（AC-P3-026）。",
         "extended_reading": "关联课程 P4-03（落地技术）。",
         "related_courses": [],
         "reference_practice": {
@@ -3976,7 +4061,18 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P4",
-            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P4 阶段自动解锁",
+            "locked_until_week": 14
+          },
+          "B2": {
+            "locked_until_phase": "P5",
+            "note": "需治疗师确认后解锁 · 到 P5 阶段自动解锁",
+            "locked_until_week": 29
+          },
+          "B3": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 43
           }
         },
         "dose_short": "双足 30 秒 × 3 组起"
@@ -4096,6 +4192,250 @@
         "dose_short": "15-20 分钟起 · 每周 2-3 次"
       },
       {
+        "card_id": "AC-P3-032",
+        "name": "蹲跳（低幅）",
+        "category": "增强式",
+        "gsl": 4,
+        "phase": "P3",
+        "paths": "Phase 3（准入评估后）",
+        "prehab": false,
+        "required_phases": [],
+        "confirm_required": true,
+        "applicable_paths": {
+          "paths": [
+            "A",
+            "B1"
+          ],
+          "notes": {
+            "B2": "医嘱",
+            "B3": "医嘱"
+          },
+          "card_note": null
+        },
+        "main": {
+          "key_points": [
+            "双脚与髋同宽站稳，先下蹲再发力向上跳",
+            "起跳时髋、膝、踝一起伸展，手臂自然上摆带起",
+            "落地时前脚掌先着地，膝盖微屈缓冲，落回原位置",
+            "跳的高度只要「离开地面一点」，不追求跳高"
+          ],
+          "common_mistakes": "①蹲得太深、膝盖内扣；②落地时膝盖僵直、足跟砸地；③疲劳后动作变形还继续。",
+          "contraindications": "未通过增强式准入评估、膝痛或肿胀波动、跳跃时明显不稳时禁止。"
+        },
+        "path_notes": {
+          "A": "术后 10-12 周、满足增强式准入后引入，作为双腿垂直弹跳的第一课。",
+          "B1": "延迟至术后 14 周以后。",
+          "B2": "医嘱。",
+          "B3": "医嘱；本阶段通常禁止。"
+        },
+        "alt": "原地小弹跳准备（AC-P3-026）作为更轻的入口；进阶方向为双足跳箱（低箱，AC-P3-028）。",
+        "extended_reading": "关联课程 P4-03（落地技术）。",
+        "related_courses": [],
+        "reference_practice": {
+          "declaration": "这只是康复教育里常见的参考做法，每个人情况差异很大，必须让你的治疗师确认后再执行。本 App 不会根据你的个人情况推荐具体剂量。",
+          "occasion": "术后 10-12 周（路径 A）通过增强式准入后引入，练双腿垂直方向的快速发力与落地控制。",
+          "posture": "平整、有轻微弹性的地面，穿缓震运动鞋；旁边有扶手或墙面可随时扶一下。",
+          "steps": "双脚与髋同宽站立，屈髋屈膝下蹲到舒服的深度，手臂后摆；随即髋膝踝同时伸展向上跳起，手臂上摆；前脚掌着地、膝盖弯曲把落地的力缓冲掉，站稳后再做下一次。",
+          "dosage": "常见的参考做法是**每组 5 次 × 3 组**，组间歇 60 秒左右；先保证每次落地都稳，再谈次数。（B级）",
+          "breathing": "下蹲时吸气，起跳时呼气，别憋气。",
+          "common_mistakes": "①跳得过高导致落地控制不住；②落地膝盖内扣；③足跟先着地。",
+          "progression": "熟练后可增加每组次数、缩短组间歇，或改为连续蹲跳；以你的治疗师评估为准。",
+          "caution": "落地时出现膝痛、打软腿或次日肿胀加重，立即停止并告诉治疗师。"
+        },
+        "reference_citations": [
+          "Myer GD, Paterno MV, Ford KR, et al. (2006). Rehabilitation after anterior cruciate ligament reconstruction: criteria-based progression through the return-to-sport phase. *Journal of Strength and Conditioning Research*, 20(2):399-411. ——增强式标准进阶框架（支撑适用时机与落地控制要点，B级）",
+          "Kotsifaki R, Korakakis V, King E, et al. (2023). Aspetar clinical practice guideline on rehabilitation after anterior cruciate ligament reconstruction. *British Journal of Sports Medicine*, 57(9):500-514. ——指南增强式准入与渐进原则（支撑准入口径，B级）"
+        ],
+        "video_links": {
+          "state": "pending",
+          "note": ""
+        },
+        "dose_short": "每组 5 次 × 3 组"
+      },
+      {
+        "card_id": "AC-P3-033",
+        "name": "迷你弹跳（连续小幅）",
+        "category": "增强式",
+        "gsl": 4,
+        "phase": "P3",
+        "paths": "Phase 3（准入评估后）",
+        "prehab": false,
+        "required_phases": [],
+        "confirm_required": true,
+        "applicable_paths": {
+          "paths": [
+            "A",
+            "B1"
+          ],
+          "notes": {
+            "B2": "医嘱",
+            "B3": "医嘱"
+          },
+          "card_note": null
+        },
+        "main": {
+          "key_points": [
+            "只用脚踝发力，膝盖保持几乎不动",
+            "离地高度极小，像原地「弹」起来",
+            "落地即起、节奏均匀，不憋劲",
+            "重心始终在脚掌中间，不要前后晃"
+          ],
+          "common_mistakes": "①越跳越高变成蹲跳；②落地时膝盖大幅弯曲卸力；③节奏乱了还硬撑。",
+          "contraindications": "未通过增强式准入评估、跟腱或足底疼痛、踝关节不稳时禁止。"
+        },
+        "path_notes": {
+          "A": "术后 10-12 周、满足增强式准入后引入，用于建立踝关节刚性与连续触地节奏。",
+          "B1": "延迟至术后 14 周以后。",
+          "B2": "医嘱。",
+          "B3": "医嘱；本阶段通常禁止。"
+        },
+        "alt": "原地小弹跳准备（AC-P3-026）作为更轻的入口；进阶方向为跳绳（AC-P3-029）。",
+        "extended_reading": "关联课程 P4-03（落地技术）。",
+        "related_courses": [],
+        "reference_practice": {
+          "declaration": "这只是康复教育里常见的参考做法，每个人情况差异很大，必须让你的治疗师确认后再执行。本 App 不会根据你的个人情况推荐具体剂量。",
+          "occasion": "术后 10-12 周（路径 A）通过增强式准入后引入，练连续小幅弹跳的节奏与踝关节刚性。",
+          "posture": "平整硬实的地面，穿缓震运动鞋；靠近墙面或扶手，随时可扶。",
+          "steps": "双脚并拢站立，膝盖保持微屈且角度基本不变；靠脚踝快速下压把自己弹离地面几厘米，落地后立刻再次弹起，保持均匀节奏；整个动作听上去是连续的轻响。",
+          "dosage": "常见的参考做法是**连续 15 秒 × 3 组**，组间歇 60 秒；先求节奏稳、落地轻。（B级）",
+          "breathing": "保持自然均匀呼吸，不要憋气。",
+          "common_mistakes": "①靠屈膝发力变成蹲跳；②落地沉重有声；③身体前后晃。",
+          "progression": "可延长到 30 秒、增加组数，或过渡到跳绳；以你的治疗师评估为准。",
+          "caution": "踝、跟腱或足底出现疼痛立即停止；第二天肿胀加重则减量并告诉治疗师。"
+        },
+        "reference_citations": [
+          "Myer GD, Paterno MV, Ford KR, et al. (2006). Rehabilitation after anterior cruciate ligament reconstruction: criteria-based progression through the return-to-sport phase. *Journal of Strength and Conditioning Research*, 20(2):399-411. ——增强式标准进阶框架（支撑弹跳节奏与刚性训练要点，B级）",
+          "Kotsifaki R, Korakakis V, King E, et al. (2023). Aspetar clinical practice guideline on rehabilitation after anterior cruciate ligament reconstruction. *British Journal of Sports Medicine*, 57(9):500-514. ——指南增强式准入与渐进原则（支撑准入口径，B级）"
+        ],
+        "video_links": {
+          "state": "pending",
+          "note": ""
+        },
+        "dose_short": "连续 15 秒 × 3 组"
+      },
+      {
+        "card_id": "AC-P3-034",
+        "name": "落地定格（双脚）",
+        "category": "动作模式",
+        "gsl": 4,
+        "phase": "P3",
+        "paths": "Phase 3（准入评估后）",
+        "prehab": false,
+        "required_phases": [],
+        "confirm_required": true,
+        "applicable_paths": {
+          "paths": [
+            "A",
+            "B1"
+          ],
+          "notes": {
+            "B2": "医嘱",
+            "B3": "医嘱"
+          },
+          "card_note": null
+        },
+        "main": {
+          "key_points": [
+            "从很低的位置跳下或原地轻跳，落地后**停住不动**",
+            "落地时前脚掌先着地，膝盖对着脚尖方向弯曲",
+            "定住 2-3 秒，身体不晃、膝盖不内扣",
+            "两边落地感觉要对称，不偏一边"
+          ],
+          "common_mistakes": "①落地后接连跳下一次、没有真正「定住」；②膝盖内扣；③身体明显偏向一侧。",
+          "contraindications": "未通过增强式准入评估、膝痛肿胀波动、单腿或双腿落地时明显不稳时禁止。"
+        },
+        "path_notes": {
+          "A": "术后 10-12 周、满足增强式准入后引入，作为所有跳跃动作的落地质量前置项。",
+          "B1": "延迟至术后 14 周以后。",
+          "B2": "医嘱。",
+          "B3": "医嘱；本阶段通常禁止。"
+        },
+        "alt": "扶持站立平衡（AC-P1-014）作为更轻的入口；进阶方向为落地缓冲训练（AC-P4-002）。",
+        "extended_reading": "关联课程 P4-03（落地技术）。",
+        "related_courses": [],
+        "reference_practice": {
+          "declaration": "这只是康复教育里常见的参考做法，每个人情况差异很大，必须让你的治疗师确认后再执行。本 App 不会根据你的个人情况推荐具体剂量。",
+          "occasion": "术后 10-12 周（路径 A）通过增强式准入后引入；练的是「落地后能停住」这项能力，是后续所有跳跃动作的前置。",
+          "posture": "平整、有轻微弹性的地面，穿缓震运动鞋；面前可放一面镜子观察膝盖方向。",
+          "steps": "双脚与髋同宽站立，轻轻向上跳起（或从一级很低的台阶迈下），用前脚掌先着地、膝盖自然弯曲缓冲；着地后立刻停住，保持 2-3 秒不动，确认身体不晃、膝盖没有内扣，再放松站直。",
+          "dosage": "常见的参考做法是**每组 5 次 × 3 组**，每次定格 2-3 秒；宁可跳得低，也要每次都定得住。（B级）",
+          "breathing": "落地定格的几秒里保持平稳呼吸，不要憋气。",
+          "common_mistakes": "①没有真正停住就接下一次；②膝盖内扣或过度晃动；③两侧落地感觉明显不对称。",
+          "progression": "逐渐增加跳下高度或改为单腿落地；以你的治疗师评估为准。",
+          "caution": "落地时膝盖打软、明显疼痛或定不住，立即停止并告诉治疗师。"
+        },
+        "reference_citations": [
+          "Myer GD, Paterno MV, Ford KR, et al. (2006). Rehabilitation after anterior cruciate ligament reconstruction: criteria-based progression through the return-to-sport phase. *Journal of Strength and Conditioning Research*, 20(2):399-411. ——增强式标准进阶框架（支撑落地质量控制要点，B级）",
+          "Kotsifaki R, Korakakis V, King E, et al. (2023). Aspetar clinical practice guideline on rehabilitation after anterior cruciate ligament reconstruction. *British Journal of Sports Medicine*, 57(9):500-514. ——指南增强式准入与渐进原则（支撑准入口径，B级）"
+        ],
+        "video_links": {
+          "state": "pending",
+          "note": ""
+        },
+        "dose_short": "每组 5 次 × 3 组（每次定格 2-3 秒）"
+      },
+      {
+        "card_id": "AC-P3-035",
+        "name": "侧向小跳（低幅）",
+        "category": "增强式",
+        "gsl": 4,
+        "phase": "P3",
+        "paths": "Phase 3（准入评估后）",
+        "prehab": false,
+        "required_phases": [],
+        "confirm_required": true,
+        "applicable_paths": {
+          "paths": [
+            "A",
+            "B1"
+          ],
+          "notes": {
+            "B2": "医嘱",
+            "B3": "医嘱"
+          },
+          "card_note": null
+        },
+        "main": {
+          "key_points": [
+            "双脚并拢向侧方轻跳一小步，再跳回来",
+            "落地时支撑腿的膝盖对着脚尖，不内扣",
+            "幅度只要「离开原位置一点」，先求稳再求远",
+            "落地后能短暂停住，再跳回去"
+          ],
+          "common_mistakes": "①越跳越远、落地收不住；②落地膝盖内扣或身体向一侧倒；③全程只敢用健侧发力。",
+          "contraindications": "未通过增强式准入评估、膝痛肿胀波动、侧向落地时明显不稳或打软时禁止。"
+        },
+        "path_notes": {
+          "A": "术后 10-12 周、满足增强式准入后引入，作为侧向发力的第一课。",
+          "B1": "延迟至术后 14 周以后。",
+          "B2": "医嘱。",
+          "B3": "医嘱；本阶段通常禁止。"
+        },
+        "alt": "重心转移（AC-P1-008）作为更轻的入口；进阶方向为侧向双足跳（AC-P4-008）。",
+        "extended_reading": "关联课程 P5-03（变向与急停安全）。",
+        "related_courses": [],
+        "reference_practice": {
+          "declaration": "这只是康复教育里常见的参考做法，每个人情况差异很大，必须让你的治疗师确认后再执行。本 App 不会根据你的个人情况推荐具体剂量。",
+          "occasion": "术后 10-12 周（路径 A）通过增强式准入后引入，练侧向发力与侧向落地控制，为后续变向动作打底。",
+          "posture": "平整、有轻微弹性的地面，穿缓震运动鞋；前方留出足够的侧向空间。",
+          "steps": "双脚并拢站立，微微屈膝；用双脚同时向侧方轻跳一小步，落地时前脚掌先着地、膝盖对脚尖方向弯曲缓冲，停住；再用同样方式跳回起点。左右两个方向都要做。",
+          "dosage": "常见的参考做法是**每侧 5 次 × 3 组**（跳出去再跳回来算 1 次）；先保证每次落地都稳。（B级）",
+          "breathing": "起跳时呼气，落地时保持平稳呼吸，不要憋气。",
+          "common_mistakes": "①幅度过大收不住；②落地膝盖内扣；③身体重心一直偏向健侧。",
+          "progression": "可逐步增加侧向距离或改为单腿落地；以你的治疗师评估为准。",
+          "caution": "侧向落地时膝痛、打软或次日肿胀加重，立即停止并告诉治疗师。"
+        },
+        "reference_citations": [
+          "Myer GD, Paterno MV, Ford KR, et al. (2006). Rehabilitation after anterior cruciate ligament reconstruction: criteria-based progression through the return-to-sport phase. *Journal of Strength and Conditioning Research*, 20(2):399-411. ——增强式标准进阶框架（支撑侧向弹跳与落地控制要点，B级）",
+          "Kotsifaki R, Korakakis V, King E, et al. (2023). Aspetar clinical practice guideline on rehabilitation after anterior cruciate ligament reconstruction. *British Journal of Sports Medicine*, 57(9):500-514. ——指南增强式准入与渐进原则（支撑准入口径，B级）"
+        ],
+        "video_links": {
+          "state": "pending",
+          "note": ""
+        },
+        "dose_short": "每侧 5 次 × 3 组"
+      },
+      {
         "card_id": "AC-P4-001",
         "name": "直线慢跑（跑走结合→持续慢跑）",
         "category": "跑步",
@@ -4155,6 +4495,18 @@
         "video_links": {
           "state": "pending",
           "note": ""
+        },
+        "path_limits": {
+          "B2": {
+            "locked_until_phase": "P5",
+            "note": "需治疗师确认后解锁 · 到 P5 阶段自动解锁",
+            "locked_until_week": 29
+          },
+          "B3": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 43
+          }
         },
         "dose_short": "第 1-2 周 · 慢跑/快走交替 5-10 分钟"
       },
@@ -4342,7 +4694,18 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P5",
-            "note": "需治疗师确认后解锁 · 到 P5 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P5 阶段自动解锁",
+            "locked_until_week": 28
+          },
+          "B2": {
+            "locked_until_phase": "P5",
+            "note": "需治疗师确认后解锁 · 到 P5 阶段自动解锁",
+            "locked_until_week": 29
+          },
+          "B3": {
+            "locked_until_phase": "P5",
+            "note": "需治疗师确认后解锁 · 到 P5 阶段自动解锁",
+            "locked_until_week": 30
           }
         },
         "dose_short": "每种步法 2-3 趟 × 2-3 组"
@@ -4442,7 +4805,7 @@
           "B2": "医嘱。",
           "B3": "医嘱；通常须更晚并评估通过。"
         },
-        "alt": "双足跳箱（低箱，AC-P3-028）。",
+        "alt": "台阶上步进阶（AC-P3-005）作为本族受限期入口档；双足跳箱（低箱，AC-P3-028）。",
         "extended_reading": "关联课程 P4-03（落地技术）。",
         "related_courses": [],
         "reference_practice": {
@@ -4463,6 +4826,18 @@
         "video_links": {
           "state": "pending",
           "note": ""
+        },
+        "path_limits": {
+          "B2": {
+            "locked_until_phase": "P5",
+            "note": "需治疗师确认后解锁 · 到 P5 阶段自动解锁",
+            "locked_until_week": 29
+          },
+          "B3": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 43
+          }
         },
         "dose_short": "低高度 6 次 × 3 组"
       },
@@ -4503,7 +4878,7 @@
           "B2": "医嘱。",
           "B3": "医嘱。"
         },
-        "alt": "双足连续跳（AC-P4-006）。",
+        "alt": "台阶上步进阶（AC-P3-005）作为本族受限期入口档；双足连续跳（AC-P4-006）。",
         "extended_reading": "关联课程 P4-03（落地技术）、P5-01（重返运动的标准）。",
         "related_courses": [],
         "reference_practice": {
@@ -4524,6 +4899,18 @@
         "video_links": {
           "state": "pending",
           "note": ""
+        },
+        "path_limits": {
+          "B2": {
+            "locked_until_phase": "P5",
+            "note": "需治疗师确认后解锁 · 到 P5 阶段自动解锁",
+            "locked_until_week": 29
+          },
+          "B3": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 43
+          }
         },
         "dose_short": "4 次 × 3 组"
       },
@@ -4589,7 +4976,18 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P5",
-            "note": "需治疗师确认后解锁 · 到 P5 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P5 阶段自动解锁",
+            "locked_until_week": 28
+          },
+          "B2": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 42
+          },
+          "B3": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 43
           }
         },
         "dose_short": "低强度 6 次每方向 × 3 组"
@@ -4689,7 +5087,7 @@
           "contraindications": "冲刺须在跑步阶梯相应层级评估通过后引入；任何膝部不适出现立即减速停止。"
         },
         "path_notes": {},
-        "alt": "直线慢跑（AC-P4-001），速度阶梯的下一级。",
+        "alt": "快走/椭圆机（AC-P3-030）作为本族受限期入口档；直线慢跑（AC-P4-001），速度阶梯的下一级。",
         "extended_reading": "关联课程 P4-01（想跑步，先了解这些）。",
         "related_courses": [
           "P4-01延伸"
@@ -4716,10 +5114,82 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P5",
-            "note": "需治疗师确认后解锁 · 到 P5 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P5 阶段自动解锁",
+            "locked_until_week": 28
+          },
+          "B2": {
+            "locked_until_phase": "P5",
+            "note": "需治疗师确认后解锁 · 到 P5 阶段自动解锁",
+            "locked_until_week": 29
+          },
+          "B3": {
+            "locked_until_phase": "P5",
+            "note": "需治疗师确认后解锁 · 到 P5 阶段自动解锁",
+            "locked_until_week": 30
           }
         },
         "dose_short": "短距离 20-30 米 × 4-6 组"
+      },
+      {
+        "card_id": "AC-P4-011",
+        "name": "分腿跳（交替）",
+        "category": "增强式",
+        "gsl": 5,
+        "phase": "P4",
+        "paths": "Phase 4（评估后）",
+        "prehab": false,
+        "required_phases": [],
+        "confirm_required": true,
+        "applicable_paths": {
+          "paths": [
+            "A",
+            "B1"
+          ],
+          "notes": {
+            "B2": "医嘱",
+            "B3": "医嘱"
+          },
+          "card_note": null
+        },
+        "main": {
+          "key_points": [
+            "起跳后前后分腿，一条腿在前、一条在后",
+            "落地时两条腿同时缓冲，前腿膝盖对着脚尖",
+            "落地稳住之后再换腿，不要连续弹跳",
+            "两侧交换要对称，不偏一边发力"
+          ],
+          "common_mistakes": "①落地前腿膝盖内扣；②落地后没停住就急着换腿；③两侧幅度差很多。",
+          "contraindications": "未通过增强式准入评估、膝痛肿胀波动、单腿落地不稳或打软时禁止。"
+        },
+        "path_notes": {
+          "A": "术后 15-18 周、满足增强式准入后引入，作为双腿增强式过渡到单腿增强式的桥梁。",
+          "B1": "延迟至术后 18 周以后。",
+          "B2": "医嘱。",
+          "B3": "医嘱；本阶段通常禁止。"
+        },
+        "alt": "双足连续跳（Tuck Jump，AC-P4-006）作为更轻的入口；进阶方向为增强式训练-单腿跳（AC-P5-005）。",
+        "extended_reading": "关联课程 P4-03（落地技术）。",
+        "related_courses": [],
+        "reference_practice": {
+          "declaration": "这只是康复教育里常见的参考做法，每个人情况差异很大，必须让你的治疗师确认后再执行。本 App 不会根据你的个人情况推荐具体剂量。",
+          "occasion": "术后 15-18 周（路径 A）通过增强式准入后引入；练单腿承重下的起落控制，是从双腿跳跃走向单腿跳跃的过渡动作。",
+          "posture": "平整、有轻微弹性的地面，穿缓震运动鞋；前方有扶手或墙面更安心。",
+          "steps": "双脚与髋同宽站立，屈膝下蹲后起跳；在空中把一条腿向前、另一条腿向后分开，随后两条腿同时落地并屈膝缓冲；落地停稳后，站直调整，再换另一条腿在前重复。",
+          "dosage": "常见的参考做法是**每侧 4 次 × 3 组**，组间歇 60-90 秒；先在原地落地停稳，再做下一次。（B级）",
+          "breathing": "起跳时呼气，落地后恢复平稳呼吸再换腿。",
+          "common_mistakes": "①前腿膝盖内扣；②落地没停稳就换腿；③左右两侧幅度差异明显。",
+          "progression": "熟练后可改为落地即换腿的连续分腿跳，或增加每组次数；以你的治疗师评估为准。",
+          "caution": "落地时前腿膝痛、打软腿或次日肿胀加重，立即停止并告诉治疗师。"
+        },
+        "reference_citations": [
+          "Myer GD, Paterno MV, Ford KR, et al. (2006). Rehabilitation after anterior cruciate ligament reconstruction: criteria-based progression through the return-to-sport phase. *Journal of Strength and Conditioning Research*, 20(2):399-411. ——增强式标准进阶框架（支撑单腿起落过渡要点，B级）",
+          "Kotsifaki R, Korakakis V, King E, et al. (2023). Aspetar clinical practice guideline on rehabilitation after anterior cruciate ligament reconstruction. *British Journal of Sports Medicine*, 57(9):500-514. ——指南增强式准入与渐进原则（支撑准入口径，B级）"
+        ],
+        "video_links": {
+          "state": "pending",
+          "note": ""
+        },
+        "dose_short": "每侧 4 次 × 3 组"
       },
       {
         "card_id": "AC-P5-001",
@@ -4760,7 +5230,7 @@
           "B2": "医嘱。",
           "B3": "医嘱。"
         },
-        "alt": "直线慢跑（AC-P4-001）。",
+        "alt": "快走/椭圆机（AC-P3-030）作为本族受限期入口档；直线慢跑（AC-P4-001）。",
         "extended_reading": "关联课程 P4-01（跑步这件事）、P5-01（重返运动的标准）。",
         "related_courses": [],
         "reference_practice": {
@@ -4781,6 +5251,18 @@
         "video_links": {
           "state": "pending",
           "note": ""
+        },
+        "path_limits": {
+          "B2": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 42
+          },
+          "B3": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 43
+          }
         },
         "dose_short": "间歇跑 200 米快跑 + 100 米慢跑 × 6-8 组"
       },
@@ -4816,7 +5298,7 @@
           "contraindications": "增强式进阶评估未通过严禁；首次须治疗师在场；失控或疼痛即停。"
         },
         "path_notes": {},
-        "alt": "侧向双足跳（AC-P4-008），双足版本先打底。",
+        "alt": "台阶上步进阶（AC-P3-005）作为本族受限期入口档；侧向双足跳（AC-P4-008），双足版本先打底。",
         "extended_reading": "关联课程 P6-01（如何避免再次受伤）。",
         "related_courses": [
           "P6-01"
@@ -4843,7 +5325,18 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P6",
-            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 41
+          },
+          "B2": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 42
+          },
+          "B3": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 43
           }
         },
         "dose_short": "每方向 6 次 × 3 组"
@@ -4885,7 +5378,7 @@
           "B2": "医嘱。",
           "B3": "医嘱。"
         },
-        "alt": "单足立定跳远（AC-P5-004）、侧向双足跳（AC-P4-008）双足版本先打底。",
+        "alt": "台阶上步进阶（AC-P3-005）作为本族受限期入口档；单足立定跳远（AC-P5-004）、侧向双足跳（AC-P4-008）双足版本先打底。",
         "extended_reading": "关联课程 P5-01（重返运动的标准）。",
         "related_courses": [],
         "reference_practice": {
@@ -4906,6 +5399,18 @@
         "video_links": {
           "state": "pending",
           "note": ""
+        },
+        "path_limits": {
+          "B2": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 42
+          },
+          "B3": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 43
+          }
         },
         "dose_short": "前进 10 米 · 每侧 3 组"
       },
@@ -4946,7 +5451,7 @@
           "B2": "医嘱。",
           "B3": "医嘱。"
         },
-        "alt": "立定跳远（AC-P4-007）。",
+        "alt": "台阶上步进阶（AC-P3-005）作为本族受限期入口档；立定跳远（AC-P4-007）。",
         "extended_reading": "关联课程 P5-01（重返运动的标准）。",
         "related_courses": [],
         "reference_practice": {
@@ -4967,6 +5472,18 @@
         "video_links": {
           "state": "pending",
           "note": ""
+        },
+        "path_limits": {
+          "B2": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 42
+          },
+          "B3": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 43
+          }
         },
         "dose_short": "每侧 4 次 × 3 组"
       },
@@ -5119,7 +5636,7 @@
           "contraindications": "变向类动作须在相应评估通过后引入；出现打软、卡顿立即停止并联系医生或治疗师。"
         },
         "path_notes": {},
-        "alt": "T型跑（AC-P5-013），组合路线版本。",
+        "alt": "落地缓冲训练（AC-P4-002）作为本族受限期入口档；T型跑（AC-P5-013），组合路线版本。",
         "extended_reading": "关联课程 P6-01（如何避免再次受伤）、P5-03（变向、旋转与专项敏捷安全）。",
         "related_courses": [
           "P6-01",
@@ -5147,7 +5664,18 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P6",
-            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 41
+          },
+          "B2": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 42
+          },
+          "B3": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 43
           }
         },
         "dose_short": "每角度每侧 4-6 次 × 2-3 组"
@@ -5213,7 +5741,18 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P6",
-            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 41
+          },
+          "B2": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 42
+          },
+          "B3": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 43
           }
         },
         "dose_short": "6-8 次 × 2-3 组"
@@ -5277,7 +5816,18 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P6",
-            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 41
+          },
+          "B2": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 42
+          },
+          "B3": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 43
           }
         },
         "dose_short": "每方向 4-6 次 × 2-3 组"
@@ -5319,7 +5869,7 @@
           "B2": "医嘱。",
           "B3": "医嘱。"
         },
-        "alt": "旋转控制练习（AC-P5-009）。",
+        "alt": "台阶上步进阶（AC-P3-005）作为本族受限期入口档；旋转控制练习（AC-P5-009）。",
         "extended_reading": "关联课程 P5-01（重返运动的标准）、P4-03（落地技术）。",
         "related_courses": [],
         "reference_practice": {
@@ -5344,7 +5894,18 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P6",
-            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 41
+          },
+          "B2": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 42
+          },
+          "B3": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 43
           }
         },
         "dose_short": "双足/单足 4 次 × 3 组"
@@ -5386,7 +5947,7 @@
           "B2": "医嘱。",
           "B3": "医嘱。"
         },
-        "alt": "台阶下落（低阶，AC-P3-025）、变向基础45°→90°（AC-P5-007）。",
+        "alt": "落地缓冲训练（AC-P4-002）作为本族受限期入口档；台阶下落（低阶，AC-P3-025）、变向基础45°→90°（AC-P5-007）。",
         "extended_reading": "关联课程 P5-01（重返运动的标准）。",
         "related_courses": [],
         "reference_practice": {
@@ -5411,7 +5972,18 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P6",
-            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 41
+          },
+          "B2": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 42
+          },
+          "B3": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 43
           }
         },
         "dose_short": "4 次 × 3 组"
@@ -5516,7 +6088,7 @@
           "B2": "医嘱。",
           "B3": "医嘱。"
         },
-        "alt": "变向基础45°→90°（AC-P5-007）。",
+        "alt": "落地缓冲训练（AC-P4-002）作为本族受限期入口档；变向基础45°→90°（AC-P5-007）。",
         "extended_reading": "关联课程 P5-01（重返运动的标准）。",
         "related_courses": [],
         "reference_practice": {
@@ -5541,7 +6113,18 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P6",
-            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 41
+          },
+          "B2": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 42
+          },
+          "B3": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 43
           }
         },
         "dose_short": "约 75% 最大速度 · 4-6 次 × 1-2 组"
@@ -5580,7 +6163,7 @@
           "contraindications": "变向基础达标后引入；出现不稳信号立即减速停止。"
         },
         "path_notes": {},
-        "alt": "T型跑（AC-P5-013），路线更基础的组合版本。",
+        "alt": "落地缓冲训练（AC-P4-002）作为本族受限期入口档；T型跑（AC-P5-013），路线更基础的组合版本。",
         "extended_reading": "关联课程 P5-01（重返运动看标准，不看日历）。",
         "related_courses": [
           "P5-01"
@@ -5607,7 +6190,18 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P6",
-            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 41
+          },
+          "B2": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 42
+          },
+          "B3": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 43
           }
         },
         "dose_short": "4-6 趟 × 2-3 组"
@@ -5649,7 +6243,7 @@
           "B2": "医嘱。",
           "B3": "医嘱。"
         },
-        "alt": "T型跑（AC-P5-013）、急停练习（受控，AC-P5-008）。",
+        "alt": "落地缓冲训练（AC-P4-002）作为本族受限期入口档；T型跑（AC-P5-013）、急停练习（受控，AC-P5-008）。",
         "extended_reading": "关联课程 P5-01（重返运动的标准）。",
         "related_courses": [],
         "reference_practice": {
@@ -5674,7 +6268,18 @@
         "path_limits": {
           "B1": {
             "locked_until_phase": "P6",
-            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁"
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 41
+          },
+          "B2": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 42
+          },
+          "B3": {
+            "locked_until_phase": "P6",
+            "note": "需治疗师确认后解锁 · 到 P6 阶段自动解锁",
+            "locked_until_week": 43
           }
         }
       },
@@ -6413,7 +7018,7 @@
         },
         "path_notes": {},
         "alt": "（无合适同族卡，按映射口径留空）",
-        "extended_reading": "关联课程 P2-04（康复中的情绪与睡眠）。",
+        "extended_reading": "关联课程 P2-04（康复中的情绪、身份与睡眠）。",
         "related_courses": [
           "P2-04"
         ],
@@ -7016,13 +7621,13 @@
       {
         "kc_id": "KC-001",
         "category": "步态与负重",
-        "name": "支具详解（佩戴/下滑/睡觉/皮肤）",
+        "name": "支具与护膝使用速查",
         "content_type": "器具",
         "summary": "支具时长场景遵医嘱；绑带下往上、松紧一指；每日查皮肤；不自行提前摘除",
         "jump_target": "DP-09《拐杖与支具：正确使用与“什么时候能脱”的判断逻辑》＋课程 P1-03",
         "phase": "全程",
         "brief_long": "我帮你查了一下：支具（铰链式护膝）的作用是在睡觉和不熟练走路时把膝盖固定在安全位置，防无意识的弯曲和扭转伤到新韧带——佩戴时长和场景遵医嘱，不自行提前摘除。下滑是常见问题：绑带从下到上逐条贴紧，坐着时检查位置；滑得太厉害请联系科室调整，别自己硬勒。睡觉难受可以把枕头垫在小腿下面（注意不是膝窝）。每天摘下支具时看一眼皮肤，持续不褪的红印要告诉医生。",
-        "core_conclusion": "支具的任务是在你睡觉和走路还不熟练的时候，把膝盖固定在安全位置，防止无意识的弯曲和扭转伤到新韧带。什么时候戴、戴多久、什么场景可以摘，**全部遵医嘱**——不要根据自己「感觉好了」提前摘除。",
+        "core_conclusion": "支具的任务是在你睡觉和走路还不熟练的时候，把膝盖固定在安全位置，防止无意识的弯曲和扭转伤到新韧带。**什么时候戴、戴多久、什么场景可以摘，全部遵医嘱**——不要根据自己「感觉好了」提前摘除。功能性护膝是重返运动后的**辅助**，不替代达标与预防训练。",
         "body_sections": [
           {
             "heading": "为什么戴",
@@ -7030,6 +7635,10 @@
               {
                 "type": "p",
                 "text": "支具（铰链式护膝）把膝盖固定在安全位置，防的是睡觉和不熟练走路时无意识的弯曲和扭转——新韧带最怕的就是这种「没留意的一下」。"
+              },
+              {
+                "type": "callout",
+                "text": "术后早期（0-6 周）常规使用铰链式支具，保护移植物与半月板修复是有临床合理性的；但它不是「护身符」，去掉的时间要以医师评估为准。"
               }
             ]
           },
@@ -7039,6 +7648,19 @@
               {
                 "type": "p",
                 "text": "绑带**从下到上**逐条贴紧，松紧以能伸进一根手指为准；坐下和站起来之后都看一眼位置，支具下滑是最常见的问题。轻微下滑重新贴紧即可，反复滑得厉害请联系科室调整，**不要自己往死里勒**——过紧影响血液循环，反而添乱。"
+              }
+            ]
+          },
+          {
+            "heading": "时间表怎么走",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "常见安排是：术后 **0-2 周**锁定在 0° 伸膝位（仅屈膝练习时解锁）；**2-6 周**逐步解锁到 0-90°（路径 B 依亚路径规定）；**6-10 周**逐步减少佩戴时间，只在复杂环境或不确定的情况下戴；**10-12 周**完全去除。"
+              },
+              {
+                "type": "callout",
+                "text": "这是一般节奏，**具体到你的解锁角度与去除时间，以医师评估为准**——不是到点自动解锁。"
               }
             ]
           },
@@ -7056,17 +7678,32 @@
             "blocks": [
               {
                 "type": "p",
-                "text": "每天摘下支具时顺便看一眼皮肤：压痕几十分钟内会消退是正常的；持续不褪的红印、破皮或水泡要告诉医生。"
+                "text": "每天摘下支具时顺便看一眼皮肤：压痕几十分钟内会消退是正常的；持续不褪的红印、破皮或水泡要告诉医生。绑带压痕之外，也留意脚踝有没有明显肿胀、脚有没有发凉发麻——出现就要说。"
+              }
+            ]
+          },
+          {
+            "heading": "功能性护膝",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "重返运动后考虑的是**功能性护膝**：它提供本体感觉提示和心理安全感，常用于重返高风险旋转/对抗性运动、存在膝关节松弛或旋转不稳、或你自己主观觉得需要额外保护的情况。可考虑的时间窗是**术后 9-12 月至 2 年**。"
+              },
+              {
+                "type": "callout",
+                "text": "它的再损伤预防证据并不一致——**不能替代满足重返标准和做损伤预防训练**；长期依赖还可能带来肌肉代偿和心理依赖。"
               }
             ]
           }
         ],
         "mistakes": [
           "凭「感觉好了」提前摘除——戴多久、什么场景可以摘，全部遵医嘱；",
-          "支具下滑就往死里勒——过紧影响血液循环，反复滑得厉害请联系科室调整；",
-          "枕头垫在膝窝下——舒服，却让膝盖整夜保持弯曲，而术后早期伸直至上。"
+          "支具下滑就往死里勒——反复滑得厉害请联系科室调整；",
+          "枕头垫在膝窝下——舒服，却让膝盖整夜保持弯曲，而术后早期伸直至上；",
+          "把护膝当「护身符」——它不替代重返标准与损伤预防训练；",
+          "长期离不开护膝——可能带来肌肉代偿与心理依赖。"
         ],
-        "see_doctor": "支具反复下滑得厉害，请联系科室调整；皮肤出现**持续不褪的红印、破皮或水泡**，要告诉医生。",
+        "see_doctor": "支具反复下滑得厉害、或皮肤出现**持续不褪的红印、破皮或水泡**，要告诉医生；支具的解锁角度与去除时间，一律以医师评估为准。",
         "see_doctor_level": "amber"
       },
       {
@@ -7078,7 +7715,7 @@
         "jump_target": "DP-05《肿了怎么办：冰敷的科学依据与正确预期》＋样板卡 AC-X-005＋课程 P1-01",
         "phase": "全程",
         "brief_long": "我帮你查了一下：先分清时机——急性期（术后早期、练完肿胀时）冰敷，慢性僵硬才考虑热敷。对冰敷的正确预期是「辅助减痛」：它对术后疼痛有帮助，但消肿的证据不强，更替代不了活动和练习。常见参考做法是隔一层薄毛巾敷 15-20 分钟，皮肤发麻、发白或刺痛加剧就立即取下，别敷着睡觉；具体频次遵医嘱。另外记住：如果肿的是小腿肚、发硬按压痛，那不是冰敷能处理的事，尽快联系医生。",
-        "core_conclusion": "冰敷的正确定位是「辅助减痛」：它对术后疼痛有帮助，但消肿的证据并不强，更替代不了抬高、踝泵和活动练习。时机用反了（急性期热敷）会加重肿胀。",
+        "core_conclusion": "冰敷的正确定位是「辅助减痛」：它对术后疼痛有帮助，但消肿的证据并不强，更替代不了抬高、踝泵和活动练习。时机用反了（急性期热敷）会加重肿胀。**所以它是辅助手段，不是消肿的主力。**",
         "body_sections": [
           {
             "heading": "先分清时机",
@@ -7099,6 +7736,48 @@
             ]
           },
           {
+            "heading": "证据怎么说",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "文献上的结论比直觉更保守：冷疗在术后即刻至中期对**疼痛强度**和**关节活动度**有统计学意义的改善，但**效应量较小**，可能没到你能明显感觉到的程度；对**肿胀和功能**的影响，证据确定性低，未显示有临床意义的获益。"
+              },
+              {
+                "type": "p",
+                "text": "换句话说：**它对「疼」有点用，对「肿」别期待太多**。所以指南对冷疗的推荐是谨慎的——建议作为辅助手段使用，而不是把消肿的希望全押在冰袋上。"
+              }
+            ]
+          },
+          {
+            "heading": "消肿不只靠冰敷",
+            "blocks": [
+              {
+                "type": "list",
+                "text": "真正管用的消肿组合里有好几件，冰敷只是其中一件：",
+                "items": [
+                  "**抬高患肢**——高于心脏水平才有效",
+                  "**踝泵**——小腿肌肉是「第二心脏」，泵起来才把水推走",
+                  "**活动练习**——按康复计划动起来，比躺着不动消肿快",
+                  "**加压**——加压冷疗装置一类可持续加压冷敷，对控制肿胀有帮助（是否使用问治疗师）",
+                  "**冰敷**——负责减痛，顺带舒服一点"
+                ]
+              },
+              {
+                "type": "p",
+                "text": "如果疼痛明显，按医嘱的多模式镇痛处理（非药物优先：冰敷、抬高、放松训练）；**用药问题问医生**，不要自行长期服用。"
+              }
+            ]
+          },
+          {
+            "heading": "什么时候该考虑热敷",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "热敷的适用面比冰敷窄得多：**慢性僵硬、肌肉紧张**时才考虑，而且**时机最好先问过治疗师**。急性期、刚练完肿胀加重时热敷，等于给已经积水的关节再加热，会加重肿胀。"
+              }
+            ]
+          },
+          {
             "heading": "三条停止信号",
             "blocks": [
               {
@@ -7111,7 +7790,9 @@
         "mistakes": [
           "把冰敷当「消肿神器」——消肿的证据并不强，抬高和踝泵同样重要；",
           "把冰敷当治疗本身——它替代不了活动和练习；",
-          "急性期热敷「活血」——时机用反会加重肿胀。"
+          "急性期热敷「活血」——时机用反会加重肿胀；",
+          "敷着睡觉、冰袋直接贴皮肤——会冻伤，必须隔薄毛巾并按时取下；",
+          "因为「证据不强」就完全不用——它在减痛上仍有小幅帮助，按需使用即可。"
         ],
         "see_doctor": "如果肿的位置在小腿肚、发硬、按压疼痛，那不是冰敷能处理的事，属于血栓信号，**尽快联系医生**。热敷时机也请先问过治疗师。",
         "see_doctor_level": "red"
@@ -7119,13 +7800,13 @@
       {
         "kc_id": "KC-003",
         "category": "消肿与疼痛",
-        "name": "肿胀管理全攻略",
+        "name": "肿胀与伤口照护",
         "content_type": "症状管理",
         "summary": "抬高+冰敷+踝泵助消肿；突然加重伴红热或小腿发硬按痛→红色指征卡",
         "jump_target": "课程 P1-01、P2-02＋RFC-02",
         "phase": "全程",
         "brief_long": "我帮你查了一下：术后早期肿胀很常见，消肿三件套是日常基本功——抬高（脚高过心脏）、冰敷、踝泵。肿胀还是你最诚实的「仪表盘」：练完第二天明显更肿，说明前一天超量了，主动减量并告诉治疗师，这不是退步，是聪明。但要分清正常肿和危险肿：膝盖肿、白天活动后加重、早晨轻一些，是正常的；如果肿胀突然明显加重、伴发红发热，或小腿肚发硬按压疼痛，立刻查看红色指征卡并尽快联系医生。",
-        "core_conclusion": "消肿三件套（抬高、冰敷、踝泵）贵在**频率**，不在单次时长。肿胀还是你最诚实的「仪表盘」：练完第二天明显更肿，说明前一天超量了——主动减量并告诉治疗师，这不是退步，是聪明地调整剂量。",
+        "core_conclusion": "消肿三件套（抬高、冰敷、踝泵）贵在**频率**，不在单次时长。肿胀还是你最诚实的「仪表盘」：练完第二天明显更肿，说明前一天超量了——主动减量并告诉治疗师，这不是退步，是聪明地调整剂量。**伤口与肿胀一起管**：一天比一天好就继续，方向反了就是感染信号。",
         "body_sections": [
           {
             "heading": "消肿三件套",
@@ -7133,6 +7814,16 @@
               {
                 "type": "p",
                 "text": "术后早期肿胀很常见，三件套是每天的基本功：**抬高**（脚高过心脏，躺着垫枕就行）、**冰敷**（隔毛巾 15-20 分钟）、**踝泵**（清醒时每小时做几组）。三件套贵在频率，不在单次时长。"
+              },
+              {
+                "type": "list",
+                "text": "日常就这四件事，分次做比攒一次做更管用：",
+                "items": [
+                  "抬高患肢，高于心脏水平",
+                  "冰敷（隔一层薄毛巾），术后早期分次做",
+                  "踝泵：清醒时每小时做几组，促进回流",
+                  "加压：弹性绷带或加压袜（是否需要、用哪种问医生）"
+                ]
               }
             ]
           },
@@ -7146,6 +7837,28 @@
             ]
           },
           {
+            "heading": "每天量一次，看得见趋势",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "每天**晨起**测一次髌骨上方 10cm 处的大腿周径，和健侧对比记下来。单次数字不必纠结，**趋势**才重要：持续加重就要当回事。"
+              }
+            ]
+          },
+          {
+            "heading": "伤口按时间走",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "切口保持干燥清洁，术后 **48-72 小时**更换敷料；**5-7 天**后（依医师指导）可淋浴，用防水敷料保护切口；**拆线/皮钉**在术后 **10-14 天**（依医师指导）。结痂**不要用手撕**，让它自己脱落。"
+              },
+              {
+                "type": "p",
+                "text": "瘢痕管理一般在**拆线后**开始：硅酮凝胶/贴片持续 **2-3 月**，配合横向摩擦按摩，具体做法遵医嘱。祛疤膏、消毒液这类外用品，**先问过医生再用**。"
+              }
+            ]
+          },
+          {
             "heading": "正常肿与危险肿",
             "blocks": [
               {
@@ -7153,60 +7866,25 @@
                 "text": "正常肿：膝盖肿、白天活动后加重、早晨轻一些。危险肿：肿胀**突然明显加重**、伴发红发热，或**小腿肚发硬按压疼痛**——方向就反了，立即查看红色指征卡。"
               }
             ]
+          },
+          {
+            "heading": "感染信号",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "切口**红肿热痛**、**脓性分泌物**、**发热 >38°C**——这三类出现任何一类都立即就医。感染处理越早越简单，别观察观望。"
+              }
+            ]
           }
         ],
         "mistakes": [
           "三件套「做一次管一天」——贵在频率，不在单次时长；",
           "练完第二天更肿还照常加量——那是超量信号，主动减量不是退步；",
+          "切口沾水或过早淋浴——5-7 天后用防水敷料再洗；",
+          "只盯肿胀不看伤口——两者一起管，方向反了就是感染信号；",
           "小腿肚肿痛还按摩揉搓——那是血栓信号，按红色指征处理。"
         ],
-        "see_doctor": "肿胀突然明显加重、伴发红发热，或小腿肚发硬按压疼痛——立即查看红色指征卡并**尽快联系医生**。",
-        "see_doctor_level": "red"
-      },
-      {
-        "kc_id": "KC-004",
-        "category": "心理与睡眠",
-        "name": "睡觉姿势与支具",
-        "content_type": "生活",
-        "summary": "睡姿遵医嘱；垫高患肢助消肿；睡前冰敷助入睡；痛醒多日→RFC-06",
-        "jump_target": "DP-09《拐杖与支具：正确使用与“什么时候能脱”的判断逻辑》＋课程 P1-03",
-        "phase": "全程",
-        "brief_long": "我帮你查了一下：睡觉按医生要求戴支具，姿势遵医嘱。两个实用细节：一是枕头垫在小腿下面会让戴着支具睡觉好受一些——但千万别垫在膝窝下，垫着舒服却会让膝盖蜷着伸不直，而早期伸直比弯曲更优先；二是垫高患肢有助消肿，睡前那次冰敷也能帮你更好入睡。如果疼痛导致连续多日夜里疼醒，这属于红色指征之一，尽快联系医生。",
-        "core_conclusion": "睡觉时支具戴不戴、什么姿势睡，**遵医嘱**。在此之上有两个被反复验证过的实用细节：枕头垫小腿而不垫膝窝；睡前那一次冰敷能帮你更好入睡。",
-        "body_sections": [
-          {
-            "heading": "遵医嘱是前提",
-            "blocks": [
-              {
-                "type": "p",
-                "text": "睡觉按医生要求戴支具，姿势遵医嘱。在此之上，有两个细节决定你睡得好不好。"
-              }
-            ]
-          },
-          {
-            "heading": "两个实用细节",
-            "blocks": [
-              {
-                "type": "p",
-                "text": "第一，枕头垫在**小腿下面**会让戴支具睡觉好受很多，但**千万别垫在膝窝下**——垫膝窝舒服，却让膝盖整夜保持弯曲，而术后早期伸直比弯曲更优先。第二，垫高患肢本身就有助消肿，睡前那一次冰敷也能帮你更好入睡。"
-              }
-            ]
-          },
-          {
-            "heading": "什么时候是警报",
-            "blocks": [
-              {
-                "type": "p",
-                "text": "如果疼痛导致**连续多日夜里疼醒**，这不是「忍忍就好」的事，属于红色指征之一。"
-              }
-            ]
-          }
-        ],
-        "mistakes": [
-          "枕头垫在膝窝下——舒服，却让膝盖整夜蜷着伸不直；",
-          "痛醒多日还「忍忍就好」——连续多日夜里疼醒属于红色指征。"
-        ],
-        "see_doctor": "疼痛导致连续多日夜里疼醒，属于红色指征之一，**尽快联系医生**。",
+        "see_doctor": "肿胀突然明显加重、伴发红发热，或小腿肚发硬按压疼痛——立即查看红色指征卡并**尽快联系医生**；切口红肿热痛、脓性分泌物、发热 >38°C，**立即就医**。",
         "see_doctor_level": "red"
       },
       {
@@ -7239,6 +7917,28 @@
             ]
           },
           {
+            "heading": "门口与台阶",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "门槛、台阶、玄关的换鞋凳都值得先看一眼：能不能扶着东西站稳、换鞋能不能坐着换、雨天路滑怎么办。**能扶着做就别单脚站着做**——这个原则在术后早期比省事重要。"
+              },
+              {
+                "type": "p",
+                "text": "还有一件常被忽略的事：**夜里起夜**。灯光、拖鞋、地面水渍都是风险点，睡前把路线清干净、留一盏小夜灯，比白天多练一组更划算。"
+              }
+            ]
+          },
+          {
+            "heading": "拐杖还要用多久",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "什么时候减一根拐、什么时候完全不用、能不能开始脱拐走路，**都不是自己试出来的**，要由医师或治疗师按你的负重方案和步态评估来定。感觉「可以了」的时候，正好是复查时该问一句的时候。"
+              }
+            ]
+          },
+          {
             "heading": "为什么值得",
             "blocks": [
               {
@@ -7251,9 +7951,11 @@
         "mistakes": [
           "口诀背会了就自己上下楼——手法要与治疗师现场核对练习；",
           "觉得动线改造「太夸张」——意外比训练危险得多；",
-          "拄拐期继续用蹲厕——这段时间先避开，尽量用坐便器。"
+          "拄拐期继续用蹲厕——这段时间先避开，尽量用坐便器；",
+          "单脚站着换鞋、单脚跨门槛——能扶着做就别单脚做；",
+          "自己试着脱拐走两步看看——脱拐时机由医师/治疗师评估。"
         ],
-        "see_doctor": "上下楼的具体手法请与治疗师**现场核对练习**；家里动线怎么改拿不准，治疗时问一句。",
+        "see_doctor": "上下楼的具体手法请与治疗师**现场核对练习**；家里动线怎么改拿不准、什么时候能脱拐，治疗时或复查时问一句。",
         "see_doctor_level": "amber"
       },
       {
@@ -7286,11 +7988,33 @@
             ]
           },
           {
+            "heading": "等待期间怎么出行",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "这段时间把出行安排在别人手上：亲友接送、打车、公共交通都可以考虑。坐车时尽量让患腿有伸展的余地、长时间坐车中途起来活动一下；下车先站稳再走。安全这里不打折扣，比省一趟麻烦划算得多。"
+              }
+            ]
+          },
+          {
             "heading": "怎么推进",
             "blocks": [
               {
                 "type": "p",
-                "text": "复查时主动问一句，比猜强。"
+                "text": "复查时主动问一句，比猜强。去之前可以先把三件事在心里过一遍（哪条腿、吃什么药、刹车有没有把握），医生问起来也答得快。"
+              }
+            ]
+          },
+          {
+            "heading": "为什么这条必须问医生",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "恢复驾驶要看的不只是「腿能不能弯」，而是**能不能随时安全地做出紧急反应**：手册给出的常见参考是术后 4-6 周、且需满足安全执行紧急制动、无显著疼痛与反应延迟；右膝手术通常更谨慎，自动挡一般比手动挡可以更早一些。"
+              },
+              {
+                "type": "callout",
+                "text": "但这些都只是**参考区间**——反应能力、用药情况、手术侧别因人而异，真正放行的判断在医生那里，所以「问一句」不能省。"
               }
             ]
           }
@@ -7298,7 +8022,8 @@
         "mistakes": [
           "自我感觉良好就上路——判定权在医生，不在感觉；",
           "「就挪个车」「就开一小段」——恰恰是事故高发场景；",
-          "左膝手术就以为马上能开——三件事仍须医生当面判断。"
+          "左膝手术就以为马上能开——三件事仍须医生当面判断；",
+          "等待期间自己开车去复查——把出行交给别人，别赌这一次。"
         ],
         "see_doctor": "能不能开车由医生当面判断——**复查时主动问一句**；获明确同意前，默认自己不能开车。",
         "see_doctor_level": "amber"
@@ -7329,6 +8054,24 @@
               {
                 "type": "p",
                 "text": "每 **45-60 分钟**起来活动两三分钟；坐着时脚下垫个小凳，让膝盖有机会自然伸直一会儿；开会上课没法走动时，**桌下做踝泵**——别人看不见，膝盖很受益。"
+              },
+              {
+                "type": "list",
+                "text": "三个随时可做的小动作：",
+                "items": [
+                  "桌下踝泵：脚背反复勾起放下",
+                  "坐姿伸膝：把小腿慢慢伸直停一会儿再放下",
+                  "起身走动：接水、去洗手间都算，重点是**别连续坐满两小时**"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "通勤与工位",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "通勤尽量错峰、有座；必须站着时把重心换着来，别一直压在患腿上。工位能把患腿垫高一点更好（小凳或抽屉），不能垫高就靠定时起身来补。回家后如果比平时更肿更僵，第二天把强度往回收一点。"
               }
             ]
           },
@@ -7340,12 +8083,22 @@
                 "text": "跟老师或领导说清三件事：你**做过手术**、你**需要定时活动**、你**不能搬重物和参加剧烈运动**。大多数人听到这三句就懂了。"
               }
             ]
+          },
+          {
+            "heading": "别把「回去」当「恢复完毕」",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "能上班上学是生活回到正轨，不等于康复结束：课程与训练该做的照做，体力劳动与剧烈运动仍然要等评估。"
+              }
+            ]
           }
         ],
         "mistakes": [
           "连续坐一两个小时不动——膝盖会僵会肿；",
           "不好意思说明情况硬撑——三件事说清就够，大多数人听到就懂；",
-          "以为复工等于恢复完毕——体力劳动需更晚并经评估。"
+          "以为复工等于恢复完毕——体力劳动需更晚并经评估；",
+          "回家后还硬补练白天落下的量——先看肿胀，宁可回收一点。"
         ],
         "see_doctor": "返校返工的具体时间由医生按复查情况定；从事体力劳动，需更晚并经评估——**复查时问一句**。",
         "see_doctor_level": "amber"
@@ -7367,6 +8120,19 @@
               {
                 "type": "p",
                 "text": "坐车超过一小时，中途停下来活动几分钟、做几组踝泵；高铁和飞机尽量选**过道座位**方便起身；能抬腿的时候把腿垫高。长途计划先告知医生，是否需要额外预防措施（如弹力袜）由医生判断。"
+              },
+              {
+                "type": "p",
+                "text": "别只盯「长途」：**短途也可能是风险**——只要连续坐着不动，一两个小时就够形成血液淤滞的条件。所以判断标准不是「路程远不远」，而是「能不能中途动一动」。"
+              }
+            ]
+          },
+          {
+            "heading": "出发前的准备",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "先问医生这一趟能不能走、要不要额外预防；把行程拆成几段、每段留出活动时间；药、支具、冰敷用品随身带；到达后别立刻安排剧烈活动。"
               }
             ]
           },
@@ -7378,61 +8144,33 @@
                 "text": "一，小腿肚**单侧肿胀、发硬、按压疼痛**——尽快联系医生，记住**不要按摩揉搓**。二，**胸口疼、突然喘不上气**——立即急诊。完整清单请对照红色指征卡。"
               }
             ]
+          },
+          {
+            "heading": "为什么久坐是风险窗口",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "术后本来就活动少，长时间保持一个姿势会让下肢血液回流更慢——这正是血栓容易形成的条件。所以对策不是「少动」，而是**别长时间不动**：定时活动比一次走很久更有用。"
+              }
+            ]
+          },
+          {
+            "heading": "到达之后",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "到地方后先活动一下、把腿抬高休息一会儿；接下来几天继续定时踝泵。如果路上就觉得小腿发紧发胀，别等回家再说。"
+              }
+            ]
           }
         ],
         "mistakes": [
           "一坐到底中途不动——超过一小时就该活动几分钟、做几组踝泵；",
           "小腿肿痛还去按摩揉搓——血栓信号禁忌揉搓；",
-          "长途计划不告知医生、自行决定用弹力袜——额外预防措施由医生判断。"
+          "长途计划不告知医生、自行决定用弹力袜——额外预防措施由医生判断；",
+          "落地就安排剧烈活动——先活动、抬高，再按计划来。"
         ],
         "see_doctor": "小腿肚单侧肿胀、发硬、按压疼痛——**尽快联系医生，不要按摩揉搓**；胸口疼、突然喘不上气——**立即急诊**。长途计划先告知医生。",
-        "see_doctor_level": "red"
-      },
-      {
-        "kc_id": "KC-009",
-        "category": "术后常识",
-        "name": "洗澡与伤口护理",
-        "content_type": "操作",
-        "summary": "切口保持清洁干燥；不撕结痂；红肿渗液发热→RFC-01；外用品先问医生",
-        "jump_target": "课程 P1-01、P1-04",
-        "phase": "全程",
-        "brief_long": "我帮你查了一下：伤口护理的核心是保持清洁干燥，结痂不要用手撕；外用品（祛疤膏、消毒液之类）先问过医生再用。更重要的是会分辨方向：正常术后伤口是轻微发红、干燥、一天比一天好；如果变成一天比一天红、一天比一天疼，或出现渗液变浑、流脓、伤口裂开、发烧——方向反了，这是感染信号，尽快联系医生，感染处理越早越简单。红肿渗液发热的完整清单见红色指征卡。",
-        "core_conclusion": "伤口护理的核心是**保持清洁干燥**，更重要是会分辨方向：正常术后伤口一天比一天好；方向反了就是感染信号——**感染处理越早越简单**，别观察观望。",
-        "body_sections": [
-          {
-            "heading": "日常护理",
-            "blocks": [
-              {
-                "type": "p",
-                "text": "保持清洁干燥。什么时候可以淋浴、怎么防水保护，遵医嘱；结痂**不要用手撕**，让它自己脱落。祛疤膏、消毒液这类外用品，**先问过医生再用**。"
-              }
-            ]
-          },
-          {
-            "heading": "分辨方向",
-            "blocks": [
-              {
-                "type": "p",
-                "text": "正常术后伤口：轻微发红、干燥、**一天比一天好**。危险方向：一天比一天红、一天比一天疼，或出现渗液变浑、流脓、伤口裂开、发烧——方向反了，这是感染信号。"
-              }
-            ]
-          },
-          {
-            "heading": "为什么别观望",
-            "blocks": [
-              {
-                "type": "p",
-                "text": "感染处理越早越简单，别观察观望。红肿渗液发热的完整清单见红色指征卡。"
-              }
-            ]
-          }
-        ],
-        "mistakes": [
-          "用手撕结痂——让它自己脱落；",
-          "祛疤膏、消毒液拿来就用——外用品先问过医生；",
-          "伤口变红变疼还「观察观望」——感染处理越早越简单。"
-        ],
-        "see_doctor": "伤口一天比一天红、一天比一天疼，或出现渗液变浑、流脓、伤口裂开、发烧——这是感染信号，**尽快联系医生**。完整清单见红色指征卡。",
         "see_doctor_level": "red"
       },
       {
@@ -7452,6 +8190,19 @@
               {
                 "type": "p",
                 "text": "手术用你自身的肌腱做了移植物——这个「取材区」需要时间和训练来适应，术后酸痛、紧绷很常见，会随恢复逐渐减轻。"
+              },
+              {
+                "type": "p",
+                "text": "本 App 覆盖的术式以**自体腘绳肌腱（HT）移植**为主，所以「取腱区有感觉」这类问题问得最多——它属于这一类术式的常见伴随体验，而不是恢复出了岔子。"
+              }
+            ]
+          },
+          {
+            "heading": "怎么和别的酸痛区分",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "取腱区的感觉多在**大腿后侧取材那一条**：酸、紧、按上去有点不舒服，活动开之后常常会松一点。膝盖里面的疼、肿，或者小腿肚发硬按痛不是同一回事——后两者按各自的通道处理（肿胀见 KC-003，小腿信号见红色指征）。"
               }
             ]
           },
@@ -7460,7 +8211,7 @@
             "blocks": [
               {
                 "type": "p",
-                "text": "腘绳肌的力量**不会自己完全回来**，靠的是康复训练里循序渐进的练习逐步重建——所以课程里的相关练习别跳过。"
+                "text": "腘绳肌的力量**不会自己完全回来**，靠的是康复训练里循序渐进的练习逐步重建——所以课程里的相关练习别跳过。练的时候注意「轻一点、慢一点、做标准」：酸胀是正常的，**尖锐的疼不是**。"
               }
             ]
           },
@@ -7472,12 +8223,22 @@
                 "text": "如果取腱区出现**异常的剧烈疼痛**，或**肿胀持续加重**，别硬扛。"
               }
             ]
+          },
+          {
+            "heading": "恢复是「月」为单位的事",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "取材区的适应与力量重建不是几周能完成的，进度以训练计划为准；某几天感觉更紧，多半和前一天的活动量有关，不必因此焦虑。"
+              }
+            ]
           }
         ],
         "mistakes": [
           "因为酸痛紧绷就慌——很常见，会随恢复逐渐减轻；",
           "跳过腘绳肌相关练习——力量不会自己完全回来，靠训练逐步重建；",
-          "异常剧痛硬扛——复查时主动说出来。"
+          "异常剧痛硬扛——复查时主动说出来；",
+          "把膝盖里面或小腿的疼也当成「取腱区正常反应」——部位不同、通道不同。"
         ],
         "see_doctor": "取腱区出现异常的剧烈疼痛，或肿胀持续加重——别硬扛，**复查时主动告诉医生或治疗师**。",
         "see_doctor_level": "amber"
@@ -7503,11 +8264,37 @@
             ]
           },
           {
+            "heading": "为什么要做瘢痕护理",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "瘢痕不只是皮肤上那一条线：它下面可能和深层组织**粘在一起**，影响皮肤和髌骨的滑动，进而牵扯活动度。瘢痕按摩与硅酮类护理的目的，就是让这一层「滑动」重新顺起来。"
+              },
+              {
+                "type": "callout",
+                "text": "所以手法是**有讲究的**——按多深、往哪个方向、每天做几次，让医生或治疗师教一次再自己练，别照着视频自己按。"
+              }
+            ]
+          },
+          {
             "heading": "麻木感是正常的",
             "blocks": [
               {
                 "type": "p",
                 "text": "伤口周围的麻木感很常见，那是**切口皮神经**的影响，多数会随时间改善，可能持续数月——属于正常现象，不用慌。"
+              }
+            ]
+          },
+          {
+            "heading": "和训练怎么配合",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "瘢痕护理通常和**活动度训练、髌骨松动**一类的手法放在一起做（手法类内容见 KC-026）。训练前后顺手做，比单独安排一次更容易坚持；做的时候如果出现锐痛，先停下问一句。"
+              },
+              {
+                "type": "p",
+                "text": "时机上也有讲究：**刚练完组织比较松**，做瘢痕按摩往往比冷的时候舒服；如果当天瘢痕本来就发红发热，先按「感染信号」处理，别急着按。"
               }
             ]
           },
@@ -7524,6 +8311,7 @@
         "mistakes": [
           "伤口未愈合就开始瘢痕护理——要等完全愈合、经医生同意后再开始；",
           "瘢痕麻木就慌——切口皮神经的影响，多数数月内改善；",
+          "照着视频自己使劲按——手法深浅与方向让医生或治疗师教一次；",
           "瘢痕红肿渗液还当瘢痕问题——那是感染信号。"
         ],
         "see_doctor": "瘢痕区域出现红肿、渗液、发热——不是瘢痕问题，而是感染信号，**尽快联系医生**。",
@@ -7550,11 +8338,40 @@
             ]
           },
           {
+            "heading": "不同阶段的心事不一样",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "早期的关键词是**挫败**：疼、睡不好、什么都要人帮；这一段用「把目标切小」化解。中期（约 6 周至 6 月）的关键词是**厌倦**：进展进入平台期，天天练却看不出变化；这一段靠「换点花样 + 看记录」撑住。后期（6-12 月）的关键词是**怕**：要回运动场了，恐惧反而到顶——这一段靠**逐步暴露**（从低强度场景慢慢过渡到比赛场景）与心理意象训练。"
+              },
+              {
+                "type": "callout",
+                "text": "三个阶段的心事不一样，说明「现在难」不等于「一直难」——它是康复过程的一部分。"
+              }
+            ]
+          },
+          {
             "heading": "前两层应对",
             "blocks": [
               {
                 "type": "p",
                 "text": "第一层是**知道它常见**，这本身就减压。第二层是**自助**：把目标切小；翻自己几周前的记录看进步（角度、步态、完成项都在那里）；保住睡眠和社交连接——恢复是以月和季度计的，情绪波动是天级出现的。"
+              }
+            ]
+          },
+          {
+            "heading": "几件具体能做的事",
+            "blocks": [
+              {
+                "type": "list",
+                "text": "随手可用的自助动作：",
+                "items": [
+                  "把目标切到「这周能完成」的尺寸，完成就打勾",
+                  "翻几周前的记录，用事实对抗「我一点没进步」的感觉",
+                  "给朋友发条消息、和家人吃顿饭——别把自己关起来",
+                  "睡前做几分钟呼吸放松练习，让身体先慢下来",
+                  "和同样在康复的人聊聊，比独自消化轻得多"
+                ]
               }
             ]
           },
@@ -7571,7 +8388,8 @@
         "mistakes": [
           "把情绪低落当成「自己脆弱」——非常普遍，不代表脆弱，也不意味着恢复出了问题；",
           "只盯着今天的感受——恢复以月和季度计，翻几周前的记录看进步；",
-          "硬扛不求助——持续两周以上影响生活，就该说了。"
+          "硬扛不求助——持续两周以上影响生活，就该说了；",
+          "以为「心事先放放，练完再说」——情绪和疼痛、睡眠互相牵动，值得当成康复的一部分来管。"
         ],
         "see_doctor": "低落持续两周以上影响生活，或出现「活着没意思」的念头——请**直接告诉医生**，或拨打全国统一心理援助热线 **12356**。",
         "see_doctor_level": "red"
@@ -7606,6 +8424,32 @@
             ]
           },
           {
+            "heading": "把「腿」和「床」分开处理",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "夜里和腿较劲往往越较越清醒。更好的做法是**白天把腿的事解决掉**：肿胀控制住、支具松紧调合适、睡前那一次冰敷（见 KC-003/KC-001），夜里的负担就小一半。"
+              },
+              {
+                "type": "callout",
+                "text": "半夜被腿弄醒时，先按需要处理（垫高、调支具），处理完就回床，别顺手刷手机。"
+              },
+              {
+                "type": "p",
+                "text": "翻身也是同样的道理：先把支具和枕头的位置摆好、**有准备地翻**，比在迷迷糊糊里硬翻安全，也不容易被疼醒。"
+              }
+            ]
+          },
+          {
+            "heading": "白天影响夜里",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "白天小睡别太长、下午晚些时候少喝咖啡浓茶、白天有一定活动量（按计划来），都会让夜里更好睡。反过来，白天一直躺着不动，夜里通常更清醒。"
+              }
+            ]
+          },
+          {
             "heading": "睡不着怎么办",
             "blocks": [
               {
@@ -7618,9 +8462,10 @@
         "mistakes": [
           "固定入睡时间而不是起床时间——起床时间更重要；",
           "睡不着躺床上用力睡——越用力越失败，起来到暗处坐一会儿；",
+          "白天补觉补很久、下午喝浓茶——白天的事会找上夜里的你；",
           "连续多日夜醒还忍着——尽快联系医生。"
         ],
-        "see_doctor": "如果疼痛导致**连续多日夜里疼醒**，尽快联系医生。",
+        "see_doctor": "如果疼痛导致**连续多日夜里疼醒**，尽快联系医生（该信号与红色指征页 **RFC-06 静息痛恶化**同源）。",
         "see_doctor_level": "red"
       },
       {
@@ -7644,6 +8489,28 @@
             ]
           },
           {
+            "heading": "整体结构比单品重要",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "比起追某一种「超级食物」，把一天的盘子搭顺更实际：主食（优先全谷物、薯类）、足量蛋白、蔬菜水果各占一块，再配上充足饮水。"
+              },
+              {
+                "type": "callout",
+                "text": "方向上少一点精制糖、油炸与过度加工食品——它们不是「毒」，但占掉了本该给蛋白和蔬果的位置。"
+              }
+            ]
+          },
+          {
+            "heading": "和训练配合",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "训练后那一餐记得带上蛋白质；平时训练前的一餐留点主食，作为训练的燃料。把蛋白**分到几餐里**吃，比一顿猛补更好吸收。"
+              }
+            ]
+          },
+          {
             "heading": "两条纪律",
             "blocks": [
               {
@@ -7651,14 +8518,24 @@
                 "text": "一，康复期**别大幅节食**——控制体重靠调整结构不靠饿，原料不足修复会打折。二，对任何宣称「加速愈合」的补充剂**保持免疫力**——目前针对 ACL 术后人群的高质量证据有限，想用先问医生。"
               }
             ]
+          },
+          {
+            "heading": "维生素 D 与骨隧道",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "维生素 D 与肌肉功能、骨隧道愈合相关，**缺乏**时更值得关注。是否缺、要不要补、补多少，看**检测结果和医嘱**——别自己长期大剂量吃。复查时如果医生提到营养状态评估，正好把这一项一起问。"
+              }
+            ]
           }
         ],
         "mistakes": [
           "康复期大幅节食——原料不足修复会打折，控体重靠调结构不靠饿；",
           "迷信「加速愈合」补充剂——高质量证据有限，想用先问医生；",
-          "到处找「神奇食物」——没有哪种食物能让韧带长得更快或更慢。"
+          "到处找「神奇食物」——没有哪种食物能让韧带长得更快或更慢；",
+          "蛋白都堆在一顿吃、训练后不吃——分到几餐、训练后带上蛋白更好用。"
         ],
-        "see_doctor": "肾病等特殊情况，蛋白质摄入**遵医嘱**；想尝试任何补充剂，先问医生。",
+        "see_doctor": "肾病等特殊情况，蛋白质摄入**遵医嘱**；想尝试任何补充剂或长期大剂量维生素，先问医生。",
         "see_doctor_level": "amber"
       },
       {
@@ -7691,6 +8568,19 @@
             ]
           },
           {
+            "heading": "一周怎么排",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "不用精确到分钟，但**三类别偏科**：一周里安排基础力量（护膝的地基）、有氧（心肺与体重管理）、以及你喜欢的专项（按阶段允许的范围）。专项占比越高，热身与恢复越要认真。"
+              },
+              {
+                "type": "callout",
+                "text": "宁可**每周都动**、强度稳一点，也不要「平时不动、周末猛打一场」——后者是膝盖最不喜欢的模式。"
+              }
+            ]
+          },
+          {
             "heading": "终身维护三件套",
             "blocks": [
               {
@@ -7698,12 +8588,22 @@
                 "text": "请焊死在生活里：**每周基础力量**、**每次运动前的神经肌肉热身**、**体重管理**。它们比运动项目的选择更影响膝盖的长期寿命。"
               }
             ]
+          },
+          {
+            "heading": "运动后怎么读身体的反馈",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "运动后当晚到**第二天**的反应才是剂量反馈：轻微酸胀、次日恢复，说明量合适；**次日明显更肿、更疼、打软**，说明这一次超了，下次往回收。出现卡住、打软、明显不稳，按红色指征处理。"
+              }
+            ]
           }
         ],
         "mistakes": [
           "以为高负荷运动从此不能碰——没有绝对不能的运动，只有明白代价的选择；",
           "只看项目不看自己的达标情况——强度上限由 RTS 达标、年龄和训练习惯共同定；",
-          "只纠结选什么运动，忽视三件套——三件套更影响膝盖的长期寿命。"
+          "只纠结选什么运动，忽视三件套——三件套更影响膝盖的长期寿命；",
+          "平时不动、周末猛打一场——膝盖最不喜欢这种模式。"
         ],
         "see_doctor": "适合你的强度上限，**复查时和医生聊一次**——比任何通用清单都准。",
         "see_doctor_level": "amber"
@@ -7711,20 +8611,28 @@
       {
         "kc_id": "KC-016",
         "category": "步态与负重",
-        "name": "RTS测试都测什么",
+        "name": "运动回归：五阶梯与测试项",
         "content_type": "认知",
         "summary": "RTS 测四块：力量/跳跃/动作质量/心理；达标+阶梯回归；看标准不看日历",
         "jump_target": "课程 P5-01",
         "phase": "全程",
         "brief_long": "我帮你查了一下：RTS（重返运动测试）考四大块——力量对称性（患侧股四头肌和腘绳肌力量达到健侧的约定比例）、跳跃测试（单腿跳远等一系列单腿跳跃，看两侧对称与质量）、动作质量（落地膝盖有没有内扣、躯干稳不稳）、心理准备度（标准化问卷评估恐惧与信心）。核心原则：看标准不看日历——数值达标但姿势不过关不算达标；重返是阶梯不是开关，先回归训练、再回归专项、最后回归比赛，每一级都以周计，确认无肿胀反弹、无打软再进阶。",
-        "core_conclusion": "RTS（重返运动测试）考四大块：力量对称性、跳跃测试、动作质量、心理准备度。核心原则：**看标准不看日历**——数值达标但姿势不过关，不算达标。",
+        "core_conclusion": "RTS（重返运动测试）考四大块：力量对称性、跳跃测试、动作质量、心理准备度。核心原则：**看标准不看日历**——数值达标但姿势不过关，不算达标。而往回看，回归的路是**五级阶梯**，不是一道开关。",
         "body_sections": [
           {
             "heading": "四大块考什么",
             "blocks": [
               {
                 "type": "p",
-                "text": "**力量对称性**：患侧股四头肌和腘绳肌力量达到健侧的约定比例，具体标准由评估团队定。**跳跃测试**：单腿跳远等一系列单腿跳跃，看两侧对称与完成质量。**动作质量**：落地时膝盖有没有内扣、躯干稳不稳。**心理准备度**：用标准化问卷评估恐惧与信心，心理没准备好同样是风险。"
+                "text": "**力量对称性**：患侧股四头肌和腘绳肌力量达到健侧的约定比例。**跳跃测试**：单腿跳远等一系列单腿跳跃，看两侧对称与完成质量。**动作质量**：落地时膝盖有没有内扣（动态膝外翻）、躯干稳不稳。**心理准备度**：用标准化问卷评估恐惧与信心，心理没准备好同样是风险。"
+              },
+              {
+                "type": "callout",
+                "text": "手册给出的**参考阈值**：股四头肌/腘绳肌 LSI **≥90%**；单腿跳测试组合 LSI **≥90%（休闲或非旋转运动）**或**≥100%（旋转/对抗性运动）**；心理准备度 ACL-RSI 通常 **>65 分**；再加上**无痛、无肿胀、无关节不稳**，并完成**为期数周的渐进式重返训练计划**。**这些是参考线，具体标准仍由评估团队按你的运动目标定。**"
+              },
+              {
+                "type": "p",
+                "text": "也**别把达标当保险**：即使 LSI≥90%，重返后 2 年内移植物失败率仍有 **9%-19%**、对侧 ACL 损伤率 **18%-22%**；把重返时间从 6 个月延到 9 个月，再损伤风险可降低约 **50%**——这正是「看标准不看日历」的由来。"
               }
             ]
           },
@@ -7738,21 +8646,62 @@
             ]
           },
           {
-            "heading": "重返是阶梯不是开关",
+            "heading": "回归的五级阶梯",
             "blocks": [
               {
                 "type": "p",
-                "text": "先回归训练、再回归专项、最后回归比赛，**每一级都以周计**，确认无肿胀反弹、无打软再进阶。"
+                "text": "回归路线分五级：**一般日常活动 → 低冲击运动 → 跑步 → 变向运动 → 对抗性运动**。每一级都有时间参考，但**路径 A 与路径 B 不同**（B 更保守，半月板修复者依亚路径），所以周数只是参考区间，**以你的医嘱为准**。"
+              },
+              {
+                "type": "list",
+                "text": "五级各自的门槛方向：",
+                "items": [
+                  "一般日常活动：无辅助完成日常生活动作",
+                  "低冲击运动：骑车、游泳一类，无痛无肿",
+                  "跑步：直线跑动，落地稳定、无打软",
+                  "变向运动：切入、转身一类，无动态膝外翻",
+                  "对抗性运动：比赛强度，力量/跳跃/动作/心理四项全达标"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "门槛清单，不是时间表",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "真正决定升级的永远是**达标条件**——力量、对称性、无肿胀反弹、无打软；周数只说明「最早可能」。把五级当门槛清单用，就不容易被日历推着走。"
+              }
+            ]
+          },
+          {
+            "heading": "退级是正常用法",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "出现疼痛、肿胀或不稳就**退回一级**，这不是失败，是阶梯设计的正常用法。每一级至少稳定一段再尝试进阶，比「一口气冲上去再退回来」快得多。"
+              }
+            ]
+          },
+          {
+            "heading": "重返不是终点",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "重返之后仍要长期执行损伤预防（见 KC-015 的终身维护三件套）：肌力、热身、体重管理。重返运动后仍存在再损伤风险，防护动作要一直做下去。"
               }
             ]
           }
         ],
         "mistakes": [
           "只盯数值不看姿势——姿势不过关不算达标；",
+          "把 LSI≥90% 当「免死金牌」——达标能把风险压下来，但不能归零；",
           "日历到了就想上——看标准不看日历；",
-          "把重返当开关——它是阶梯，每一级都以周计。"
+          "把重返当开关——它是五级阶梯，每一级都以周计；",
+          "把退级当失败——退回一级是阶梯设计的正常用法；",
+          "重返后就不再练基础力量——防护要一直做下去。"
         ],
-        "see_doctor": "具体标准由评估团队定；心理没准备好同样是风险——评估时如实说，不硬撑。",
+        "see_doctor": "具体标准由评估团队定；心理没准备好同样是风险——评估时如实说，不硬撑。A、B 两类路径进度不同，**以你的医嘱为准**。",
         "see_doctor_level": "amber"
       },
       {
@@ -7776,11 +8725,54 @@
             ]
           },
           {
+            "heading": "常见替代对照",
+            "blocks": [
+              {
+                "type": "list",
+                "text": "早期练习里最常见的几样：",
+                "items": [
+                  "毛巾：卷起来垫小腿、垫高、做拉伸辅助",
+                  "水瓶/米袋（轻）：给动作一点轻负荷或作为触达目标",
+                  "椅子/凳子：坐姿伸膝、坐下换鞋、支撑平衡",
+                  "墙面：静蹲、扶持站立平衡",
+                  "台阶/门槛：提踵与上步练习的现成高度"
+                ]
+              }
+            ]
+          },
+          {
             "heading": "购置类先问治疗师",
             "blocks": [
               {
                 "type": "p",
                 "text": "弹力带等购置类器械，**买不买、买哪种、什么时候开始用**，让治疗师按你的阶段定——买早了用不上，买错了帮倒忙。"
+              }
+            ]
+          },
+          {
+            "heading": "别自己「加负荷」",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "家里没有合适的负重时，**不要用书包、米袋硬凑重量**，也不要自行升级弹力带阻力——负荷该加多少是训练处方的一部分，由治疗师定。用自重和已有物品把动作做标准，比加重量更值。"
+              }
+            ]
+          },
+          {
+            "heading": "掏钱之前先问三个问题",
+            "blocks": [
+              {
+                "type": "list",
+                "text": "把这三个问题问清楚，多半就不会买错：",
+                "items": [
+                  "我现在的阶段**用得上**吗？",
+                  "治疗师说要做的是哪个动作、需要多大阻力？",
+                  "家里有没有能替代的东西？"
+                ]
+              },
+              {
+                "type": "p",
+                "text": "三个问题里有一个答不上来，就先别下单。"
               }
             ]
           },
@@ -7797,6 +8789,7 @@
         "mistakes": [
           "先囤装备再开练——毛巾、水瓶、椅子就能完成大部分早期练习；",
           "弹力带等自行购置不问治疗师——买早了用不上，买错了帮倒忙；",
+          "用书包、米袋自己加负荷——负荷是训练处方的一部分，由治疗师定；",
           "以为装备全等于练得好——练得「对」比买得「全」重要得多。"
         ],
         "see_doctor": "购置类器械（弹力带等）买不买、买哪种、什么时候开始用——**让治疗师按你的阶段定**。",
@@ -7839,72 +8832,43 @@
                 "text": "感觉曲线跑在愈合曲线前面。移植物强度的低谷，恰恰可能出现在你感觉最好的时候。进度的标尺在医生和治疗师的评估里，不在你的感觉里。"
               }
             ]
+          },
+          {
+            "heading": "这三个误区为什么常见",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "它们都来自同一个直觉：**用感觉替评估**。不疼就以为长好了、怕疼就干脆不动、听说某个动作伤膝就整个躲开——直觉在别处常常管用，在这里恰好相反：愈合的进度看不见、感觉会提前，而风险窗口正落在「感觉最好」的那一段。"
+              }
+            ]
+          },
+          {
+            "heading": "三个自查问题",
+            "blocks": [
+              {
+                "type": "list",
+                "text": "拿不准的时候问自己：",
+                "items": [
+                  "我是不是在**等时间**（而不是看达标条件）？",
+                  "我是不是在用**感觉**当进度标尺？",
+                  "我是不是因为**怕**而完全不动，或者反过来自己加量？"
+                ]
+              },
+              {
+                "type": "p",
+                "text": "三个里中了一个，就到课程或复查里把口径对一遍。"
+              }
+            ]
           }
         ],
         "mistakes": [
           "静养到底——分界线由医生和治疗师划，不由恐惧划；",
           "怕「深蹲」这个动作名字——危险的是失控，不是名字；",
-          "用感觉当进度标尺——标尺在评估里，不在感觉里。"
+          "用感觉当进度标尺——标尺在评估里，不在感觉里；",
+          "拿不准就自己猜——三个自查问题 + 对一遍课程/复查口径。"
         ],
         "see_doctor": "静养和训练的分界线由医生和治疗师划；拿不准自己的阶段匹配，**复查或治疗时问**。",
         "see_doctor_level": "amber"
-      },
-      {
-        "kc_id": "KC-019",
-        "category": "术后常识",
-        "name": "红色指征详解卡",
-        "content_type": "安全",
-        "summary": "红色指征六类全文；任何一条命中→立即急诊或联系主治医师",
-        "jump_target": "",
-        "phase": "全程",
-        "brief_long": "我帮你查了一下：红色指征共六类，任何一条命中都要立即行动——①感染信号：发烧、伤口越来越红肿热痛、渗液流脓；②血栓信号：小腿肚肿胀发硬按压痛（不要按摩揉搓）；③肺栓塞信号：胸口疼、突然喘不上气，直接急诊；④膝盖突然卡住动弹不得：别硬掰，联系医生；⑤脚发麻、发凉、发白；⑥静息痛持续加重、夜里疼醒。口诀：正常的特征是「总体在变好」，危险的特征是「方向反了」或「出现新症状」——拿不准就打电话问科室。",
-        "core_conclusion": "红色指征共六类，**任何一条命中都要立即行动**。口诀：正常的特征是「总体在变好」，危险的特征是「方向反了」或「出现新症状」。",
-        "body_sections": [
-          {
-            "heading": "六类信号（上）",
-            "blocks": [
-              {
-                "type": "list",
-                "text": "",
-                "items": [
-                  "**感染信号**：发烧、伤口越来越红肿热痛、渗液变浑流脓；",
-                  "**血栓信号**：小腿肚肿胀、发硬、按压疼痛——不要按摩揉搓；",
-                  "**肺栓塞信号**：胸口疼、突然喘不上气，直接急诊。"
-                ]
-              }
-            ]
-          },
-          {
-            "heading": "六类信号（下）",
-            "blocks": [
-              {
-                "type": "list",
-                "text": "",
-                "items": [
-                  "**膝盖突然卡住**动弹不得：别硬掰，联系医生；",
-                  "**脚发麻、发凉、发白**；",
-                  "**静息痛持续加重**、夜里疼醒。"
-                ]
-              }
-            ]
-          },
-          {
-            "heading": "怎么记",
-            "blocks": [
-              {
-                "type": "p",
-                "text": "口诀：正常的特征是「**总体在变好**」，危险的特征是「**方向反了**」或「**出现新症状**」。拿不准就打电话问科室——这个电话永远不嫌多。"
-              }
-            ]
-          }
-        ],
-        "mistakes": [
-          "小腿肿痛去按摩揉搓——血栓信号，禁忌揉搓；",
-          "膝盖卡住硬掰——别硬掰，联系医生；",
-          "拿不准却观望——打电话问科室，这个电话永远不嫌多。"
-        ],
-        "see_doctor": "六类任何一条命中都要**立即行动**：感染、血栓信号尽快联系医生；肺栓塞信号（胸口疼、突然喘不上气）**直接急诊**。拿不准就打电话问科室。",
-        "see_doctor_level": "red"
       },
       {
         "kc_id": "KC-020",
@@ -7927,11 +8891,41 @@
             ]
           },
           {
+            "heading": "每个节点大致在做什么",
+            "blocks": [
+              {
+                "type": "list",
+                "text": "按手册的随访安排，各节点各有侧重（**以你的医嘱为准**）：",
+                "items": [
+                  "**2 周**：拆线/皮钉，评估活动度、肿胀、疼痛，调整康复方案",
+                  "**6 周**：全面功能评估（活动度、力量、步态）；**路径 B 复查 MRI** 看半月板愈合",
+                  "**3 个月**：功能评估、引入跑步前的评估；营养状态与心理评估（可选）",
+                  "**6 个月**：全面功能评估（等速肌力、单腿跳组合）；**路径 B 复查 MRI**；评估是否满足进阶标准",
+                  "**9 个月**：重返运动前全面评估；心理 readiness 评估；医师—治疗师—教练联合评估",
+                  "**12 个月**：重返后评估；长期随访基线；损伤预防教育"
+                ]
+              }
+            ]
+          },
+          {
             "heading": "三件准备",
             "blocks": [
               {
                 "type": "p",
                 "text": "**带数据**：提前用复查报告功能生成摘要，医生扫一眼胜过现场回忆。**带问题**：候诊时列好、按重要性排序，时间不够先问最重要的。**带判断线索**：记录里有异常趋势（某周肿胀突然反弹、哪天出现过错动感）主动说出来——这些是你觉得「不值一提」但医生最想听的。"
+              }
+            ]
+          },
+          {
+            "heading": "复查前一周就该动手",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "别等坐在候诊区才想问题。提前几天把记录翻一遍、把想问的写下来，顺便把这段时间的角度、肿胀、训练完成情况看一眼——带着趋势去，比带着印象去有用得多。"
+              },
+              {
+                "type": "p",
+                "text": "如果你正在路径 B 的术后 6 周前后，复查时正好可以请医生确认亚路径（B1/B2/B3）是否需要调整；这件事在档案页留痕（见 KC-003 与复查页提示）。"
               }
             ]
           },
@@ -7948,7 +8942,8 @@
         "mistakes": [
           "空着手去复查、靠现场回忆——提前用复查报告功能生成摘要；",
           "问题没排序——时间不够先问最重要的；",
-          "异常趋势觉得「不值一提」不说——恰恰是医生最想听的。"
+          "异常趋势觉得「不值一提」不说——恰恰是医生最想听的；",
+          "复查完就翻篇——新指示要记进医嘱调整记录，下一段训练靠它。"
         ],
         "see_doctor": "复查节奏**遵医嘱**；复查后把新指示记进医嘱调整记录，它是你下一段训练的依据。",
         "see_doctor_level": "amber"
@@ -7974,11 +8969,38 @@
             ]
           },
           {
+            "heading": "为什么早期用得多",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "术后早期肌肉「叫不醒」、又扛不住大重量，是最尴尬的一段：不练会掉肌肉，练重了又不行。BFR 的定位就是补上这一段——它让**低负荷**也能带来接近高负荷的肌肉刺激，因此常被放在术后早期到中期、无法耐受常规抗阻训练的窗口里。"
+              },
+              {
+                "type": "callout",
+                "text": "循证上，多项系统综述支持它在 ACL 康复早期的安全性与有效性，但它始终是**传统力量训练的辅助**，不是替代品。"
+              }
+            ]
+          },
+          {
             "heading": "红线与禁忌",
             "blocks": [
               {
                 "type": "p",
                 "text": "袖带压力、负荷重量、适用与否，必须由医生或治疗师评估设定并**全程监督**。红线：**禁止自行购买设备模仿操作**。有血栓、心血管问题或局部伤口问题的人**不适用**。"
+              }
+            ]
+          },
+          {
+            "heading": "常见误解",
+            "blocks": [
+              {
+                "type": "list",
+                "text": "三个最容易想歪的地方：",
+                "items": [
+                  "「轻负荷＝门槛低」——门槛在**参数**，不在动作轻重；",
+                  "「有设备就能自己练」——**监督**是它安全成立的前提；",
+                  "「反正只是辅助，可有可无」——对早期保肌肉它确实有用，要不要用问医生。"
+                ]
               }
             ]
           },
@@ -7995,7 +9017,8 @@
         "mistakes": [
           "自行购买设备模仿操作——这是红线；",
           "以为负荷轻就门槛低——门槛在参数，不在动作；",
-          "有血栓、心血管或局部伤口问题隐瞒不报——这些人不适用。"
+          "有血栓、心血管或局部伤口问题隐瞒不报——这些人不适用；",
+          "把它当成高负荷训练的替代品——它是辅助，主动训练才是主力。"
         ],
         "see_doctor": "是否适合你、参数怎么设定，由医生或治疗师评估——**复查时问一句**；有血栓、心血管问题或局部伤口问题的人不适用。",
         "see_doctor_level": "amber"
@@ -8021,11 +9044,29 @@
             ]
           },
           {
+            "heading": "证据上的预期",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "现有证据支持它在**预防早期肌肉萎缩**方面的辅助作用——注意是「辅助」与「早期」。它不是让力量回来的主力，指望靠它把肌肉练回来，方向就错了。"
+              }
+            ]
+          },
+          {
             "heading": "谁来设定",
             "blocks": [
               {
                 "type": "p",
                 "text": "设备与参数由**医疗团队**提供和设定。它辅助而不能替代你的主动练习：电刺激让肌肉「会动」，主动训练让肌肉「有力」，顺序不能反。"
+              }
+            ]
+          },
+          {
+            "heading": "和主动训练怎么配合",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "常见用法是「电刺激加主动收缩」一起做：一边电刺激让肌肉醒过来，一边你主动用力去配合——两者叠加比单用其一更接近「教会肌肉自己动」的目标。什么时候开始、做多久，按医疗团队的安排来。"
               }
             ]
           },
@@ -8042,56 +9083,10 @@
         "mistakes": [
           "用电刺激替代主动练习——顺序不能反，主动训练才让肌肉「有力」；",
           "自行调整设备参数——设备与参数由医疗团队提供和设定；",
-          "隐瞒起搏器或皮肤破损情况——这些人不适用。"
+          "隐瞒起搏器或皮肤破损情况——这些人不适用；",
+          "期待它「练回肌肉」——它防的是早期萎缩，主力永远是主动训练。"
         ],
         "see_doctor": "是否适合你、从什么时候开始用，由**医疗团队判断**；装有心脏起搏器、局部皮肤有破损或感觉异常的人不适用。",
-        "see_doctor_level": "amber"
-      },
-      {
-        "kc_id": "KC-023",
-        "category": "步态与负重",
-        "name": "运动回归五阶梯速查",
-        "content_type": "知识卡",
-        "summary": "从日常活动到对抗运动的五级进阶路径；每级全部达标才能升级，出现疼痛、肿胀或不稳就退回一级",
-        "jump_target": "AC-P4-001 直线慢跑、AC-P5-001 跑步进阶、KC-016（RTS 测试都测什么）。",
-        "phase": "全程",
-        "citations": "Burgi CR, et al. (2019). Which criteria are used to clear patients to return to sport after primary anterior cruciate ligament reconstruction? A scoping review. *British Journal of Sports Medicine*, 53(18):1154-1161. DOI:10.1136/bjsports-2018-099982；Grindem H, et al. (2016). Simple decision rules can reduce reinjury risk by 84% after ACL reconstruction: the Delaware-Oslo ACL cohort study. *British Journal of Sports Medicine*, 50(13):804-808.",
-        "core_conclusion": "五阶梯的正确用法是把它当「**门槛清单**」而不是「时间表」——真正决定升级的永远是达标条件：力量、对称性、无肿胀反弹、无打软。出现疼痛、肿胀或不稳就退回一级，这不是失败。",
-        "body_sections": [
-          {
-            "heading": "门槛清单，不是时间表",
-            "blocks": [
-              {
-                "type": "p",
-                "text": "每一级后面的周数只是常见参考区间（A、B 两类路径进度不同，**以你的医嘱为准**），真正决定升级的永远是达标条件——力量、对称性、无肿胀反弹、无打软。"
-              }
-            ]
-          },
-          {
-            "heading": "退级是正常用法",
-            "blocks": [
-              {
-                "type": "p",
-                "text": "出现疼痛、肿胀或不稳就退回一级，这不是失败，是阶梯设计的正常用法。**每一级至少稳定一到两周**再尝试进阶，比「一口气冲上去再退回来」快得多。"
-              }
-            ]
-          },
-          {
-            "heading": "完整内容在哪",
-            "blocks": [
-              {
-                "type": "p",
-                "text": "五级的完整内容与达标条件见上方摘要；跑步、变向、对抗三级的具体训练安排，在对应阶段的课程和动作卡里逐步展开。"
-              }
-            ]
-          }
-        ],
-        "mistakes": [
-          "把周数当时间表——它是门槛清单，升级看达标条件；",
-          "没全达标就升级——每一级必须全部达标才能升级；",
-          "把退级当失败——退回一级是阶梯设计的正常用法。"
-        ],
-        "see_doctor": "A、B 两类路径进度不同，**以你的医嘱为准**；升级与否按达标条件，由医生与评估团队定。",
         "see_doctor_level": "amber"
       },
       {
@@ -8115,11 +9110,34 @@
             ]
           },
           {
+            "heading": "为什么值得做",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "伤后大脑对患腿会有一段「陌生感」：不敢用、找不准位置。心理意象训练针对的正是这一段——它让大脑反复排演**正确的动作模式**，等身体能上场时，动作已经「认识」过一遍了。"
+              }
+            ]
+          },
+          {
             "heading": "什么时候尤其有价值",
             "blocks": [
               {
                 "type": "p",
                 "text": "配合真实训练使用，在**重返运动前期**尤其有价值：身体还不能做的动作，大脑可以先练。研究视角上，它针对的是伤后大脑对患腿的「陌生感」。"
+              }
+            ]
+          },
+          {
+            "heading": "用对它的三个要点",
+            "blocks": [
+              {
+                "type": "list",
+                "text": "做对比做久重要：",
+                "items": [
+                  "**具体**：想的是某一个动作（如单腿落地），不是笼统的「我要变强」",
+                  "**正确**：想的是治疗师纠正过的动作模式，想错了等于练错",
+                  "**配合**：和真实训练搭着做，不能只在脑子里练"
+                ]
               }
             ]
           },
@@ -8136,6 +9154,7 @@
         "mistakes": [
           "用意象训练替代身体训练——力量和动作质量要在训练场上长出来；",
           "想象泛泛而过——画面越具体越有效；",
+          "想的是自己习惯的动作而不是治疗师纠正过的——想错等于练错；",
           "想起来才做——每天几分钟，配合真实训练使用。"
         ],
         "see_doctor": "本卡为心理练习方法，无紧急就医信号；如果重返前恐惧明显、影响训练，复查时与医生或治疗师讨论（课程 P5-02「重返运动的心理准备」有更系统的内容）。",
@@ -8151,7 +9170,7 @@
         "phase": "P5-P6",
         "citations": "Kvist J, Ek A, Sporrstedt K, et al. Fear of re-injury: A hindrance for returning to sports after anterior cruciate ligament reconstruction. Knee Surg Sports Traumatol Arthrosc. 2005;13(5):393-397.\nArdern CL, Osterberg A, Tagesson S, et al. The impact of psychological readiness to return to sport and recreational activities after anterior cruciate ligament reconstruction. Br J Sports Med. 2014;48(22):1613-1619.\nLosciale JM, Zeni J, Laudner K. The relationship between psychological readiness and return to sport after anterior cruciate ligament reconstruction: A systematic review. J Sport Rehabil. 2023;32(6):672-681.",
         "brief_long": "我帮你查了一下：怕再断、不敢发力非常正常——约 30%-50% 的患者在重返运动前经历明显的再损伤恐惧。心理准备有标准化评估工具：ACL-RSI 量表（12 个条目，0-100 分），参考阈值为重返休闲运动≥60 分、重返旋转/对抗性运动≥65 分，具体由医生按你的运动目标定。分数低不代表永远不能回，常见做法是延迟重返、模拟场景暴露训练，必要时寻求心理咨询。",
-        "core_conclusion": "分数低不等于「永远不能回」，而是「**先练心再上场**」——不满足心理标准时延迟重返，是保护自己，不是退步。",
+        "core_conclusion": "分数低不等于「永远不能回」，而是「**先练心再上场**」——不满足心理标准时延迟重返，是保护自己，不是退步。信心也不是靠「逼自己勇敢」，而是靠四类体验一点点攒出来的。",
         "body_sections": [
           {
             "heading": "恐惧很常见",
@@ -8172,6 +9191,25 @@
             ]
           },
           {
+            "heading": "信心是怎么攒出来的",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "信心不是「想通」的，是由四类体验累积的（这一条对觉得自己「怎么都过不去」的人尤其有用）："
+              },
+              {
+                "type": "list",
+                "text": "四条路径，能做的都做：",
+                "items": [
+                  "**掌握性体验**：一次次成功完成训练——这是最有力的一条",
+                  "**替代性经验**：看别人成功重返，知道「这条路走得通」",
+                  "**言语说服**：治疗师、教练、家人明确的鼓励",
+                  "**情绪管理**：用放松训练把焦虑带来的心慌、发紧压下去"
+                ]
+              }
+            ]
+          },
+          {
             "heading": "分数低怎么办",
             "blocks": [
               {
@@ -8188,12 +9226,22 @@
                 "text": "**对侧 ACL 损伤率高达 18%-22%**——双侧都怕很常见。长期执行损伤预防项目（如 FIFA 11+），是同时降低两侧风险的正路。"
               }
             ]
+          },
+          {
+            "heading": "本 App 能帮你什么",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "「心理状态自测」页（`/acl-rsi`）可以自己先测一遍、看到分数变化；但**阈值的判定权在医生**——自测是让你心里有数，不是给自己下结论。"
+              }
+            ]
           }
         ],
         "mistakes": [
           "把怕再断当软弱——约 30%-50% 的患者都经历；",
           "分数低硬上场——先练心再上场，延迟重返是保护自己；",
-          "只盯患侧忘了对侧——对侧 ACL 损伤率 18%-22%，预防项目两侧一起护。"
+          "只盯患侧忘了对侧——对侧 ACL 损伤率 18%-22%，预防项目两侧一起护；",
+          "指望「想通就好了」——信心靠四类体验攒，不是靠下决心。"
         ],
         "see_doctor": "适用哪档阈值，由**医生按你的运动目标定**；分数低时延迟重返、心理暴露训练、CBT 或心理咨询，与医生讨论。",
         "see_doctor_level": "amber"
@@ -8224,7 +9272,11 @@
             "blocks": [
               {
                 "type": "p",
-                "text": "**髌骨松动**：术后即刻开始，上下左右各方向 Grade I-II 级松动，每次 5 分钟，每日 2-3 次，预防髌骨粘连和低位髌骨。**膝关节松动**：术后 2 周起，如屈膝进度滞后，可进行胫股关节前后向/后前向滑动（Grade III-IV），每次 10 分钟，每周 2-3 次——**由治疗师执行，不要自己扳**。**软组织松解**：术后 2 周起，泡沫轴或手法松解股四头肌、髂胫束、腘绳肌、小腿三头肌。**瘢痕管理**：术后 2 周起、切口愈合后，瘢痕松动和横向摩擦按摩，预防瘢痕粘连和神经瘤形成。"
+                "text": "**髌骨松动**：术后即刻开始，上下左右各方向松动，预防髌骨粘连和低位髌骨。**膝关节松动**：术后约 2 周起，如屈膝进度滞后，由治疗师做胫股关节的前后向/后前向滑动——**由治疗师执行，不要自己扳**。**软组织松解**：术后约 2 周起，松解股四头肌、髂胫束、腘绳肌、小腿三头肌，改善延展性与血流。**瘢痕管理**：术后约 2 周起、切口愈合后，做瘢痕松动与横向摩擦按摩，预防瘢痕粘连（自护部分见 KC-011）。"
+              },
+              {
+                "type": "callout",
+                "text": "四样的**具体强度、频次由治疗师定**——本卡只讲「有什么、什么时候介入」，不讲你自己回家怎么加量。"
               }
             ]
           },
@@ -8234,6 +9286,15 @@
               {
                 "type": "p",
                 "text": "手法治疗在改善术后**早期活动度**方面有一定证据支持，但**长期功能结局**的改善证据有限。把它当助攻，别当主力。"
+              }
+            ]
+          },
+          {
+            "heading": "和主动训练的关系",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "手法治疗解决的是「关节和软组织够不够松」，主动训练解决的是「肌肉有没有力、动作会不会做」。前者是给后者**创造条件**：屈膝卡着的时候，训练做不出来；松开之后，训练才练得进去。所以两者是接力，不是二选一。"
               }
             ]
           },
@@ -8250,7 +9311,8 @@
         "mistakes": [
           "把手法当主力——它是助攻，练永远是你自己的功课；",
           "自己扳膝盖——膝关节松动由治疗师执行，不要自己扳；",
-          "对证据预期过高——长期结局证据有限，别当「做了就能好」。"
+          "对证据预期过高——长期结局证据有限，别当「做了就能好」；",
+          "只做手法不练——手法给训练创造条件，不能替训练。"
         ],
         "see_doctor": "屈膝进度明显滞后、瘢痕发紧发硬影响活动时，**复查或治疗时主动说出来**，由治疗师评估是否需要手法介入。",
         "see_doctor_level": "amber"
@@ -8272,7 +9334,7 @@
             "blocks": [
               {
                 "type": "p",
-                "text": "它和术后早期的铰链式支具**不是一回事**——支具是保护移植物的「刚需」，护膝是重返后的「可选」。"
+                "text": "它和术后早期的铰链式支具**不是一回事**——支具是保护移植物的「刚需」，护膝是重返后的「可选」（支具部分见 KC-001）。"
               }
             ]
           },
@@ -8302,133 +9364,28 @@
                 "text": "时机一般是重返运动初期（**术后 9-12 月至 2 年**）可考虑使用，但它不应替代满足重返运动标准和执行损伤预防项目。**长期依赖**护膝可能导致肌肉代偿和心理依赖。"
               }
             ]
+          },
+          {
+            "heading": "怎么判断该摘了",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "一个实用的观察角度：当你在训练和比赛里**不再需要它来获得安全感**（而不是「摘了就不敢动」），就是可以和医生讨论减量的时机。摘的时间同样是「讨论出来的」，不是自己硬摘。"
+              }
+            ]
           }
         ],
         "mistakes": [
           "把护膝和术后支具混为一谈——支具是刚需，护膝是可选；",
           "当「戴了就安全」的保证书——预防再伤的证据不一致；",
-          "长期依赖不摘——可能导致肌肉代偿和心理依赖，护膝是过渡的扶手，不是永久的拐杖。"
+          "长期依赖不摘——可能导致肌肉代偿和心理依赖，护膝是过渡的扶手，不是永久的拐杖；",
+          "自己决定什么时候摘——摘的时机和医生讨论。"
         ],
         "see_doctor": "要不要戴、什么时候摘，**和医生讨论**；它不替代满足重返运动标准和执行损伤预防项目。",
-        "see_doctor_level": "amber"
-      },
-      {
-        "kc_id": "KC-029",
-        "category": "护理",
-        "name": "术后伤口与肿胀照护",
-        "content_type": "生活",
-        "summary": "切口保持干燥清洁、术后 48-72 小时换敷料；淋浴 5-7 天后（防水敷料）；拆线 10-14 天；瘢痕拆线后硅酮凝胶 2-3 月；抬高患肢高于心脏、踝泵每小时 20-30 次控肿胀",
-        "jump_target": "",
-        "phase": "全程",
-        "brief_long": "我帮你查了一下：术后照护主要盯三件事——伤口、疼痛、肿胀。伤口保持干燥清洁，48-72 小时换敷料，淋浴要等 5-7 天并用防水敷料；拆线/皮钉在 10-14 天。肿胀靠「抬高+加压+冰敷+踝泵」这套组合，踝泵每小时 20-30 次促进回流。每天晨起量髌骨上方 10cm 大腿周径跟健侧对比，肿胀持续加重或伴发热要警惕深静脉血栓和感染。",
-        "core_conclusion": "术后照护盯三件事：**伤口、疼痛、肿胀**。出现切口红肿热痛、脓性分泌物、发热>38°C，立即就医。",
-        "body_sections": [
-          {
-            "heading": "伤口管理",
-            "blocks": [
-              {
-                "type": "p",
-                "text": "切口干燥清洁，术后 48-72 小时换敷料；淋浴 5-7 天后（防水敷料）；拆线 10-14 天；拆线后硅酮凝胶/贴片 2-3 月。"
-              }
-            ]
-          },
-          {
-            "heading": "肿胀控制",
-            "blocks": [
-              {
-                "type": "p",
-                "text": "抬高患肢高于心脏、弹性绷带/加压袜、冰敷每次 15-20 分钟、踝泵每小时 20-30 次、早期股四头肌等长收缩利用肌肉泵。"
-              }
-            ]
-          }
-        ],
-        "mistakes": [
-          "切口沾水或过早淋浴——5-7 天后用防水敷料再洗；",
-          "忽视持续加重的肿胀——晨起量周径，伴发热警惕 DVT/感染；",
-          "伤口红肿热痛、脓性分泌物、发热>38°C 硬扛——立即就医。"
-        ],
-        "see_doctor": "切口红肿热痛、脓性分泌物、发热>38°C，立即就医。",
-        "see_doctor_level": "red"
-      },
-      {
-        "kc_id": "KC-030",
-        "category": "术后常识",
-        "name": "支具与功能性护膝怎么用",
-        "content_type": "生活",
-        "summary": "铰链式支具术后 0-2 周锁定 0°、2-6 周逐步解锁、10-12 周去除（依医师）；功能性护膝用于重返高风险运动初期（9-12 月至 2 年），不替代达标与预防训练",
-        "jump_target": "",
-        "phase": "全程",
-        "brief_long": "我帮你查了一下：支具分两类。术后早期是铰链式支具——0-2 周锁定在 0° 伸膝位，2-6 周逐步解锁到 0-90°，6-10 周只在复杂环境戴，10-12 周去除。重返运动后是功能性护膝——提供本体感觉提示和心理安全感，可在术后 9-12 月至 2 年内考虑使用，但记住：它不能替代满足重返标准和做损伤预防训练，长期依赖还会肌肉代偿。",
-        "core_conclusion": "支具是**辅助**，不是「达标证明」。功能性护膝可在重返初期考虑，但**不替代**重返标准与损伤预防项目。",
-        "body_sections": [
-          {
-            "heading": "铰链式支具",
-            "blocks": [
-              {
-                "type": "p",
-                "text": "术后 0-2 周锁定 0°；2-6 周逐步解锁 0-90°；6-10 周逐步减少使用；10-12 周完全去除（依医师评估）。"
-              }
-            ]
-          },
-          {
-            "heading": "功能性护膝",
-            "blocks": [
-              {
-                "type": "p",
-                "text": "用于重返高风险旋转/对抗性运动、存在不稳或心理需要。术后 9-12 月至 2 年内可考虑，不替代达标与预防训练。"
-              }
-            ]
-          }
-        ],
-        "mistakes": [
-          "把支具当「护身符」替代达标——它不替代重返标准与预防训练；",
-          "长期依赖护膝——可能导致肌肉代偿和心理依赖；",
-          "自行决定支具去除时间——以医师评估为准。"
-        ],
-        "see_doctor": "支具使用方案与去除时机，以医师评估为准。",
-        "see_doctor_level": null
-      },
-      {
-        "kc_id": "KC-031",
-        "category": "心理与睡眠",
-        "name": "怕再伤怎么办（心理 readiness）",
-        "content_type": "生活",
-        "summary": "再损伤恐惧是重返主要心理障碍；ACL-RSI 量表 12 条目 0-100 分、>65 分为 readiness 阈值；信心靠掌握性体验/替代性经验/言语说服/情绪管理四种策略重建",
-        "jump_target": "",
-        "phase": "全程",
-        "brief_long": "我帮你查了一下：怕再伤不是「胆小」，是重返路上最常见的心理障碍，而且它跟再损伤风险相关。评估用 ACL-RSI 量表（12 条目、0-100 分），通常 >65 分算心理 readiness 达标。信心不是靠「逼自己勇敢」，是靠四种策略攒出来的：掌握性体验（一次次成功完成训练）、替代性经验（看别人成功重返）、言语说服（治疗师家人鼓励）、情绪管理（放松训练控制焦虑）。评分低或恐惧回避明显的，要延迟重返、加模拟场景暴露，必要时认知行为疗法。",
-        "core_conclusion": "怕再伤是**正常且可处理**的。ACL-RSI>65 是参考线；评分低要延迟重返、加心理暴露训练，不是硬上。",
-        "body_sections": [
-          {
-            "heading": "ACL-RSI",
-            "blocks": [
-              {
-                "type": "p",
-                "text": "12 条目、0-100 分，>65 分为心理 readiness 阈值；重返前必须评估。本应用「心理状态自测」页（/acl-rsi）可测。"
-              }
-            ]
-          },
-          {
-            "heading": "信心重建四策略",
-            "blocks": [
-              {
-                "type": "p",
-                "text": "掌握性体验、替代性经验、言语说服、生理/情绪状态管理。"
-              }
-            ]
-          }
-        ],
-        "mistakes": [
-          "把怕再伤当「胆小」硬扛——它是可评估可干预的；",
-          "评分低照常重返——应延迟重返、加心理暴露训练；",
-          "忽视对侧风险——对侧 ACL 损伤率 18-22%，要长期做损伤预防。"
-        ],
-        "see_doctor": "评分低或显著恐惧回避，与治疗师/心理咨询师讨论；严重焦虑/抑郁必要时药物治疗。",
         "see_doctor_level": "amber"
       }
     ],
     "search_index": {
-      "_doc": "与卡片同源同版本（卷三 第2章 §5）；索引由构建器从卡片名称/要点生成（同源保证）。",
       "terms": [
         {
           "card_id": "AC-P1-001",
@@ -8893,6 +9850,26 @@
         {
           "card_id": "AC-X-014",
           "term": "神经肌肉电刺激（NMES，专业指导）"
+        },
+        {
+          "card_id": "AC-P3-032",
+          "term": "蹲跳（低幅）"
+        },
+        {
+          "card_id": "AC-P3-033",
+          "term": "迷你弹跳（连续小幅）"
+        },
+        {
+          "card_id": "AC-P3-034",
+          "term": "落地定格（双脚）"
+        },
+        {
+          "card_id": "AC-P3-035",
+          "term": "侧向小跳（低幅）"
+        },
+        {
+          "card_id": "AC-P4-011",
+          "term": "分腿跳（交替）"
         }
       ]
     }

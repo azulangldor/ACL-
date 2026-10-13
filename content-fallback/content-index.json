@@ -1,51 +1,51 @@
 {
   "schema_version": 1,
-  "version": "2026.10.11.20",
+  "version": "2026.10.13.21",
   "min_app_version": "0.1.0",
-  "updated_at": "2026-10-11",
+  "updated_at": "2026-10-13",
   "packages": [
     {
       "name": "courses",
-      "version": "2026.10.11.20",
-      "size": 800555,
+      "version": "2026.10.13.21",
+      "size": 1410585,
       "url": "packages/courses/package.json",
-      "checksum": "sha256:af002ebf7406eb2f88658403e22c01e62b3030379e8aa83bfe7089ec0ab02a4d",
+      "checksum": "sha256:5d1a99ad021bb3bf96e6983dbbd222eca9b040257a1081ad4a91953054be7da2",
       "safety_critical": false
     },
     {
       "name": "sek_cards",
-      "version": "2026.10.11.20",
-      "size": 501822,
+      "version": "2026.10.13.21",
+      "size": 550902,
       "url": "packages/sek_cards/package.json",
-      "checksum": "sha256:eb7b1a576d20b93d62d819e750b976289db6fe96abe0b6244e84f863456298c7",
+      "checksum": "sha256:10342dd07372f374349d2b1d163c6c46d0d2110af829c0ea270934c47b74bcd8",
       "safety_critical": false
     },
     {
       "name": "misc_config",
-      "version": "2026.10.11.20",
-      "size": 130719,
+      "version": "2026.10.13.21",
+      "size": 110487,
       "url": "packages/misc_config/package.json",
-      "checksum": "sha256:d3f7c0aa70a48e9fa177435921f0984ea6d40236b92a4c41d8fbbc4c1dbed3cc",
+      "checksum": "sha256:be7ce36d7abed0295e9943d581848f2e82314ba1f64826c8c373493d28903b2d",
       "safety_critical": false
     },
     {
       "name": "assessments",
-      "version": "2026.10.11.20",
-      "size": 37080,
+      "version": "2026.10.13.21",
+      "size": 36364,
       "url": "packages/assessments/package.json",
-      "checksum": "sha256:34764533a57903d1f0171661b07f62dc3a10bebeadb2306570626c5eb41d9467",
+      "checksum": "sha256:b3dc6dcc59fa30ab2809e769c9ef420aa7bb8cc669f7f8747dd5b9c12ac9686c",
       "safety_critical": false
     },
     {
       "name": "guide",
-      "version": "2026.10.11.20",
-      "size": 15008,
+      "version": "2026.10.13.21",
+      "size": 14472,
       "url": "packages/guide/package.json",
-      "checksum": "sha256:9ccc872e8172530ac876503ff6d4d00d80614ef7e1d7008d6f3ba342c9645f14",
+      "checksum": "sha256:ab472171b72af6f8063bbe1b3c3b51e0d2394390612135390f169683805c23d3",
       "safety_critical": false
     }
   ],
   "status": "active",
-  "signature": "OloZZI/JJz7e0JLs7GR0dtIuOPdO0Z/yAQ72d8Fi+UBhzpwmnt+Jtg1K5AYCiVqHbypfnecIx8u8EOYeJGbABw==",
-  "signed_at": "2026-10-11T00:00:00.000Z"
+  "signature": "j1Sy5ljdakLxRWUOvKTuQ1CkkeNvYk7Nscg7BCihP4G+9U3/LyXU5cfkRxKejk7/9nRuOYtkPZZjBfxUR180Ag==",
+  "signed_at": "2026-10-13T00:00:00.000Z"
 }

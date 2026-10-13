@@ -1,10 +1,9 @@
 {
   "schema_version": 1,
   "pack_name": "assessments",
-  "version": "2026.10.11.20",
-  "generated_at": "2026-10-11T00:00:00.000Z",
+  "version": "2026.10.13.21",
+  "generated_at": "2026-10-13T00:00:00.000Z",
   "data": {
-    "_doc": "R28 第 3 批 R28-3-1：功能评估项目表（医生/治疗师版，设计侧供稿 feed.md 逐字入库，医学数值与 ref 文案零改写；取代 R27 患者自评版）。fields: number=数字+单位 / select=分段选项 / auto=只读推导（双侧差=|患−健|、LSI%=患/健×100）/ text=文本备注。",
     "declaration": "本页由医生或治疗师在复查时测量填写，数据仅保存在本设备。所有项目可留空。",
     "phases": {
       "Prehab": [
@@ -915,7 +914,6 @@
       ]
     },
     "rehab_goals_schema": {
-      "_doc": "R35 第二批 G1：本阶段康复目标结构（R34-i 两批模式——本批只落空结构；目标值供稿由设计侧出草案、医学审定后另行填入）。维度四行：活动度/肿胀/肌力/步态；每维度 { target: 目标值文案（供稿逐字）, unit?: 单位 }；phase_keys 合法阶段键。rehab_goals 空表时视图整卡不渲染。",
       "dimensions": [
         "活动度",
         "肿胀",

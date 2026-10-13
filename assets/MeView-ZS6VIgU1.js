@@ -1,1 +1,0 @@
-import{d as i,ah as r,c as e,i as a,s as n,m as c,ai as m,h as t,W as u,aj as _}from"./index-mTmcZTFy.js";const h=i({__name:"MeView",setup(l){const{transitionName:s}=r();return(p,d)=>(e(),a(t(_),null,{default:n(({Component:o})=>[c(u,{name:t(s),mode:"out-in"},{default:n(()=>[(e(),a(m(o)))]),_:2},1032,["name"])]),_:1}))}});export{h as default};

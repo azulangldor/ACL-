@@ -1,3 +1,0 @@
-import{d,c as s,e as o,F as a,j as _,y as m,t as l,l as u,_ as x}from"./index-mTmcZTFy.js";function f(t){return t.split(`
-`).filter(e=>e.trim()!=="---").join(`
-`)}function k(t){return f(t).split(/\*\*(.+?)\*\*/gs).filter(n=>n!=="").map((n,i)=>({bold:i%2===1,text:n}))}const y={key:0,class:"inline-bold"},I=d({__name:"InlineRichText",props:{text:{}},setup(t){const e=t,c=m(()=>k(e.text));return(n,i)=>(s(!0),o(a,null,_(c.value,(r,p)=>(s(),o(a,{key:p},[r.bold?(s(),o("strong",y,l(r.text),1)):(s(),o(a,{key:1},[u(l(r.text),1)],64))],64))),128))}}),h=x(I,[["__scopeId","data-v-71e219bd"]]);export{h as I,f as s};

@@ -1,0 +1,1 @@
+import{b as a,r as i}from"./index-CXVbH03s.js";function c(n=2e3){const u=i(null);let l=null;function t(o,r=n){u.value=o,l!==null&&clearTimeout(l),l=setTimeout(()=>{u.value=null,l=null},r)}function e(){l!==null&&clearTimeout(l),l=null,u.value=null}return a(e),{text:u,show:t,clear:e}}export{c as u};

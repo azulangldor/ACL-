@@ -1,12 +1,10 @@
 {
   "schema_version": 1,
   "pack_name": "misc_config",
-  "version": "2026.10.11.20",
-  "generated_at": "2026-10-11T00:00:00.000Z",
+  "version": "2026.10.13.21",
+  "generated_at": "2026-10-13T00:00:00.000Z",
   "data": {
-    "_doc": "misc_config 内容包源（rfc_keywords + template_pack + ref_registry + faq_pack 合并包）。阶段 0 样例：全部占位（医学内容零创作）；rfc_keywords 词表待 M1-M2 随医学内容源入库（trie_build 规则 pending）。",
     "rfc_keywords": {
-      "_doc": "RFC 触发词库（附录F.2 逐字；核心医学词+口语方言层(含粤语)+组合触发规则+排除降权规则）。仅对检索查询串做字符串匹配，不含健康数据字段。",
       "cards": [
         {
           "card_id": "RFC-01",
@@ -26,8 +24,8 @@
             "发烧",
             "伤口滚热"
           ],
-          "combine_rules": "(发热",
-          "exclude_rules": "发烧"
+          "combine_rules": "(发热|发烧|体温)+(切口|伤口|膝盖)；(红肿|发紧)+(加重|越来越)",
+          "exclude_rules": "既往/转述语境（\"医生说切口长得好\"）；课程标题含\"感染\"的教育性查询降权不置顶"
         },
         {
           "card_id": "RFC-02",
@@ -48,8 +46,8 @@
             "脚肿",
             "小腿实晒"
           ],
-          "combine_rules": "(小腿",
-          "exclude_rules": "腿肚"
+          "combine_rules": "(小腿|腿肚|腿)+(肿|胀|硬|痛|粗)",
+          "exclude_rules": "双侧对称轻微肿胀的一般性查询（\"术后肿胀正常吗\"）降权，走 T-阶段安全模板"
         },
         {
           "card_id": "RFC-03",
@@ -71,8 +69,8 @@
             "心口痛",
             "唞唔到气"
           ],
-          "combine_rules": "(胸",
-          "exclude_rules": "心口)+(痛"
+          "combine_rules": "(胸|心口)+(痛|疼|闷)；(喘|呼吸)+(困难|不上气|急促)",
+          "exclude_rules": "仅明确教育性查询（\"什么是肺栓塞\"）降权；疑似症状表述一律触发"
         },
         {
           "card_id": "RFC-04",
@@ -90,8 +88,8 @@
             "膝盖突然不敢动",
             "膝头卡亲"
           ],
-          "combine_rules": "(膝盖",
-          "exclude_rules": "膝)+(卡住"
+          "combine_rules": "(膝盖|膝)+(卡住|伸不直|弯不了|动不了|错位)",
+          "exclude_rules": "\"晨僵\"\"早上起来有点僵\"等慢性僵硬自述降权"
         },
         {
           "card_id": "RFC-05",
@@ -112,8 +110,8 @@
             "脚痹",
             "脚趾唔听使唤"
           ],
-          "combine_rules": "(脚",
-          "exclude_rules": "脚趾"
+          "combine_rules": "(脚|脚趾|小腿)+(麻|木|凉|白|紫|抬不起|没知觉)",
+          "exclude_rules": "\"蹲久了脚麻\"等明确情境且自述已缓解降权"
         },
         {
           "card_id": "RFC-06",
@@ -131,209 +129,12 @@
             "吃药也不管用",
             "瞓觉都痛"
           ],
-          "combine_rules": "(疼",
-          "exclude_rules": "痛)+(越来越"
-        }
-      ]
-    },
-    "template_pack": {
-      "_doc": "检索模板 6 类固定文案（附录G.1 逐字锁定；槽位白名单）",
-      "cards": [
-        {
-          "template_id": "T-红旗卡",
-          "scenario": "RFC 触发",
-          "copy": "直接渲染 RFC 组件固定文案（附录 F，含固定就医引导），不加任何改写",
-          "slots": "无"
-        },
-        {
-          "template_id": "T-动作参数",
-          "scenario": "查动作",
-          "copy": "{{course_text}}——以上内容摘自课程《{{course_title}}》。动作的起始时间、角度与剂量请以你的医嘱和治疗师方案为准。",
-          "slots": "{{course_title}}, {{course_text}}"
-        },
-        {
-          "template_id": "T-ALT 动作",
-          "scenario": "查替代动作",
-          "copy": "{{course_text}}——以上替代动作摘自课程《{{course_title}}》。是否适合你当前的阶段与情况，请以医嘱和治疗师意见为准。",
-          "slots": "{{course_title}}, {{course_text}}"
-        },
-        {
-          "template_id": "T-阶段安全",
-          "scenario": "查阶段禁忌",
-          "copy": "{{phase_name}}阶段安全提醒：{{course_text}}——以上为 {{phase_name}} 阶段的通用安全提醒（摘自课程内容），你的个人进度以医嘱为准。",
-          "slots": "{{phase_name}}, {{course_text}}"
-        },
-        {
-          "template_id": "T-营养知识",
-          "scenario": "查营养",
-          "copy": "{{course_text}}——以上为通用营养知识（摘自课程内容）。如有糖尿病、肾病等特殊情况，请遵医嘱。",
-          "slots": "{{course_title}}, {{course_text}}"
-        },
-        {
-          "template_id": "T-无匹配",
-          "scenario": "无结果",
-          "copy": "小K没有找到完全匹配的内容。你可以：①换个说法再试一次；②点击「加入复查问题」，把这个问题留给医生当面回答。",
-          "slots": "无"
-        }
-      ]
-    },
-    "ref_registry": {
-      "_doc": "文献总表 REF-01~30（D.0，逐字搬运）。数字溯源索引随课程全稿入库补全（T→REF 映射见设计侧 F9 §1）。",
-      "entries": [
-        {
-          "id": "REF-01",
-          "citation": "Wang X, Tang R, et al. (2023). What Frequency of Ankle Pump Exercise is Optimal to Improve Lower Limb Hemodynamics? A Systematic Review and Network Meta-analysis. Asian Nursing Research（© Korean Society of Nursing Science, Elsevier）",
-          "note": "踝泵频率的系统评价与网状荟萃：每 3-4 秒一次的节律对改善下肢血流动力学最优"
-        },
-        {
-          "id": "REF-02",
-          "citation": "Li H, Zhang W, Lu Q, Wang J, Zhi Y, Zhang L, Zhou L. (2022). Which Frequency of Ankle Pump Exercise Should Be Chosen for the Prophylaxis of Deep Vein Thrombosis? Inquiry, 59. DOI:10.1177/00469580221105989",
-          "note": "随机交叉研究（307 人）：踝泵显著增加股静脉/腘静脉等血管内径与血流速度；约 30 次/分钟的节律疲劳更低、依从性更好"
-        },
-        {
-          "id": "REF-03",
-          "citation": "Liu X, et al. (2025). Effect of postoperative ankle pump exercises on the prevention of deep vein thrombosis and venous hemodynamics following lower limb orthopedic surgery: a meta-analysis of randomized controlled trials. Journal of Orthopaedic Surgery and Research. DOI:10.1186/s13018-025-06236-7",
-          "note": "16 项 RCT、1704 名下肢骨科术后患者的荟萃：踝泵显著降低 DVT 发生率并改善静脉回流指标"
-        },
-        {
-          "id": "REF-04",
-          "citation": "Kotsifaki R, Korakakis V, King E, et al. (2023). Aspetar clinical practice guideline on rehabilitation after anterior cruciate ligament reconstruction. British Journal of Sports Medicine, 57(9):500-514.",
-          "note": "Aspetar 临床实践指南（白名单）：术后早期即开始股四头肌激活与关节活动度练习的原则与方向"
-        },
-        {
-          "id": "REF-05",
-          "citation": "Shaw T, Williams MT, Chipchase LS. (2005). Do early quadriceps exercises affect the outcome of ACL reconstruction? A randomised controlled trial. Australian Journal of Physiotherapy, 51(1):9-17.",
-          "note": "RCT（103 人）：术后 0-2 周进行股四头肌练习（含等长收缩）者关节活动度更好、6 个月时松弛度更低、功能评分更好"
-        },
-        {
-          "id": "REF-06",
-          "citation": "Palmieri-Smith RM, Thomas AC, Wojtys EM. (2008). Maximizing quadriceps strength after ACL reconstruction. Clinics in Sports Medicine, 27(3):405-424. DOI:10.1016/j.csm.2008.02.001",
-          "note": "综述：关节源性肌肉抑制（AMI）机制与股四头肌功能恢复策略，等长收缩为早期核心手段"
-        },
-        {
-          "id": "REF-07",
-          "citation": "Kruse LM, Gray B, Wright RW. (2012). Rehabilitation after anterior cruciate ligament reconstruction: a systematic review. Journal of Bone and Joint Surgery (American Volume), 94(19):1737-1748. DOI:10.2106/JBJS.K.01246",
-          "note": "JBJS 系统综述（白名单）：术后早期关节活动度练习的方向与原则，活动度恢复是早期康复核心目标"
-        },
-        {
-          "id": "REF-08",
-          "citation": "Grant JA. (2013). Updating recommendations for rehabilitation after ACL reconstruction: a review. Clinical Journal of Sport Medicine, 23(6):501-502.",
-          "note": "综述：ACL 重建术后康复建议的更新方向，支持早期、渐进的关节活动度恢复"
-        },
-        {
-          "id": "REF-09",
-          "citation": "Andrade R, Pereira R, van Cingel R, Staal JB, Espregueira-Mendes J. (2020). How should clinicians rehabilitate patients after ACL reconstruction? A systematic review of clinical practice guidelines (CPGs) with a focus on quality appraisal (AGREE II). British Journal of Sports Medicine, 54(9):512-519. DOI:10.1136/bjsports-2018-100310",
-          "note": "国际 CPG 系统综述（白名单）：指南一致推荐术后第一周即开始关节活动与等长股四头肌练习；冰敷可用于术后早期疼痛管理且不增加短期不良事件"
-        },
-        {
-          "id": "REF-10",
-          "citation": "Wilk KE, Reinold MM, Hooks TR. (2003). Recent advances in the rehabilitation of isolated and combined anterior cruciate ligament injuries. Orthopedic Clinics of North America, 34(1):107-137. DOI:10.1016/S0030-5898(02)00064-0",
-          "note": "综述：ACL 损伤康复进展，屈膝活动度渐进恢复（含重力辅助方式）的原则"
-        },
-        {
-          "id": "REF-11",
-          "citation": "Ohkoshi Y, Ohkoshi M, Nagasaki S, Ono A, Hashimoto T, Yamane S. (1999). The effect of cryotherapy on intraarticular temperature and postoperative care after anterior cruciate ligament reconstruction. American Journal of Sports Medicine, 27(3):357-362. DOI:10.1177/03635465990270031601",
-          "note": "临床研究：ACL 重建术后冰敷降低关节内温度、与术后疼痛管理相关"
-        },
-        {
-          "id": "REF-12",
-          "citation": "Raynor MC, Pietrobon R, Guller U, Higgins LD. (2005). Cryotherapy after ACL reconstruction: a meta-analysis. Journal of Knee Surgery, 18(2):123-129. DOI:10.1055/s-0030-1248169",
-          "note": "荟萃分析：ACL 重建术后冰敷对疼痛管理的获益方向（对肿胀等指标证据不一致）"
-        },
-        {
-          "id": "REF-13",
-          "citation": "Logerstedt DS, Scalzitti D, Risberg MA, et al. (2017). Knee stability and movement coordination impairments: knee ligament sprain revision 2017: clinical practice guidelines. Journal of Orthopaedic & Sports Physical Therapy, 47(11):A1-A40. DOI: 10.2519/jospt.2017.0303",
-          "note": "JOSPT 临床实践指南（2017 修订版）——术后康复全程总纲：阶段进阶、活动度/负重/力量原则"
-        },
-        {
-          "id": "REF-14",
-          "citation": "Rambaud AJM, Ardern CL, Thoreux P, Regnaux JP, Edouard P. (2018). Criteria for return to running after anterior cruciate ligament reconstruction: a scoping review. British Journal of Sports Medicine, 52(22):1437-1444. DOI: 10.1136/bjsports-2017-098602",
-          "note": "重返跑步标准：时间+临床（活动度、无肿胀、力量）双口径；步态/台阶类卡片参照"
-        },
-        {
-          "id": "REF-15",
-          "citation": "Hughes L, Paton B, Rosenblatt B, Gissane C, Patterson SD. (2017). Blood flow restriction training in clinical musculoskeletal rehabilitation: a systematic review and meta-analysis. British Journal of Sports Medicine, 51(13):1003-1011. DOI: 10.1136/bjsports-2016-097071",
-          "note": "血流限制训练（BFR）系统综述：低负荷增力与安全边界（治疗师主导设备类备选）"
-        },
-        {
-          "id": "REF-16",
-          "citation": "Hughes L, Rosenblatt B, Haddad F, et al. (2019). Comparing the effectiveness of blood flow restriction and traditional heavy load resistance training in the post-surgery rehabilitation of anterior cruciate ligament reconstruction patients: a UK National Health Service randomised controlled trial. Sports Medicine, 49(11):1787-1805. DOI: 10.1007/s40279-019-01137-2",
-          "note": "ACL 术后 BFR 对比传统大负荷训练的随机对照试验（英国 NHS）"
-        },
-        {
-          "id": "REF-17",
-          "citation": "Escamilla RF. (2001). Knee biomechanics of the dynamic squat exercise. Medicine & Science in Sports & Exercise, 33(1):127-141. DOI: 10.1097/00005768-200101000-00020",
-          "note": "深蹲/腿举/弓步的膝关节生物力学：安全角度区间与负荷原则"
-        },
-        {
-          "id": "REF-18",
-          "citation": "Distefano LJ, Blackburn JT, Marshall SW, Padua DA. (2009). Gluteal muscle activation during common therapeutic exercises. Journal of Orthopaedic & Sports Physical Therapy, 39(7):532-540. DOI: 10.2519/jospt.2009.2796",
-          "note": "臀肌激活肌电研究：臀桥/侧卧髋外展/蚌式/弹力带侧走的动作选择依据"
-        },
-        {
-          "id": "REF-19",
-          "citation": "Heijne A, Werner S. (2007). Early versus late start of open kinetic chain quadriceps exercises after ACL reconstruction with patellar tendon or hamstring tendon grafts. Knee Surgery, Sports Traumatology, Arthroscopy, 15(4):402-414. DOI: 10.1007/s00167-006-0246-z",
-          "note": "开链抗阻伸膝的开始时机与限定角度（移植物类型相关）"
-        },
-        {
-          "id": "REF-20",
-          "citation": "Shelbourne KD, Patel DV. (1999). Treatment of limited motion after anterior cruciate ligament reconstruction. Knee Surgery, Sports Traumatology, Arthroscopy, 7(2):85-92. DOI: 10.1007/s001670050127",
-          "note": "伸膝受限的处理：伸直优先原则、俯卧悬吊类练习依据"
-        },
-        {
-          "id": "REF-21",
-          "citation": "Shelbourne KD, Wilckens JH, Mollabashy A, DeCarlo M. (1991). Arthrofibrosis in acute anterior cruciate ligament reconstruction: the effect of timing of reconstruction and rehabilitation. American Journal of Sports Medicine, 19(4):332-336. DOI: 10.1177/036354659101900402",
-          "note": "关节纤维化预防：早期活动度管理的重要性"
-        },
-        {
-          "id": "REF-22",
-          "citation": "Shaarani SR, O’Hare C, Quinn A, Moyna N, Moran R, O’Byrne JM. (2013). Effect of prehabilitation on the outcome of anterior cruciate ligament reconstruction. American Journal of Sports Medicine, 41(9):2114-2127. DOI: 10.1177/0363546513493594",
-          "note": "术前康复（prehab）对术后结局的价值"
-        },
-        {
-          "id": "REF-23",
-          "citation": "Cunha J, Solomon DJ. (2022). ACL prehabilitation improves postoperative strength and motion and return to sport in athletes. Arthroscopy, Sports Medicine, and Rehabilitation. DOI: 10.1016/j.asmr.2021.11.001",
-          "note": "术前康复改善术后力量/活动度与重返运动的近年证据"
-        },
-        {
-          "id": "REF-24",
-          "citation": "Hauger AV, Reiman MP, Bjordal JM, Sheets C, Ledbetter L, Goode AP. (2018). Neuromuscular electrical stimulation is effective in strengthening the quadriceps muscle after anterior cruciate ligament surgery. Knee Surgery, Sports Traumatology, Arthroscopy, 26(3):1016-1027. DOI: 10.1007/s00167-017-4669-5",
-          "note": "神经肌肉电刺激（NMES）强化股四头肌（由医疗团队提供设备时）"
-        },
-        {
-          "id": "REF-25",
-          "citation": "Kim KM, Croy T, Hertel J, Saliba S. (2010). Effects of neuromuscular electrical stimulation after anterior cruciate ligament reconstruction on quadriceps strength, function, and patient-oriented outcomes. Journal of Orthopaedic & Sports Physical Therapy, 40(5):273-281. DOI: 10.2519/jospt.2010.3184",
-          "note": "NMES 对 ACL 术后股四头肌力量与功能结局的影响"
-        },
-        {
-          "id": "REF-26",
-          "citation": "Grooms D, Appelbaum G, Onate J. (2015). Neuroplasticity following anterior cruciate ligament injury: a framework for visual-motor training approaches in rehabilitation. Journal of Orthopaedic & Sports Physical Therapy, 45(6):427-436. DOI: 10.2519/jospt.2015.5549",
-          "note": "神经可塑性与视觉-动作训练框架：平衡/本体感觉/单腿控制类卡片依据"
-        },
-        {
-          "id": "REF-27",
-          "citation": "Marques JB, Paul DJ, Graham-Smith P, Read PJ. (2020). Change of direction assessment following anterior cruciate ligament reconstruction: a review of current concepts. Sports Medicine - Open. DOI: 10.1007/s40279-019-01189-4",
-          "note": "变向能力评估与敏捷训练概念：变向/急停/旋转/折返类卡片依据"
-        },
-        {
-          "id": "REF-28",
-          "citation": "Culvenor AG, Girdwood MA, Juhl CB, et al. (2022). Rehabilitation after anterior cruciate ligament and meniscal injuries: a best-evidence synthesis of systematic reviews for the OPTIKNEE consensus. British Journal of Sports Medicine, 56(24):1445-1453. DOI: 10.1136/bjsports-2022-105495",
-          "note": "OPTIKNEE 共识最佳证据综合：康复要素（教育/力量/神经肌肉/心理）全景依据"
-        },
-        {
-          "id": "REF-29",
-          "citation": "Papalia R, Franceschi F, D’Adamio S, et al. (2015). Hamstring tendon regeneration after harvest for anterior cruciate ligament reconstruction: a systematic review. Arthroscopy. DOI: 10.1016/j.arthro.2014.11.015",
-          "note": "腘绳肌取腱后的肌腱再生：取腱区护理与腘绳肌训练节奏依据"
-        },
-        {
-          "id": "REF-30",
-          "citation": "Burgi CR, Peters S, Ardern CL, et al. (2019). Which criteria are used to clear patients to return to sport after primary anterior cruciate ligament reconstruction? A scoping review. British Journal of Sports Medicine, 53(18):1154-1161. DOI: 10.1136/bjsports-2018-099982",
-          "note": "重返运动许可标准综述：测试组合与决策框架（RTS 准备类卡片依据）"
+          "combine_rules": "(疼|痛)+(越来越|加重|止不住|痛醒|睡不着|不管用)",
+          "exclude_rules": "训练后当天酸胀自述（\"练完有点酸\"）降权"
         }
       ]
     },
     "faq_pack": {
-      "_doc": "T-FAQ 20 条患者口语版（附录G.2，L1 审核稿；FAQ-16~20 为 R16-B4 新增）。L1R8 R4：逐条审旧功能词（每日测试/演示模式/激励元素）零引用无需删改，增补 FAQ-21~26 新功能条目（练习模式/解锁/考试中心/复查简报/照片安全/确认弹窗）",
       "entries": [
         {
           "faq_id": "FAQ-01",
@@ -467,10 +268,6 @@
         }
       ]
     },
-    "rfc_fixed": {
-      "_doc": "RFC 组件固定文案（课程内逐字复用，禁止改写）。RFC-01~06 六卡正文随附录F入库补全（M2 后）。",
-      "six_classes": "发热伴膝盖红肿热痛；小腿肚肿胀发硬按压痛；胸口疼或喘不上气；膝盖突然卡住伸不直；脚发麻发凉发白；静息时疼痛持续加重——出现任何一条，尽快联系医生或急诊。"
-    },
     "rfc_cards": [
       {
         "id": "RFC-01",
@@ -519,15 +316,9 @@
         "抑郁",
         "想哭",
         "崩溃",
-        "担心。模板固定文案（逐字锁定）： \"康复路上出现这样的感受很常见",
-        "很多人都经历过类似的阶段。下面这段内容也许对你有帮助：{{course_text}}（摘自课程 P2-04",
-        "P5-02",
-        "PRE-04）。如果这些感受持续影响你的睡眠和生活",
-        "建议在复查时告诉医生",
-        "或拨打心理援助热线（号码见课程 P2-04",
-        "年度核验）。\" 〔附「加入复查问题」按钮〕。"
+        "担心"
       ],
-      "template_copy": ""
+      "template_copy": "康复路上出现这样的感受很常见，很多人都经历过类似的阶段。下面这段内容也许对你有帮助：{{course_text}}（摘自课程 P2-04、P5-02、PRE-04）。如果这些感受持续影响你的睡眠和生活，建议在复查时告诉医生，或拨打心理援助热线（号码见课程 P2-04，年度核验）。"
     },
     "review_preset": {
       "preset_list": [
@@ -548,42 +339,34 @@
       "mode_b_template": "我在 X 月 X 日记录了[症状标记名]，想请问这需要关注吗？"
     },
     "privacy_policy": {
-      "_doc": "隐私政策全文（第4章 第一部分，逐字搬运；版本与更新日期随法务签核更新）",
-      "full_text": "### 第一部分 用户隐私政策（全文）\n\n更新日期：2026-10-05　生效日期：2026-10-05　版本：1.5\n\n#### 一、引言\n\nRehabGuide（以下简称「本产品」）是由中山大学附属第六医院关节与运动医学科（以下简称「我们」）为患者提供的 ACL（前交叉韧带）重建术后康复教育应用，通过医院科室公众号以 H5 页面形式提供服务。我们深知康复信息对您的敏感性，本产品从设计第一天起就坚持「本地优先、最少收集」原则：你的所有数据仅保存在这台设备上，不上传云端，也不与任何第三方共享。本应用不存在账号体系，不接入广告与统计 SDK。本政策将向您完整说明我们处理哪些信息、如何处理、您有哪些权利。**本应用面向全年龄段康复使用者。您在档案中填写的出生日期用于确认使用资格：未满 18 周岁的使用者，须由监护人陪同完成确认后方可开始使用。** 本政策依据《中华人民共和国个人信息保护法》《中华人民共和国数据安全法》《中华人民共和国网络安全法》及《网络数据安全管理条例》（2025 年 1 月 1 日施行）等法律法规制定。告知形式说明：本政策全文在应用内「设置-隐私政策」集中公开展示，并在首次启动与授权弹窗等显著位置提供查阅入口；我们收集的信息以清单形式列明（见 2.1 信息分级总表与 2.3 不收集清单），处理目的、方式、范围如有变更，将按第九条更新并重新取得同意（重大变化时）。\n\n#### 二、我们处理哪些信息\n\n2.1 信息分级总表（与产品技术架构一致）：\n\n| **级别**| **信息内容**| **存储位置与处理方式**|\n| ---| ---| ---|\n| L1 内容信息| 课程内容、动作卡片、检索模板、文案等内容包| 由服务端下发至您的设备，不涉及您的个人信息|\n| L2 学习行为信息| 课程进度、累计活跃天数、每日任务状态、卡片阅读标记| 仅保存在您的设备本地，以加密形态存储（我们无法读取内容）；可随时撤回授权|\n| L2 档案信息| 昵称、出生日期（您自选填写，用于确认使用资格）| 仅保存在您的设备本地，随 L2 加密存储 |\n| L3 记录信息| 日记（您自选的症状标记、训练后感受标记、训练日志、备注）、角度估算值、照片缩略图| 仅保存在您的设备本地；角标「估算」的角度值与照片由您自行管理|\n| 特殊 医嘱调整记录| 您记录的医嘱调整信息| 仅本地，随日记存储规则处理|\n| 例外 检索对话记录| 您与检索功能的对话内容| 仅保存在您的设备本地，永不上传|\n\n2.2 账号标识：本应用不存在账号体系，不接入广告与统计 SDK。我们不索取、不关联您的微信号资料、手机号或任何真实身份信息。独立浏览器环境下，系统仅在您的设备上生成匿名本地标识，仅用于本地数据的组织。\n\n2.3 我们不收集的信息（承诺清单）：姓名、身份证号、手机号、地理位置、疼痛评分（VAS）、肿胀数值量表、情绪评分——任何场景下均不收集。症状信息仅以您主动选择的标签形式（如「肿胀/僵硬」）记录在您的日记中，且只存在本地。（2.1 与 2.3 两表共同构成《网络数据安全管理条例》第 21 条要求的「收集个人信息清单」展示。）\n\n#### 三、信息如何被保护\n\n① 本地加密：您设备上的全部本地数据（日记、照片、对话记录）使用 AES-256-GCM 标准加密，密钥由您设备首次启动时生成的本地持久化随机盐派生生成（盐不出设备，不依赖任何设备信息，浏览器或设备升级不影响数据可读），我们无法获取也无法重建该密钥——这意味着即使是我们也无法读取您设备上的内容，换机后旧设备数据亦无法被任何人（包括您）恢复。如您希望更高的本机防护，可在「设置-隐私」开启应用密码，开启后密码将参与本地数据的加密保护；未开启时，本机加密无法防止拿到您设备的人读取本机数据。② 传输加密：所有网络传输使用 TLS 1.3。③ 零上行：您的数据仅保存在本机，不存在任何上行链路。\n\n#### 四、我们如何使用信息\n\n仅用于以下目的：向您提供康复课程、动作卡片、检索等教育服务。我们不会：将您的信息用于广告、用户画像、商业推广；不会根据您的症状或健康信息做任何推荐或排序；不会向任何第三方出售您的信息。\n\n#### 五、信息的共享、转让与公开披露\n\n我们不与任何第三方共享、转让您的个人信息，不公开披露您的信息。仅在法律法规强制要求（如司法机关依法调取）时，我们才可能依法配合，且由于数据仅存本机，我们实际可提供的内容极为有限。本产品不接入任何第三方统计、广告或支付服务。\n\n#### 六、存储地点与期限\n\n存储地点：您的全部数据仅保存在您的设备上。存储期限：数据保存至您主动删除；卸载应用或清除浏览器数据即完成本地数据清除。\n\n#### 七、您的权利\n\n① 查阅与复制：您可在应用内随时查阅您的全部本地数据（日记、照片、记录），并使用导出功能获取副本。② 更正：日记、记录等内容可随时修改或删除，删除即时生效。③ 撤回同意：你可以随时撤回同意。撤回后本应用将停止为你提供服务，本地数据将按注销流程删除；撤回不影响撤回前已基于你的同意开展的处理活动的效力。④ 删除权：您删除的任何数据将在本地即时彻底清除。⑤ 注销：本应用不存在账号体系。您可在「设置」中申请注销本地档案，申请后有 7 天可撤销期（防止误操作，期间可一键撤销）；撤销期届满后本地档案即刻清除。注销后，您设备上的本地数据由您自行清除（卸载应用或清除浏览器数据即可）。\n\n以上权利均可通过应用内「设置-隐私」以自助方式便捷行使，无需人工审核与等待；操作有困难时可按第十条联系方式获得协助。\n\n#### 八、未成年人保护\n\n本产品面向 ACL 术后患者，使用者中可能包含未成年人。\n\n① 使用资格确认（检测驱动）：您在档案中填写的出生日期用于确认使用资格。出生日期填写后即触发检测，进入对应的年龄确认页：已满 18 周岁的使用者由本人完成确认；未满 18 周岁的使用者，须由监护人陪同并代为完成确认后方可开始使用。两条路径并列，确认内容相同。\n\n② 监护人陪同与代为确认：若您为未满 18 周岁的未成年人，请在监护人陪同下阅读本政策，并由监护人代为完成年龄确认后方可使用本产品；使用过程中涉及授权（学习行为信息加密存储、记录加密备份）的操作，均应由监护人代为确认。\n\n③ 不满十四周岁的儿童：对于不满 14 周岁的儿童使用者，我们按照《个人信息保护法》第三十一条等法律法规要求执行专门的个人信息处理规则，仅在取得监护人同意后处理其个人信息，并同样遵循本政策「本地优先、最少收集」的全部原则。\n\n④ 监护人代行权利：未成年人的监护人可以代其行使本政策第七条所列全部权利（查阅、复制、更正、撤回同意、删除、注销），操作路径相同（「设置-隐私」），无需人工审核。\n\n#### 九、本政策如何更新\n\n本政策更新时将递增版本号，并在应用内以显著方式提示。涉及信息处理目的、方式、种类重大变化的，我们将重新取得您的同意。历史版本可在「设置-隐私政策-历史版本」中查阅。\n\n#### 十、如何联系我们\n\n如对本政策或个人信息保护有任何疑问、意见或投诉，可通过以下方式联系：中山大学附属第六医院关节与运动医学科〔科室联系电话〕，或通过公众号留言。我们将在 15 个工作日内回复。\n"
+      "full_text": "### 第一部分 用户隐私政策（全文）\n\n更新日期：2026-10-05　生效日期：2026-10-05　版本：1.5\n\n#### 一、引言\n\nRehabGuide（以下简称「本产品」）是由中山大学附属第六医院关节与运动医学科（以下简称「我们」）为患者提供的 ACL（前交叉韧带）重建术后康复教育应用，通过医院科室公众号以 H5 页面形式提供服务。我们深知康复信息对您的敏感性，本产品从设计第一天起就坚持「本地优先、最少收集」原则：你的所有数据仅保存在这台设备上，不上传云端，也不与任何第三方共享。本应用不存在账号体系，不接入广告与统计 SDK。本政策将向您完整说明我们处理哪些信息、如何处理、您有哪些权利。**本应用面向全年龄段康复使用者。您在档案中填写的出生日期用于确认使用资格：未满 18 周岁的使用者，须由监护人陪同完成确认后方可开始使用。** 本政策依据《中华人民共和国个人信息保护法》《中华人民共和国数据安全法》《中华人民共和国网络安全法》及《网络数据安全管理条例》（2025 年 1 月 1 日施行）等法律法规制定。告知形式说明：本政策全文在应用内「设置-隐私政策」集中公开展示，并在首次启动与授权弹窗等显著位置提供查阅入口；我们收集的信息以清单形式列明（见 2.1 信息分级总表与 2.3 不收集清单），处理目的、方式、范围如有变更，将按第九条更新并重新取得同意（重大变化时）。\n\n#### 二、我们处理哪些信息\n\n2.1 信息分级总表（与产品技术架构一致）：\n\n| **级别**| **信息内容**| **存储位置与处理方式**|\n| ---| ---| ---|\n| L1 内容信息| 课程内容、动作卡片、检索模板、文案等内容包| 由服务端下发至您的设备，不涉及您的个人信息|\n| L2 学习行为信息| 课程进度、累计活跃天数、每日任务状态、卡片阅读标记| 仅保存在您的设备本地，以加密形态存储（我们无法读取内容）；可随时撤回授权|\n| L2 档案信息| 昵称、出生日期（您自选填写，用于确认使用资格）| 仅保存在您的设备本地，随 L2 加密存储 |\n| L3 记录信息| 日记（您自选的症状标记、训练后感受标记、训练日志、备注）、角度估算值、照片缩略图| 仅保存在您的设备本地；角标「估算」的角度值与照片由您自行管理|\n| 特殊 医嘱调整记录| 您记录的医嘱调整信息| 仅本地，随日记存储规则处理|\n| 例外 检索对话记录| 您与检索功能的对话内容| 仅保存在您的设备本地，永不上传|\n\n2.2 账号标识：本应用不存在账号体系，不接入广告与统计 SDK。我们不索取、不关联您的微信号资料、手机号或任何真实身份信息。独立浏览器环境下，系统仅在您的设备上生成匿名本地标识，仅用于本地数据的组织。\n\n2.3 我们不收集的信息（承诺清单）：姓名、身份证号、手机号、地理位置、疼痛评分（VAS）、肿胀数值量表、情绪评分——任何场景下均不收集。症状信息仅以您主动选择的标签形式（如「肿胀/僵硬」）记录在您的日记中，且只存在本地。（2.1 与 2.3 两表共同构成《网络数据安全管理条例》第 21 条要求的「收集个人信息清单」展示。）\n\n#### 三、信息如何被保护\n\n① 本地加密：您设备上的全部本地数据（日记、照片、对话记录）使用 AES-256-GCM 标准加密，密钥由您设备首次启动时生成的本地持久化随机盐派生生成（盐不出设备，不依赖任何设备信息，浏览器或设备升级不影响数据可读），我们无法获取也无法重建该密钥——这意味着即使是我们也无法读取您设备上的内容，换机后旧设备数据亦无法被任何人（包括您）恢复。如您希望更高的本机防护，可在「设置-隐私」开启应用密码，开启后密码将参与本地数据的加密保护；未开启时，本机加密无法防止拿到您设备的人读取本机数据。② 传输加密：所有网络传输使用 TLS 1.3。③ 零上行：您的数据仅保存在本机，不存在任何上行链路。\n\n#### 四、我们如何使用信息\n\n仅用于以下目的：向您提供康复课程、动作卡片、检索等教育服务。我们不会：将您的信息用于广告、用户画像、商业推广；不会根据您的症状或健康信息做任何推荐或排序；不会向任何第三方出售您的信息。\n\n#### 五、信息的共享、转让与公开披露\n\n我们不与任何第三方共享、转让您的个人信息，不公开披露您的信息。仅在法律法规强制要求（如司法机关依法调取）时，我们才可能依法配合，且由于数据仅存本机，我们实际可提供的内容极为有限。本产品不接入任何第三方统计、广告或支付服务。\n\n#### 六、存储地点与期限\n\n存储地点：您的全部数据仅保存在您的设备上。存储期限：数据保存至您主动删除；卸载应用或清除浏览器数据即完成本地数据清除。\n\n#### 七、您的权利\n\n① 查阅与复制：您可在应用内随时查阅您的全部本地数据（日记、照片、记录），并使用导出功能获取副本。② 更正：日记、记录等内容可随时修改或删除，删除即时生效。③ 撤回同意：你可以随时撤回同意。撤回后本应用将停止为你提供服务，本地数据将按注销流程删除；撤回不影响撤回前已基于你的同意开展的处理活动的效力。④ 删除权：您删除的任何数据将在本地即时彻底清除。⑤ 注销：本应用不存在账号体系。您可在「设置」中申请注销本地档案，申请后有 7 天可撤销期（防止误操作，期间可一键撤销）；撤销期届满后本地档案即刻清除。注销后，您设备上的本地数据由您自行清除（卸载应用或清除浏览器数据即可）。\n\n以上权利均可通过应用内「设置-隐私」以自助方式便捷行使，无需人工审核与等待；操作有困难时可按第十条联系方式获得协助。\n\n#### 八、未成年人保护\n\n本产品面向 ACL 术后患者，使用者中可能包含未成年人。\n\n① 使用资格确认（检测驱动）：您在档案中填写的出生日期用于确认使用资格。出生日期填写后即触发检测，进入对应的年龄确认页：已满 18 周岁的使用者由本人完成确认；未满 18 周岁的使用者，须由监护人陪同并代为完成确认后方可开始使用。两条路径并列，确认内容相同。\n\n② 监护人陪同与代为确认：若您为未满 18 周岁的未成年人，请在监护人陪同下阅读本政策，并由监护人代为完成年龄确认后方可使用本产品；使用过程中涉及授权的操作，均应由监护人代为确认。\n\n③ 不满十四周岁的儿童：对于不满 14 周岁的儿童使用者，我们按照《个人信息保护法》第三十一条等法律法规要求执行专门的个人信息处理规则，仅在取得监护人同意后处理其个人信息，并同样遵循本政策「本地优先、最少收集」的全部原则。\n\n④ 监护人代行权利：未成年人的监护人可以代其行使本政策第七条所列全部权利（查阅、复制、更正、撤回同意、删除、注销），操作路径相同（「设置-隐私」），无需人工审核。\n\n#### 九、本政策如何更新\n\n本政策更新时将递增版本号，并在应用内以显著方式提示。涉及信息处理目的、方式、种类重大变化的，我们将重新取得您的同意。历史版本可在「设置-隐私政策-历史版本」中查阅。\n\n#### 十、如何联系我们\n\n如对本政策或个人信息保护有任何疑问、意见或投诉，可通过以下方式联系我们：中山大学附属第六医院关节与运动医学科公众号留言。我们将在 15 个工作日内回复。\n"
     },
     "consent_copy": {
-      "_doc": "单独同意与注销界面文案（第4章 第二部分，逐字锁定）",
-      "full_text": "### 第二部分 单独同意与注销界面文案（逐字锁定稿）\n\n\n#### 2.1 授权弹窗（学习行为信息加密存储）\n\n标题：学习行为信息加密存储\n\n正文：开启后，你的学习进度（课程完成、活跃天数等计数信息）将以加密形式保存在这台设备上。更换设备后，原设备上的本地数据不可恢复。你的日记、照片、检索对话不在本次授权范围内。你可以随时在\"设置-隐私\"中关闭。\n\n按钮： 〔同意并开启〕〔暂不开通（仅本设备保存）〕\n\n#### 2.2 授权弹窗（记录加密备份）\n\n标题：记录加密备份\n\n正文：你的记录（含症状标记、训练感受、角度估算值与照片缩略图）默认只保存在这台设备上。开启后，日记将以加密形式在本机备份。你可以随时在\"设置-隐私\"中关闭。未开启不影响任何功能使用。\n\n按钮： 〔同意并开启〕〔继续仅保存在本机〕\n\n#### 2.3 注销确认页文案\n\n标题：注销账号\n\n正文：注销后，你的本地档案将被清除且无法恢复。提交申请后 7 天内可撤销；7 天后删除即时生效。你设备上的本地数据（日记、照片、检索对话）不会自动删除，可在卸载应用或清除浏览器数据时一并清除。\n\n按钮： 〔我已了解，申请注销〕〔再想想〕\n\n#### 2.4 授权撤回二次确认（L2/L3 通用）\n\n正文：你可以随时撤回同意。撤回后本应用将停止为你提供服务，本地数据将按注销流程删除；撤回不影响撤回前已基于你的同意开展的处理活动的效力。\n\n按钮： 〔确认撤回〕〔再想想〕\n"
+      "full_text": "### 第二部分 注销与撤回界面文案（逐字锁定稿）\n\n\n#### 2.3 注销确认页文案\n\n标题：注销账号\n\n正文：注销后，你的本地档案将被清除且无法恢复。提交申请后 7 天内可撤销；7 天后删除即时生效。你设备上的本地数据（日记、照片、检索对话）不会自动删除，可在卸载应用或清除浏览器数据时一并清除。\n\n按钮： 〔我已了解，申请注销〕〔再想想〕\n\n#### 2.4 授权撤回二次确认\n\n正文：你可以随时撤回同意。撤回后本应用将停止为你提供服务，本地数据将按注销流程删除；撤回不影响撤回前已基于你的同意开展的处理活动的效力。\n\n按钮： 〔确认撤回〕〔再想想〕\n"
     },
     "path_copy": {
-      "_doc": "配置向导路径话术（附录H 逐字锁定；修订视同 RFC 组件文案管理，L1 签核+CL 编号）",
       "guide_line": "路径由医师根据手术记录确定，与恢复好坏无关",
       "options": [
         {
           "key": "A",
-          "title": "A · 单纯韧带重建",
-          "desc": "半月板没有缝合，负重和屈膝按常规节奏推进"
+          "title": "A · 单纯韧带重建"
         },
         {
           "key": "B1",
-          "title": "B1 · 半月板缝合（范围小）",
-          "desc": "早期负重和屈膝角度稍作限制，之后逐步放开"
+          "title": "B1 · 联合半月板缝合（范围小）"
         },
         {
           "key": "B2",
-          "title": "B2 · 半月板缝合（范围中等）",
-          "desc": "限制期更长一些，动作进度比 A 路径保守"
+          "title": "B2 · 联合半月板缝合（范围中等）"
         },
         {
           "key": "B3",
-          "title": "B3 · 半月板缝合（范围较大）",
-          "desc": "范围较大或位置特殊，按最保守节奏推进，多数动作以医嘱为准"
+          "title": "B3 · 联合半月板缝合（范围较大）"
         }
       ],
       "fallback": "医师尚未告知？将按 B3 最保守方案渲染，请在下次门诊时确认。"
     },
     "onboarding_copy": {
-      "_doc": "首启向导文案（§3.2 三要点 + P-19 欢迎自我介绍，逐字锁定）",
       "welcome_intro": "我是你的康复伙伴，右膝也戴过护膝的那种",
       "three_points": [
         "仅为教育工具，不替代医生",
@@ -593,7 +376,6 @@
       "non_ht_notice": "当前版本不适用，请遵医嘱",
       "incomplete_watermark": "完善手术信息后可获得与你匹配的内容",
       "feature_guide": {
-        "_doc": "R29-7 功能导览页供稿（逐字）：页标题/副标题 + 五 Tab 各一卡（R39 B2 附 A 改写——今日/训练/学习/我的四卡随现版本重写、记录卡不动；title/subtitle 沿用实存；唯一事实源 content/src/misc_config/r39b2-feature-guide-feed.md）",
         "title": "这个 App 怎么用",
         "subtitle": "五个主页面，各管一件事",
         "cards": [
@@ -626,24 +408,35 @@
       ],
       "welcome_footnote": "数据默认仅保存在本设备",
       "guide_mask": {
-        "_doc": "R39B I1（2026-10-03，面纱引导重做——5 页 8 点位逐字，唯一事实源 content/src/misc_config/r39b-guide-mask-feed.md）：今日①②仪表盘/今日任务卡；训练③④开始训练/安全横幅；学习⑤阶段课程卡；记录⑥记录表单；我的⑦档案⑧设置。旧四页各 2 点位（train/record/learn/my point1/2）整组替换零残留。",
-        "today_point1": "仪表盘告诉你：现在处于哪个康复阶段、术后第几周、今天三件事完成了几件。每天打开先扫一眼这里，就知道今天该做什么了。",
-        "today_point2": "每天三件事：训练、学习、记录。点任意一行，直接跳到对应页面。",
-        "train_point1": "点这里进入运动模式，跟着卡片一组一组完成今天的动作；下面的清单就是今天要做的动作。顶部「阶段训练 / 增强式专项」随时切换，各记各的进度。",
-        "train_point2": "出现这几种情况先停练、联系医生。安全永远排第一。",
-        "learn_point1": "课程跟着你的阶段走，门禁达成后点「解锁」进入下一阶段；没解锁的课先不展示。练习模式刷题即时解析，考试中心分标准路线和 PLY 专项。",
-        "record_point1": "每天 10 秒记一笔。所有字段都能留空，直接保存也算完成今日记录。",
-        "my_point1": "手术信息、路径、阶段都在这。信息准了，计划才准。",
-        "my_point2": "提醒时间、隐私导出都在这。引导到此结束，接下来看你的了。"
+        "today_point1": "仪表盘告诉你：现在处于哪个康复阶段、到第几周了、今天三件事完成了几件。每天打开先扫一眼这里，就知道今天该做什么了。",
+        "today_point2": "每天就三件事：训练、学习、记录。点任意一行，直接跳到对应页面。",
+        "today_point3": "想查动作去「动作卡片库」，想查知识去「速查卡」，有问题问「问一问」；复查报告与我的收藏也在这一排。",
+        "train_point1": "这里有两套计划：「阶段训练」按你的恢复阶段走，「增强式专项」是跳跃类的进阶训练，完成准入后手动解锁；两条线各记各的进度。",
+        "train_point2": "出现这几种情况先停练、联系医生。点它可以随时查看红色指征速查。",
+        "train_point3": "点「开始训练」进入运动模式，跟着卡片一组一组做完；下面是今天的动作清单，受限期会换成更稳妥的退阶档。当天必做练完后，这里会变成「继续训练」。",
+        "learn_point1": "横条是七段学习地图：蓝色是已完成、金色是当前、灰色还没到。点任意一段可以预览那个阶段的课程。",
+        "learn_point2": "课程按你的阶段逐步开放：先把现阶段的课学完并通过测验，才能进入下一阶段；还没到的阶段先锁着。",
+        "learn_point3": "「练习模式」不计成绩、每题都有解析；「阶段测试」通过后就能进阶；做错的题会自动收进错题本。",
+        "record_point1": "记录分三段：症状每天记、趋势看角度变化、评估做阶段的评估项。右上角「复查报告」随时进复查。",
+        "record_point2": "所有字段都可以留空，直接保存也算完成今天的记录。",
+        "my_point1": "复查前把想问的记进「问题清单」，出发前生成复查简报，可存到 App 或导出图片给医生看；复查后把报告照片、医生当次的医嘱和下次复查日期记回来，医嘱会自动进下次简报。",
+        "my_point2": "提醒时间、隐私与数据（授权撤回、导出、注销）都在这里。引导到这里结束，接下来看你的了。"
+      },
+      "guide_mask_titles": {
+        "today_point1": "今日页 · 每天从这里开始",
+        "today_point2": "今日页 · 每天三件事",
+        "today_point3": "今日页 · 想查东西来这里",
+        "train_point1": "训练页 · 两条计划线",
+        "train_point2": "训练页 · 安全永远排第一",
+        "train_point3": "训练页 · 从这里开始练",
+        "learn_point1": "学习页 · 先看学习地图",
+        "learn_point2": "学习页 · 课程跟着阶段走",
+        "learn_point3": "学习页 · 学完来这里检验",
+        "record_point1": "记录页 · 三段各管一件事",
+        "record_point2": "记录页 · 每天 10 秒记一笔",
+        "my_point1": "我的页 · 复查报告",
+        "my_point2": "我的页 · 提醒与隐私"
       }
-    },
-    "scene_copy": {
-      "_doc": "R38F N2 场景大图文案（R38F 任务书附件二逐字 ×5，唯一事实源 content/src/misc_config/r38f-feed.md；鼓励与回忆口径，零医学表述）。key 对齐 GalleryView SCENES 五格：scene1 玄关↔「整理装备 · 术前」/ scene2 客厅↔「客厅 · P1-P2」/ scene3 公园↔「公园 · P3-P4」/ scene4 场边↔「球场边线 · P5」/ scene5 球场↔「整场球场 · P6+」（场景名以实存 SCENES 常量为准）。",
-      "scene1": "还记得吗，最开始连走到门口都要停下来歇一会。现在，你已经能自己稳稳站在这里了。",
-      "scene2": "从床边到沙发的这几步，是你一天天练出来的。继续，路还长，但你一直在往前走。",
-      "scene3": "第一次下楼走到公园那天，风都是新的。恢复不是冲刺，是每天多走一点点。",
-      "scene4": "能回到场边，说明你已经走了很远。别急，上场的那一天会越来越近。",
-      "scene5": "球场还在这儿等你。你练过的每一次，都在把你带回来。"
     },
     "kangkang_copy": [
       {
@@ -667,98 +460,7 @@
         "scene": "首页气泡·22:00-6:00（仅静态展示，无推送）"
       }
     ],
-    "hall_videos": {
-      "_doc": "康复大讲堂视频数据集（P-22）。字段：id/title/phase(PN键，多阶段用/分隔，全程恒匹配)/source/url/cover/duration/published_at/featured。url 为运营外链，空值=待运营补充（前端点击仅提示不上跳）。持续更新。",
-      "videos": [
-        {
-          "id": "HV-001",
-          "title": "术后第 3 周，为什么反而更难受？",
-          "phase": "P2",
-          "source": "康复医学科",
-          "url": "",
-          "cover": "",
-          "duration": "3 分钟",
-          "published_at": "2026-09-09",
-          "featured": true
-        },
-        {
-          "id": "HV-002",
-          "title": "冰敷还是热敷？一张表讲清楚",
-          "phase": "P1/P2",
-          "source": "康复医学科",
-          "url": "",
-          "cover": "",
-          "duration": "4 分钟",
-          "published_at": "2026-09-02",
-          "featured": false
-        },
-        {
-          "id": "HV-003",
-          "title": "晚上睡不好，会影响恢复吗？",
-          "phase": "全程",
-          "source": "康复医学科",
-          "url": "",
-          "cover": "",
-          "duration": "3 分钟",
-          "published_at": "2026-08-26",
-          "featured": false
-        },
-        {
-          "id": "HV-004",
-          "title": "移植物重塑的时间线",
-          "phase": "P2/P3",
-          "source": "康复医学科",
-          "url": "",
-          "cover": "",
-          "duration": "2 分钟",
-          "published_at": "2026-08-20",
-          "featured": false
-        },
-        {
-          "id": "HV-005",
-          "title": "上下楼梯的正确顺序",
-          "phase": "P2/P3",
-          "source": "康复医学科",
-          "url": "",
-          "cover": "",
-          "duration": "3 分钟",
-          "published_at": "2026-08-13",
-          "featured": false
-        },
-        {
-          "id": "HV-006",
-          "title": "拐杖与支具的正确用法",
-          "phase": "P1",
-          "source": "康复医学科",
-          "url": "",
-          "cover": "",
-          "duration": "3 分钟",
-          "published_at": "2026-08-06",
-          "featured": false
-        }
-      ]
-    },
-    "events": {
-      "_doc": "科室线下活动公告数据集（P-23；纯信息公告位）。字段：id/title/time/location/status。",
-      "items": [
-        {
-          "id": "EV-001",
-          "title": "康复分享会 · 重返运动的故事（第九期）",
-          "time": "9月20日（周六）14:00-15:30",
-          "location": "门诊楼 3 层康复大厅",
-          "status": "报名中"
-        },
-        {
-          "id": "EV-002",
-          "title": "术后营养小课堂（线上）",
-          "time": "9月24日（周三）19:00-19:40",
-          "location": "科室视频号直播",
-          "status": "预告"
-        }
-      ]
-    },
     "system_notices": {
-      "_doc": "系统通知数据集（消息中心，随内容包下发；端侧账本事件之外的运营/系统触达）。字段：id/title/body/published_at。",
       "items": [
         {
           "id": "SN-001",
@@ -769,7 +471,6 @@
       ]
     },
     "faq_preset_pool": {
-      "_doc": "问一问开场预设问题池（D-R7-2 / J-42）：简答逐字取自 T-FAQ 固定回答（L1 审核稿），零改写；source 为正文来源映射（空=不渲染来源行）。源文件：附录_FAQ预设问题池.md。 R23-M1：条目新增三个可选字段——group（五场景分组 symptom/training/progress/life/mindset，缺省归「常见」兜底组）、followups（追问链映射：FAQ id 或来源定位码）、structured（结构化详细回复 conclusion/howto/seeDoctor，仅 A 组供稿）；存量 20 条不加字段，向后兼容。",
       "items": [
         {
           "id": "FAQ-01",
@@ -808,7 +509,7 @@
           "title": "膝盖肿了怎么办？",
           "chip": "膝盖肿了怎么办？",
           "brief": "术后早期肿胀常见，可通过抬高患肢、冰敷、踝泵等帮助消退；若肿胀突然明显加重、伴发红发热或小腿发硬疼痛，请查看红色指征卡并尽快联系医生。",
-          "source": "KC-003《肿胀管理全攻略》",
+          "source": "KC-003《肿胀与伤口照护》",
           "brief_long": "我帮你查了一下：术后早期肿胀很常见，先别慌。消肿三件套坚持做：抬高患肢（脚高过心脏）、冰敷（记得隔毛巾）、踝泵（反复勾脚尖绷脚尖）。但要盯紧一个警报——如果肿胀突然明显加重、伴发红发热，或小腿发硬按压疼痛，这就不是普通肿胀了：立刻查看红色指征卡，并尽快联系医生。"
         },
         {
@@ -937,12 +638,11 @@
           "chip": "小腿肚肿胀发硬是怎么回事？",
           "brief": "膝盖本身的肿大多是术后正常反应，但**小腿肚**肿胀、发硬、按压疼痛是另一回事——那是血栓信号，需要尽快联系医生。",
           "brief_long": "我帮你查了一下：膝盖本身的肿大多是术后正常反应，但**小腿肚**肿胀、发硬、按压疼痛是另一回事——那是血栓信号，需要尽快联系医生。记住两条纪律：不要按摩揉搓小腿，不要自行热敷。久坐久卧是血栓的风险窗口，长途出行、长时间不动后更要多留意。如果同时出现胸口疼、突然喘不上气，直接急诊。",
-          "source": "KC-019《红色指征详解卡》 + KC-008《长途旅行与血栓预防》",
+          "source": "红色指征速查（页面） + KC-008《长途旅行与血栓预防》",
           "group": "symptom",
           "followups": [
             "FAQ-22",
-            "FAQ-29",
-            "KC-019"
+            "FAQ-29"
           ],
           "structured": {
             "conclusion": "小腿肚肿硬按痛是血栓信号，尽快联系医生",
@@ -956,12 +656,11 @@
           "chip": "伤口红肿、渗液怎么办？",
           "brief": "先会分辨方向——正常术后伤口是轻微发红、干燥、一天比一天好；",
           "brief_long": "我帮你查了一下：先会分辨方向——正常术后伤口是轻微发红、干燥、一天比一天好；如果变成一天比一天红、一天比一天疼，或渗液变浑、流脓、伤口裂开，方向就反了，这是感染信号。感染处理越早越简单，别观察观望，尽快联系医生。在那之前保持伤口清洁干燥，不要自行涂药膏或消毒液——外用品先问过医生再用。",
-          "source": "KC-009《洗澡与伤口护理》 + 课程 P1-04",
+          "source": "KC-003《肿胀与伤口照护》 + 课程 P1-04",
           "group": "symptom",
           "followups": [
             "FAQ-26",
-            "FAQ-28",
-            "KC-019"
+            "FAQ-28"
           ],
           "structured": {
             "conclusion": "分辨方向，变差即感染信号",
@@ -975,7 +674,7 @@
           "chip": "膝盖突然卡住、动弹不得怎么办？",
           "brief": "膝盖突然卡住、伸不直也弯不了，别硬掰——硬扳可能加重问题。这属于红色指征之一，尽快联系医生或治疗师当面评估。",
           "brief_long": "我帮你查了一下：膝盖突然卡住、伸不直也弯不了，别硬掰——硬扳可能加重问题。这属于红色指征之一，尽快联系医生或治疗师当面评估。康复期大多数「卡一下」的感觉是暂时的，但真正的交锁（膝盖锁在某个角度动不了）需要专业处理。记录里把卡住发生的时间、当时在做什么记下来，就诊时说给医生听。",
-          "source": "KC-019《红色指征详解卡》",
+          "source": "红色指征速查（页面）",
           "group": "symptom",
           "followups": [
             "FAQ-30",
@@ -993,7 +692,7 @@
           "chip": "夜里疼醒正常吗？",
           "brief": "术后早期偶尔夜里不舒服很常见，垫高患肢、睡前那次冰敷都能帮你睡得好一些。",
           "brief_long": "我帮你查了一下：术后早期偶尔夜里不舒服很常见，垫高患肢、睡前那次冰敷都能帮你睡得好一些。但有一条边界：静息痛持续加重、连续多日夜里疼醒，属于红色指征，尽快联系医生——这不是「忍忍就好」的事。入睡本身越用力越失败，睡不着就起来到暗处坐一会儿，困了再回床。",
-          "source": "KC-013《睡眠专题》 + KC-019",
+          "source": "KC-013《睡眠专题》 + 红色指征速查（页面）",
           "group": "symptom",
           "followups": [
             "FAQ-64",
@@ -1011,11 +710,10 @@
           "chip": "脚发麻、发凉、发白要紧吗？",
           "brief": "要紧。脚发麻、发凉、发白属于红色指征——可能提示血液循环或神经受到影响，尽快联系医生。",
           "brief_long": "我帮你查了一下：要紧。脚发麻、发凉、发白属于红色指征——可能提示血液循环或神经受到影响，尽快联系医生。在那之前先自查一件事：支具或绷带是不是太紧了？松一格看看是否缓解，但即使缓解了也要在复查时告诉医生。记住口诀：正常的特征是「总体在变好」，危险的特征是「方向反了」或「出现新症状」。",
-          "source": "KC-019 + KC-001《支具详解》",
+          "source": "红色指征速查（页面） + KC-001《支具与护膝使用速查》",
           "group": "symptom",
           "followups": [
-            "FAQ-21",
-            "KC-019"
+            "FAQ-21"
           ],
           "structured": {
             "conclusion": "属红色指征",
@@ -1029,11 +727,10 @@
           "chip": "发烧和手术有关系吗？",
           "brief": "术后发烧不能一概当成感冒——发烧是感染信号的一类，尤其伴随伤口红肿热痛加重、渗液时，方向就反了，尽快联系医生。",
           "brief_long": "我帮你查了一下：术后发烧不能一概当成感冒——发烧是感染信号的一类，尤其伴随伤口红肿热痛加重、渗液时，方向就反了，尽快联系医生。普通感冒当然也存在，但术后这个窗口期，发烧的默认动作是告知医生，由医生判断，而不是自己扛。就诊时把体温变化、伤口状态一起说清楚。",
-          "source": "KC-019 + KC-009",
+          "source": "红色指征速查（页面） + KC-003",
           "group": "symptom",
           "followups": [
-            "FAQ-22",
-            "KC-019"
+            "FAQ-22"
           ],
           "structured": {
             "conclusion": "术后发烧默认告知医生",
@@ -1083,7 +780,7 @@
           "chip": "练完第二天更肿了，怎么办？",
           "brief": "这是肿胀给你报信——「仪表盘」超量了。",
           "brief_long": "我帮你查了一下：这是肿胀给你报信——「仪表盘」超量了。练完第二天明显更肿，说明前一天负荷大了，主动减量并告诉治疗师：这不是退步，是聪明地调整剂量。日常消肿三件套照旧：抬高（脚高过心脏）、冰敷（隔毛巾 15-20 分钟）、踝泵。但注意边界：如果肿胀突然明显加重、伴发红发热，或小腿肚发硬按压痛，那方向就反了，尽快联系医生。",
-          "source": "KC-003《肿胀管理全攻略》 + KC-002",
+          "source": "KC-003《肿胀与伤口照护》 + KC-002",
           "group": "symptom",
           "followups": [
             "FAQ-21",
@@ -1101,7 +798,7 @@
           "chip": "膝盖「打软」「错动感」是什么？",
           "brief": "打软（走着突然一软）、错动感多和肌肉力量不足、本体感觉未恢复有关——腿的支撑和「位置感」还没跟上。",
           "brief_long": "我帮你查了一下：打软（走着突然一软）、错动感多和肌肉力量不足、本体感觉未恢复有关——腿的支撑和「位置感」还没跟上。这正是力量训练和平衡练习要解决的问题，按阶段练会逐步改善。但记住边界：如果打软伴明显疼痛、肿胀，或膝盖真的卡住动不了，别归结为「缺练」，复查时主动说出来或尽快联系医生。感觉好不等于愈合好，异常感觉的标尺在医生评估里。",
-          "source": "课程 P2-01 + 课程 P3-03 + KC-019",
+          "source": "课程 P2-01 + 课程 P3-03 + 红色指征速查（页面）",
           "group": "symptom",
           "followups": [
             "FAQ-23",
@@ -1262,7 +959,7 @@
           "chip": "增强式训练（跳跃）什么时候开始？",
           "brief": "增强式训练是专项内容，有明确的准入门槛——不是到了某个周数自动开始，而是要先满足解锁条件（医生同意、前期课程全部合格、通过准入测试），App 里的「增强式训练专项」会引导你走完这三步。",
           "brief_long": "我帮你查了一下：增强式训练是专项内容，有明确的准入门槛——不是到了某个周数自动开始，而是要先满足解锁条件（医生同意、前期课程全部合格、通过准入测试），App 里的「增强式训练专项」会引导你走完这三步。它从原地小跳这类低强度动作开始，按四期路径进阶，每一期都有标准。跑跳是康复后期的事，急不得——提前上量的代价是再伤风险。",
-          "source": "课程 PLY-01 + 课程 PLY-02 + KC-023",
+          "source": "课程 PLY-01 + 课程 PLY-02 + KC-016",
           "group": "training",
           "followups": [
             "FAQ-45",
@@ -1294,7 +991,7 @@
           "chip": "我的康复一共分几个阶段？",
           "brief": "这个 App 按七个阶段陪你走——术前康复期、急性期、恢复期、力量期、强化期（跑步与增强训练期）、重返运动期、长期维护期，另有跨阶段的综合内容。",
           "brief_long": "我帮你查了一下：这个 App 按七个阶段陪你走——术前康复期、急性期、恢复期、力量期、强化期（跑步与增强训练期）、重返运动期、长期维护期，另有跨阶段的综合内容。每个阶段有自己的目标、课程和动作卡，学习中心的学习地图能看到全貌。阶段推进以医生复查和功能达标为准，不只看日历。",
-          "source": "学习地图（页面） + KC-023",
+          "source": "学习地图（页面） + KC-016",
           "group": "progress",
           "followups": [
             "FAQ-45",
@@ -1320,7 +1017,7 @@
           "chip": "路径 A 和路径 B 有什么区别？",
           "brief": "路径 A 是单纯韧带重建，路径 B 合并了半月板缝合等其他处理。",
           "brief_long": "我帮你查了一下：路径 A 是单纯韧带重建，路径 B 合并了半月板缝合等其他处理。区别体现在节奏上：半月板愈合通常需要 6-12 周，路径 B 的负重、屈膝角度、跑步和旋转负荷的引入都相应更晚——过早引入可能导致修复失败。你的路径由手术内容决定，医嘱里会写明；不清楚自己属于哪条，复查时问医生一句。复查 MRI 的安排也因路径而异。",
-          "source": "课程 X-07 + KC-023 + DP-02《为什么我的康复进度和别人不一样：双路径 A/B 的由来》",
+          "source": "课程 X-07 + KC-016 + DP-02《为什么我的康复进度和别人不一样：双路径 A/B 的由来》",
           "group": "progress",
           "followups": [
             "FAQ-42",
@@ -1359,7 +1056,7 @@
           "chip": "回归运动分哪几步？",
           "brief": "运动回归分五阶梯——①一般日常活动 ②低冲击运动（骑车游泳等）③跑步 ④变向运动 ⑤对抗性运动。",
           "brief_long": "我帮你查了一下：运动回归分五阶梯——①一般日常活动 ②低冲击运动（骑车游泳等）③跑步 ④变向运动 ⑤对抗性运动。正确用法是把它当「门槛清单」而不是「时间表」：每级后面的周数只是常见参考区间（A/B 路径不同），真正决定升级的永远是达标条件。出现疼痛、肿胀或不稳就退回一级——这不是失败，是阶梯设计的正常用法。",
-          "source": "KC-023《运动回归五阶梯速查》",
+          "source": "KC-016《运动回归：五阶梯与测试项》",
           "group": "progress",
           "followups": [
             "FAQ-45",
@@ -1546,7 +1243,7 @@
           "chip": "什么时候能骑自行车的？",
           "brief": "功率自行车是回归五阶梯的第 2 级（低冲击运动）——常见参考区间为术后 4-8 周（路径 A）/ 8-12 周（路径 B），达标口径是可完成 30 分钟功率自行车且无疼痛肿胀。",
           "brief_long": "我帮你查了一下：功率自行车是回归五阶梯的第 2 级（低冲击运动）——常见参考区间为术后 4-8 周（路径 A）/ 8-12 周（路径 B），达标口径是可完成 30 分钟功率自行车且无疼痛肿胀。具体解锁时点以医嘱为准。它几乎是全程最友好的有氧方式：可调阻力、无冲击，课程里有专门的进阶安排。",
-          "source": "KC-023 + 课程 P4-05",
+          "source": "KC-016 + 课程 P4-05",
           "group": "life",
           "followups": [
             "FAQ-46",
@@ -1590,7 +1287,7 @@
           "chip": "什么时候可以正常洗澡？",
           "brief": "什么时候可以淋浴、怎么防水保护，遵医嘱——通常要等伤口达到一定愈合程度。在那之前擦浴为主，伤口保持清洁干燥是铁律；",
           "brief_long": "我帮你查了一下：什么时候可以淋浴、怎么防水保护，遵医嘱——通常要等伤口达到一定愈合程度。在那之前擦浴为主，伤口保持清洁干燥是铁律；结痂不要用手撕，让它自己脱落。洗完后看一眼伤口：轻微发红、干燥、一天比一天好是正常方向；更红更疼、渗液流脓就要联系医生。",
-          "source": "KC-009 + 课程 P1-05",
+          "source": "KC-003 + 课程 P1-05",
           "group": "life",
           "followups": [
             "FAQ-22",
@@ -1719,7 +1416,7 @@
           "chip": "睡不着、睡不好，怎么办？",
           "brief": "睡眠是身体修复的时段，术后睡不好的原因很具体——支具硌、翻身疼、夜里腿酸胀。",
           "brief_long": "我帮你查了一下：睡眠是身体修复的时段，术后睡不好的原因很具体——支具硌、翻身疼、夜里腿酸胀。自助基本盘：固定起床时间（比固定入睡时间更重要）、睡前一小时不刷手机、白天晒一会儿太阳；夜里垫枕头垫在小腿下面（不是膝窝）、调整支具绑带松紧；睡不着就起来到暗处坐一会儿，困了再回床。如果疼痛导致连续多日疼醒，尽快联系医生。",
-          "source": "KC-013 + KC-004",
+          "source": "KC-013 + KC-001",
           "group": "mindset",
           "followups": [
             "FAQ-24",
@@ -1825,11 +1522,9 @@
       ]
     },
     "hall_meta": {
-      "_doc": "康复大讲堂运营文案（R33b-6：更新节奏标签由「每周三更新」改「持续更新」，设计侧拍板 2026-09-29；同轨重签）",
       "update_tag": "持续更新"
     },
     "phase_full_names": {
-      "_doc": "R35 第二批 D2：阶段全名表（R35b2F 修订：七项统一对齐内容库 assessments/courses 线既有名——P3/P4/P5 由既有名填入结束 pending，P6 草案字差「维护」→既有名「维持」；Prehab/P1/P2 不动。周数区间以内容库阶段表既有值为准，禁止以附表覆盖。",
       "names": {
         "Prehab": "术前康复期",
         "P1": "术后急性期",
@@ -1838,6 +1533,76 @@
         "P4": "跑步与增强式训练期",
         "P5": "专项功能与重返运动准备期",
         "P6": "重返运动与长期维持期"
+      }
+    },
+    "ply_periods": {
+      "base": {
+        "name": "基础期",
+        "start_week": 10,
+        "end_week": 14,
+        "card_ids": [
+          "AC-P3-026",
+          "AC-P3-027",
+          "AC-P3-028",
+          "AC-P3-029",
+          "AC-P3-019",
+          "AC-P3-020",
+          "AC-P3-032",
+          "AC-P3-033",
+          "AC-P3-034",
+          "AC-P3-035"
+        ]
+      },
+      "progress": {
+        "name": "进阶期",
+        "start_week": 15,
+        "end_week": 18,
+        "card_ids": [
+          "AC-P4-005",
+          "AC-P4-006",
+          "AC-P4-007",
+          "AC-P4-008",
+          "AC-P4-001",
+          "AC-P4-002",
+          "AC-P4-004",
+          "AC-P4-009",
+          "AC-P4-010",
+          "AC-P4-011"
+        ]
+      },
+      "strength": {
+        "name": "强化期",
+        "start_week": 19,
+        "end_week": 22,
+        "card_ids": [
+          "AC-P5-002",
+          "AC-P5-003",
+          "AC-P5-004",
+          "AC-P5-005",
+          "AC-P5-006",
+          "AC-P5-010",
+          "AC-P5-012",
+          "AC-P5-017",
+          "AC-P5-016",
+          "AC-P5-007"
+        ]
+      },
+      "special": {
+        "name": "专项期",
+        "start_week": 23,
+        "end_week": 29,
+        "card_ids": [
+          "AC-P6-004",
+          "AC-P6-005",
+          "AC-P6-006",
+          "AC-P5-008",
+          "AC-P5-009",
+          "AC-P5-011",
+          "AC-P5-013",
+          "AC-P5-014",
+          "AC-P5-015",
+          "AC-P5-018"
+        ]
       }
     }
   }

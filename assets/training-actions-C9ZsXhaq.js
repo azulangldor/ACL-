@@ -1,0 +1,1 @@
+import{ah as n}from"./index-CXVbH03s.js";function r(){const a=new Date;return`${a.getFullYear()}-${String(a.getMonth()+1).padStart(2,"0")}-${String(a.getDate()).padStart(2,"0")}`}async function i(a,t){const{isFirstCheckinOfDay:e}=await a.diary.checkIn(r(),{card_id:t.card_id,card_name:t.card_name,off_phase:t.off_phase??!1});return await n(a),{isFirstCheckinOfDay:e}}export{i as c};

@@ -1,1 +1,0 @@
-import{aI as s,r as o}from"./index-mTmcZTFy.js";function c(t,n){const r=o(!1);let e=null;s(()=>t()?new Promise(l=>{r.value=!0,e=l}):!0);function u(){r.value=!1,e?.(!0),e=null}function a(){r.value=!1,e?.(!1),e=null}return{exitConfirmOpen:r,confirmExit:u,cancelExit:a,exitMessage:()=>n()?"现在退出，本次作答不计入练习记录。确定退出？":"现在退出，本次作答不计成绩、不保留进度。确定退出？"}}export{c as u};
