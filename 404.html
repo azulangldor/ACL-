@@ -6,9 +6,10 @@
       (function () {
         var b = location.pathname.indexOf("/ACL-") === 0 ? "/ACL-/" : "/";
         document.write('<base href="' + b + '">');
-        document.write('<script type="module" crossorigin src="' + b + 'assets/index-CXVbH03s.js"><\/script>');
-        document.write('<link rel="stylesheet" crossorigin href="' + b + 'assets/index-CE7bPCSO.css">');
-        document.write('<link rel="manifest" href="' + b + 'manifest.webmanifest">');
+        var v = "20261013b";
+        document.write('<script type="module" crossorigin src="' + b + 'assets/index-CXVbH03s.js?v=' + v + '"><\/script>');
+        document.write('<link rel="stylesheet" crossorigin href="' + b + 'assets/index-CE7bPCSO.css?v=' + v + '">');
+        document.write('<link rel="manifest" href="' + b + 'manifest.webmanifest?v=' + v + '">');
       })();
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
