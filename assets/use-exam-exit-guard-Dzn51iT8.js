@@ -1,0 +1,1 @@
+import{aS as l,r as s}from"./index-CXVbH03s.js";function f(t){const r=s(!1);let e=null;l(()=>t()?new Promise(a=>{r.value=!0,e=a}):!0);function n(){r.value=!1,e?.(!0),e=null}function u(){r.value=!1,e?.(!1),e=null}return{exitConfirmOpen:r,confirmExit:n,cancelExit:u,exitMessage:()=>"现在退出，本次作答不计成绩、不保留进度。下次进来会重新组卷。"}}export{f as u};

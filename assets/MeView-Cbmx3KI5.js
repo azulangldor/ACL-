@@ -1,0 +1,1 @@
+import{d as r,av as i,c as e,i as a,q as n,m as c,aw as m,h as t,Y as u,ax as _}from"./index-CXVbH03s.js";const w=r({__name:"MeView",setup(l){const{transitionName:o}=i();return(p,d)=>(e(),a(t(_),null,{default:n(({Component:s})=>[c(u,{name:t(o),mode:"out-in"},{default:n(()=>[(e(),a(m(s)))]),_:2},1032,["name"])]),_:1}))}});export{w as default};

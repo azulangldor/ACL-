@@ -1,1 +1,0 @@
-import{d as r,aA as i,e as a,j as e,y as n,q as c,aB as m,i as t,a2 as u,aC as _}from"./index-Zlp6LFAe.js";const C=r({__name:"LibraryView",setup(l){const{transitionName:o}=i();return(p,d)=>(a(),e(t(_),null,{default:n(({Component:s})=>[c(u,{name:t(o),mode:"out-in"},{default:n(()=>[(a(),e(m(s)))]),_:2},1032,["name"])]),_:1}))}});export{C as default};

@@ -1,0 +1,1 @@
+import{d as r,av as i,c as a,i as e,q as n,m as c,aw as m,h as t,Y as u,ax as _}from"./index-CXVbH03s.js";const w=r({__name:"LibraryView",setup(l){const{transitionName:o}=i();return(p,d)=>(a(),e(t(_),null,{default:n(({Component:s})=>[c(u,{name:t(o),mode:"out-in"},{default:n(()=>[(a(),e(m(s)))]),_:2},1032,["name"])]),_:1}))}});export{w as default};
