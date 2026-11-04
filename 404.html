@@ -6,17 +6,23 @@
       (function () {
         var b = location.pathname.indexOf("/ACL-") === 0 ? "/ACL-/" : "/";
         document.write('<base href="' + b + '">');
-        var v = "20261013c";
-        document.write('<script type="module" crossorigin src="' + b + 'assets/index-CXVbH03s.js?v=' + v + '"><\/script>');
-        document.write('<link rel="stylesheet" crossorigin href="' + b + 'assets/index-CE7bPCSO.css?v=' + v + '">');
+        var v = "20261104a";
+        document.write('<script type="module" crossorigin src="' + b + 'assets/index-Zlp6LFAe.js?v=' + v + '"><\/script>');
+        document.write('<link rel="stylesheet" crossorigin href="' + b + 'assets/index-CYkf-In_.css?v=' + v + '">');
         document.write('<link rel="manifest" href="' + b + 'manifest.webmanifest?v=' + v + '">');
       })();
     </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
     <meta name="theme-color" content="#0284c7" />
-    <meta name="description" content="RehabGuide ACL rehabilitation knowledge and self-management tool" />
-    <title>RehabGuide v0.1.0-beta.1</title>
+    <!-- R48⁗：原描述里带着"待替换"的待办标记，会随分享/搜索结果带出 → 去掉标记，与 manifest 同句；
+         正式产品描述仍由内容侧提供（本批只删标记、不自撰新文案）。 -->
+    <meta name="description" content="RehabGuide：ACL 重建术后康复知识教育与自我管理工具" />
+    <title>RehabGuide v0.1.1</title>
     <style>
+      /* R8-10：首屏骨架屏 shimmer（应用挂载后由 Vue 替换，白屏加载 → 浅蓝扫光） */
       .boot-skeleton { max-width: 430px; margin: 0 auto; padding: 12px 16px; }
       .sk { border-radius: 12px; background: linear-gradient(90deg, #e2e8f0 25%, #f0f9ff 50%, #e2e8f0 75%);
         background-size: 200% 100%; animation: rk-shimmer 1.4s linear infinite; margin-bottom: 12px; }
